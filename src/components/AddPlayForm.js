@@ -2,12 +2,10 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import styled from 'styled-components'
+import GameTitleField, {GameTitleFieldValidator} from './GameTitleField'
 
 const AddPlaySchema = Yup.object().shape({
-  gameName: Yup
-    .string()
-    .max(100, `The name of the game is too long.`)
-    .required(`Required`),
+  gameTitle: GameTitleFieldValidator,
   playDate: Yup
     .date()
     .min(new Date(1900, 0, 1))
@@ -31,7 +29,7 @@ export default function AddPlayForm() {
     <h1>Add a new play to your timeline</h1>
     <Formik
       initialValues={{
-        gameName: '',
+        gameTitle: '',
         playDate: '',
         players: '',
         playingTime: '',
@@ -47,25 +45,21 @@ export default function AddPlayForm() {
     >
       {({ isSubmitting, values }) => (
         <Form>
-          <label htmlFor="gameName">Name of the game</label>
-          <Field name="gameName"
-            type="text"
-            placeholder="e.g. Terra Mystica" />
-          <ErrorStyles name="gameName" component="div" />
-           <label htmlFor="playDate">Date</label>
-          <Field name="playDate" type="date" />
-          <ErrorMessage name="playDate" component="div" />
+          <GameTitleField name="gameTitle" />
+          <label htmlFor="playDate">Date</label>
+          <Field name="playDate" type="date"/>
+          <ErrorStyles name="playDate" component="div" />
           <label htmlFor="players">Players</label>
           <Field name="players"
             as="textarea"
             placeholder="e.g. Kim, Tom"
             rows="3" />
-          <ErrorMessage name="players" component="div" />
+          <ErrorStyles name="players" component="div" />
           <label htmlFor="playingTime">Playing time (min)</label>
           <Field name="playingTime"
             inputmode="numeric"
             pattern="[0-9]*" />
-          <ErrorMessage name="playingTime" component="div" />
+          <ErrorStyles name="playingTime" component="div" />
           <label htmlFor="playRating">Rate the play</label>
           <Field name="playRating"
             type="range"
