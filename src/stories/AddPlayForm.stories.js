@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import GameTitleField, { GameTitleFieldValidator } from '../components/GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from '../components/PlayDateField'
-
+import PlayersField, { PlayersFieldValidator } from '../components/PlayersField'
 
 storiesOf('AddPlayForm', module)
   .addDecorator(withFormik)
@@ -29,4 +29,13 @@ storiesOf('AddPlayForm', module)
       })
     }
   })
-  
+  .add('PlayersField', () => <PlayersField name="players" />, {
+    formik: {
+      initialValues: {
+        players: '',
+      },
+      validationSchema: Yup.object().shape({
+        players: PlayersFieldValidator
+      })
+    }
+  })

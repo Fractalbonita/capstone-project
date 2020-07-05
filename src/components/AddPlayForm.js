@@ -1,18 +1,16 @@
-import React from 'react'
+import React from 'react' 
 import * as Yup from 'yup'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import styled from 'styled-components'
 
-import GameTitleField, {GameTitleFieldValidator} from './GameTitleField'
+import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
+import PlayersField, { PlayersFieldValidator } from './PlayersField'
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
   playDate: PlayDateFieldValidator,
-  players: Yup
-    .string()
-    .matches(/,/, `Please mention at least two players separated by comma.`)
-    .required(`Required`),
+  players: PlayersFieldValidator,
   playingTime: Yup
     .number()
     .typeError('Please mind that only numbers are allowed.')
@@ -46,13 +44,7 @@ export default function AddPlayForm() {
         <Form>
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
-          <Field name="playDate" type="date"/>
-          <label htmlFor="players">Players</label>
-          <Field name="players"
-            as="textarea"
-            placeholder="e.g. Kim, Tom"
-            rows="3" />
-          <ErrorStyles name="players" component="div" />
+          <PlayersField name="players" />
           <label htmlFor="playingTime">Playing time (min)</label>
           <Field name="playingTime"
             inputmode="numeric"
