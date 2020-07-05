@@ -2,14 +2,13 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import styled from 'styled-components'
+
 import GameTitleField, {GameTitleFieldValidator} from './GameTitleField'
+import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
-  playDate: Yup
-    .date()
-    .min(new Date(1900, 0, 1))
-    .required(`Required`),
+  playDate: PlayDateFieldValidator,
   players: Yup
     .string()
     .matches(/,/, `Please mention at least two players separated by comma.`)
@@ -46,9 +45,8 @@ export default function AddPlayForm() {
       {({ isSubmitting, values }) => (
         <Form>
           <GameTitleField name="gameTitle" />
-          <label htmlFor="playDate">Date</label>
+          <PlayDateField name="playDate" />
           <Field name="playDate" type="date"/>
-          <ErrorStyles name="playDate" component="div" />
           <label htmlFor="players">Players</label>
           <Field name="players"
             as="textarea"
