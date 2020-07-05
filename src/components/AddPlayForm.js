@@ -1,18 +1,20 @@
 import React from 'react' 
 import * as Yup from 'yup'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { Formik, Form, ErrorMessage } from 'formik'
 import styled from 'styled-components'
 
 import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
 import PlayersField, { PlayersFieldValidator } from './PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
+import PlayRatingField from './PlayRating'
+
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
   playDate: PlayDateFieldValidator,
   players: PlayersFieldValidator,
-  playingTime: PlayingTimeFieldValidator
+  playingTime: PlayingTimeFieldValidator,
 })
 
 export default function AddPlayForm() {
@@ -34,19 +36,13 @@ export default function AddPlayForm() {
         }, 400)
       }}
     >
-      {({ isSubmitting, values }) => (
+      {({ isSubmitting }) => (
         <Form>
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
           <PlayersField name="players" />
           <PlayingTimeField name="playingTime" />
-          <label htmlFor="playRating">Rate the play</label>
-          <Field name="playRating"
-            type="range"
-            min="1"
-            max="10"
-            step="1" />
-          <span>{values.playRating}</span>
+          <PlayRatingField name="playRating" />
           <button type="submit" disabled={isSubmitting}>
             Add play
           </button>
