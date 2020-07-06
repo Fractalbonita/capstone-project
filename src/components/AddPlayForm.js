@@ -1,14 +1,14 @@
 import React from 'react' 
 import * as Yup from 'yup'
-import { Formik, Form, ErrorMessage } from 'formik'
+import { Formik, Form } from 'formik'
 import styled from 'styled-components'
 
 import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
 import PlayersField, { PlayersFieldValidator } from './PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
-import PlayRatingField from './PlayRating'
-
+import PlayRatingField from './PlayRatingField'
+import StyledButton from './Button'
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
@@ -19,7 +19,7 @@ const AddPlaySchema = Yup.object().shape({
 
 export default function AddPlayForm() {
   return <div>
-    <h1>Add a new play to your timeline</h1>
+    <h1>Add a New Play to your Timeline</h1>
     <Formik
       initialValues={{
         gameTitle: '',
@@ -37,21 +37,22 @@ export default function AddPlayForm() {
       }}
     >
       {({ isSubmitting }) => (
-        <Form>
+        <StyledForm>
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
           <PlayersField name="players" />
           <PlayingTimeField name="playingTime" />
           <PlayRatingField name="playRating" />
-          <button type="submit" disabled={isSubmitting}>
-            Add play
-          </button>
-        </Form>
+          <StyledButton type="submit" disabled={isSubmitting} text="Add Play" />
+        </StyledForm>
       )}
     </Formik>
   </div>  
 }
 
-const ErrorStyles = styled(ErrorMessage)`
-color: green;
+const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `

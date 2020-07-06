@@ -1,13 +1,16 @@
 import React from 'react'
-import { Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+
+import ErrorMessage from './styled-components/StyledErrorMessage'
+import StyledLabel from './styled-components/StyledLabel'
+import StyledField from './styled-components/StyledField'
 
 export default ({ name }) => (
   <>
-    <label htmlFor={name}>Game title</label>
-    <Field name={name}
-    type="text"
-    placeholder="e.g. Terra Mystica" />
+    <StyledLabel htmlFor={name}>Game Title</StyledLabel>
+    <StyledField name={name}
+      type="text"
+      placeholder="e.g. Terra Mystica" />
     <ErrorMessage name={name} component="div" />
   </>
 )
