@@ -1,15 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Button( {text, disabled}) {
-  return (
-    <StyledButton type = "submit" disabled={disabled} >
-      {text}
-      </StyledButton>
-  )
-}
-
-const StyledButton = styled.button`
+export const PrimaryButton = styled.button`
   border: none;
   border-radius: 20px;
   font-size: 16px;

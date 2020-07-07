@@ -20,23 +20,40 @@ export default createGlobalStyle`
     --shadow: #BABECC;
   }
 
-  html body {
+  body {
     padding: 20px;
     background-color: var(--surface);
-    line-height: 1.5;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
   }
 
   h1 {
+    font-family: 'Lato', sans-serif;
     color: var(--text-color);
-    font-size: 21px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    width: 90%;
+  }
+
+  h2 {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    font-size: 12px;
     font-weight: bold;
     text-align: left;
     line-height: 1.5;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    width: 90%;
+  }
+
+  p {
+    font-family: 'Karla', sans-serif;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
     width: 90%;
   }
 `

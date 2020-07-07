@@ -1,7 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 
-import { PrimaryButton } from './Button'
+import { PrimaryButton } from '../components/Button'
 
 export default {
   title: 'PrimaryButton',
