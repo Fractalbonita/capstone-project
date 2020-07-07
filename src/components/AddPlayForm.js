@@ -8,7 +8,7 @@ import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
 import PlayersField, { PlayersFieldValidator } from './PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
 import PlayRatingField from './PlayRatingField'
-import StyledButton from './Button'
+import { PrimaryButton } from './Button'
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
@@ -17,7 +17,7 @@ const AddPlaySchema = Yup.object().shape({
   playingTime: PlayingTimeFieldValidator,
 })
 
-export default function AddPlayForm() {
+export default function AddPlayForm( { addToPlayCollection }) {
   return <div>
     <h1>Add a New Play to your Timeline</h1>
     <Formik
@@ -29,12 +29,7 @@ export default function AddPlayForm() {
         playRating: 5
       }}
       validationSchema={AddPlaySchema}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          setSubmitting(false)
-        }, 400)
-      }}
+      onSubmit={values => addToPlayCollection(values)}     
     >
       {({ isSubmitting }) => (
         <StyledForm>
@@ -43,11 +38,11 @@ export default function AddPlayForm() {
           <PlayersField name="players" />
           <PlayingTimeField name="playingTime" />
           <PlayRatingField name="playRating" />
-          <StyledButton type="submit" disabled={isSubmitting} text="Add Play" />
+          <PrimaryButton disabled={isSubmitting}>Add Play</PrimaryButton>
         </StyledForm>
       )}
     </Formik>
-  </div>  
+  </div >  
 }
 
 const StyledForm = styled(Form)`
