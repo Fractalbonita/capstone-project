@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 
-import ErrorMessage from './styled-components/StyledErrorMessage'
-import StyledLabel from './styled-components/StyledLabel'
-import StyledField from './styled-components/StyledField'
+import ErrorMessage from '../styled-components/StyledErrorMessage'
+import StyledLabel from '../styled-components/StyledLabel'
+import StyledField from '../styled-components/StyledField'
 
 export default ({ name }) => {
   const [value, setValue] = useState(5)
@@ -25,4 +25,7 @@ export default ({ name }) => {
 const StyledNumber = styled.span`
   padding-top: 6px;
   padding-bottom: 16px;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
 `

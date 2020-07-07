@@ -38,7 +38,7 @@ export default function AddPlayForm( { addToPlayCollection }) {
           <PlayersField name="players" />
           <PlayingTimeField name="playingTime" />
           <PlayRatingField name="playRating" />
-          <PrimaryButton disabled={isSubmitting}>Add Play</PrimaryButton>
+          <PrimaryButton type="submit" disabled={isSubmitting}>Add Play</PrimaryButton>
         </StyledForm>
       )}
     </Formik>
@@ -50,4 +50,5 @@ const StyledForm = styled(Form)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 16px;
 `

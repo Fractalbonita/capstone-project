@@ -3,19 +3,18 @@ import styled from 'styled-components'
 
 export default function Play({ play }) {
   return (
-    <li>
-      <div>{play.gameTitle}</div>
-      <div>{play.playDate}</div>
-      <div>{play.players}</div>
-      <div>{play.playPlayingTime}</div>
-      <div>{play.playRating}</div>
-    </li>
+    <StyledPlay>
+        <h2>Game</h2><p>{play.gameTitle}</p>
+        <h2>Date</h2><p>{play.playDate}</p>
+        <h2>Players</h2><p>{play.players}</p>
+        <h2>Playing Time</h2><p>{play.playingTime}</p>
+        <h2>Rating</h2><p>{play.playRating}</p>
+    </StyledPlay>
   )
 }
 
 const StyledPlay = styled.li`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  padding: 10px 0;
+
 `

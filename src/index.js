@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import * as serviceWorker from './serviceWorker'
-import GlobalStyles from './components/styled-components/GlobalStyles'
+import GlobalStyles from './styled-components/GlobalStyles'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,5 +10,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
-
-serviceWorker.unregister()
