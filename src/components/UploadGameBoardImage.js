@@ -4,10 +4,9 @@ import styled from 'styled-components'
 
 import ErrorMessage from '../styled-components/StyledErrorMessage'
 import StyledLabel from '../styled-components/StyledLabel'
-import StyledField from '../styled-components/StyledField'
 
 export default ({ name, updateImageHandler }) => {
-  const [fileName, setFilename] = useState('')
+  const [filename, setFilename] = useState('')
   const [imageURL, setImageURL] = useState('')
 
   return (
@@ -17,9 +16,10 @@ export default ({ name, updateImageHandler }) => {
         type="file"
         onChange={event => {
           const file = event.target.files && event.target.files[0]
-          updateImageHandler(file)
-          setFilename(file.name)
-          if (file) {
+          const isValid = file && file.type == 'image/jpeg'
+          updateImageHandler(isValid ? file : undefined)
+          setFilename(isValid ? file.name : '')
+          if (isValid) {
             const reader = new FileReader()
             reader.addEventListener('load', () => setImageURL(reader.result))
             reader.readAsDataURL(file)
@@ -30,6 +30,7 @@ export default ({ name, updateImageHandler }) => {
       />
         {imageURL !== '' && <StyledImage src={imageURL} />}
       </StyledLabel>
+      <ErrorMessage name={name} component="div" />
     </>
   )
 }
