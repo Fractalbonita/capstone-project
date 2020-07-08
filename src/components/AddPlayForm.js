@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import styled from 'styled-components'
 
+import UploadGameBoardImage, { GameBoardImageValidator } from './UploadGameBoardImage'
 import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
 import PlayersField, { PlayersFieldValidator } from './PlayersField'
@@ -15,6 +16,7 @@ const AddPlaySchema = Yup.object().shape({
   playDate: PlayDateFieldValidator,
   players: PlayersFieldValidator,
   playingTime: PlayingTimeFieldValidator,
+  playImage: GameBoardImageValidator,
 })
 
 export default function AddPlayForm( { addToPlayCollection }) {
@@ -26,13 +28,16 @@ export default function AddPlayForm( { addToPlayCollection }) {
         playDate: '',
         players: '',
         playingTime: '',
-        playRating: 5
+        playRating: 5,
+        playImage: undefined,
       }}
       validationSchema={AddPlaySchema}
-      onSubmit={values => addToPlayCollection(values)}     
+      onSubmit={values => {addToPlayCollection(values)}} 
+      
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, setFieldValue }) => (
         <StyledForm>
+          <UploadGameBoardImage name="playImage" updateImageHandler={file => setFieldValue("playImage", file)}/>
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
           <PlayersField name="players" />

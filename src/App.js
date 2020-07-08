@@ -23,6 +23,7 @@ function App() {
     </div>
   )
   function updatePlays(play) {
+    play.playImage = undefined // todo
     setPlays([...plays, play])
   }
 }
