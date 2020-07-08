@@ -7,6 +7,6 @@ export default {
   component: Play,
 }
 
-export const Play = () => <StyledPlay></StyledPlay>
+export const playInformation = () => <Play play={play} key={index}/>
 
 

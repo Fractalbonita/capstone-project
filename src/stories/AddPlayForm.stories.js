@@ -8,6 +8,7 @@ import PlayDateField, { PlayDateFieldValidator } from '../components/PlayDateFie
 import PlayersField, { PlayersFieldValidator } from '../components/PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from '../components/PlayingTimeField'
 import PlayRatingField from '../components/PlayRatingField'
+import { PrimaryButton } from '../components/Button'
 
 storiesOf('AddPlayForm', module)
   .addDecorator(withFormik)
@@ -58,3 +59,4 @@ storiesOf('AddPlayForm', module)
       },
     }
   })
+  .add('PlayRatingField', (a) => <PrimaryButton type="submit">Add Play</PrimaryButton>)

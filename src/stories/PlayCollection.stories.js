@@ -7,15 +7,4 @@ export default {
   component: PlayCollection,
 }
 
-export const PlayCollection = () => <StyledPlayCollection></StyledPlayCollection>
-
-/*
-<>
-  <h1>Plays</h1>
-    <StyledPlayCollection>
-      {plays && plays.map((play) => (
-        <Play play={play} key={play.id} />
-      ))}
-    </StyledPlayCollection>
-  </>
-  */
+export const plays = () => <PlayCollection plays={plays} />
