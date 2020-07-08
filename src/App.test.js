@@ -5,19 +5,19 @@ import ReactDOM from 'react-dom'
 import App from './App'
 
 describe('App is properly loaded and', () => {
-  test('renders AddPlayForm', () => {
+  test('should render AddPlayForm', () => {
     const { getByText } = render(<App />)
     const AddPlayForm = getByText(/Add Play/i)
     expect(AddPlayForm).toBeInTheDocument()
   })
 
-  test('renders PlayCollection', () => {
+  test('should render PlayCollection', () => {
     const { getByText } = render(<App />)
     const PlayCollection = getByText(/Plays/i)
     expect(PlayCollection).toBeInTheDocument()
   })
 
-  it('renders without crashing', () => {
+  test('should render without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(<App />, div)
   })
