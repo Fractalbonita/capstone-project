@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 
 const productSchema = new mongoose.Schema({
   play_id: String,
+  imageURL: String,
   game_title: String,
   play_date: String,
   players: String,

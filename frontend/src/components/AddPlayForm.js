@@ -10,6 +10,7 @@ import PlayersField, { PlayersFieldValidator } from './PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
 import PlayRatingField from './PlayRatingField'
 import { PrimaryButton } from './Button'
+import UploadGameBoardImage from './UploadGameBoardImage'
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
@@ -31,17 +32,18 @@ export default function AddPlayForm( { addToPlayCollection }) {
       }}
       validationSchema={AddPlaySchema}
       onSubmit={(values, { setSubmitting }) => {
-        addToPlayCollection(values)
+        const savedPlayValues = {
+          play_id: values.playId,
+          imageURL: '',
+          game_title: values.gameTitle,
+          play_date: values.playDate,
+          players: values.players,
+          playing_time: values.playingTime,
+          play_rating: values.playRating,
+        }
+        addToPlayCollection(savedPlayValues)
         axios
-          .post('http://localhost:3001/plays', {
-            play_id: values.playId,
-            imageURL: values.imageURL,
-            game_title: values.gameTitle,
-            play_date: values.playDate,
-            players: values.players,
-            playing_time: values.playingTime,
-            play_rating: values.playRating,
-          })
+          .post('http://localhost:3001/plays', savedPlayValues)
           .then(res => console.log(res))
           .catch((error) => console.log(error))
           .finally(() => setSubmitting(false))
@@ -49,6 +51,7 @@ export default function AddPlayForm( { addToPlayCollection }) {
     >
       {({ isSubmitting }) => (
         <StyledForm>
+          <UploadGameBoardImage name="playImage" />
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
           <PlayersField name="players" />
