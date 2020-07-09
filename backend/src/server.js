@@ -30,7 +30,7 @@ project.get('/plays', (request, response) => {
     })
 })
 
-shop.post('/plays', (request, response) => {
+project.post('/plays', (request, response) => {
   const newPlay = request.body
 
   Play.create(newPlay)

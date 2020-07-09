@@ -2,11 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node server.js",
-    "api": "nodemon --exec babel-node ap.js"
+    "start": "nodemon --exec babel-node src/server.js"
   },
   "author": "Kathrin Korhammer",
   "license": "ISC",
