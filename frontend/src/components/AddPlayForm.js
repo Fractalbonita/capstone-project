@@ -24,6 +24,7 @@ export default function AddPlayForm( { addToPlayCollection }) {
     <h1>Add a New Play to your Timeline</h1>
     <Formik
       initialValues={{
+        playImage: '',
         gameTitle: '',
         playDate: '',
         players: '',
@@ -49,9 +50,9 @@ export default function AddPlayForm( { addToPlayCollection }) {
           .finally(() => setSubmitting(false))
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, setFieldValue }) => (
         <StyledForm>
-          <UploadGameBoardImage name="playImage" />
+          <UploadGameBoardImage name="playImage" updateImageHandler={file => setFieldValue('playImage', file.name)}/>
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
           <PlayersField name="players" />
