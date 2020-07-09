@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { v4 as uuidv4 } from 'uuid';
 
 import Play from './Play'
 
@@ -10,8 +9,8 @@ export default function PlayCollection({ plays }) {
   <>
   <h1>Plays</h1>
     <StyledPlayCollection>
-      {plays && plays.map(( play ) => (
-        <Play play={play} key={uuidv4} />
+      {plays && plays.map((play, idx) => (
+        <Play play={play} key={idx} />
       ))}
     </StyledPlayCollection>
   </>

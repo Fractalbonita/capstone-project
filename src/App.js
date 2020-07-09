@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 import AddPlayForm from './components/AddPlayForm'
 import PlayCollection from './components/PlayCollection'
@@ -24,8 +24,10 @@ function App() {
     </div>
   )
   function updatePlays(play) {
-    const newPlay = {... play, id: uuidv4()}
-    play.playImage = undefined // todo
+    console.log(play)
+    const newPlay = { ...play, id: uuid() }
+    console.log(newPlay)
+    newPlay.playImage = undefined // todo
     setPlays([...plays, newPlay])
   }
 }
