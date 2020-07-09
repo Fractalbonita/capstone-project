@@ -3,6 +3,8 @@ import bodyParser from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 
+import Play from '../models/PlayModel'
+
 const PORT = 3001
 const project = express()
 

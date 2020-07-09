@@ -2,6 +2,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import styled from 'styled-components'
+import axios from 'axios'
 
 import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
@@ -31,7 +32,19 @@ export default function AddPlayForm( { addToPlayCollection }) {
       validationSchema={AddPlaySchema}
       onSubmit={(values, { setSubmitting }) => {
         addToPlayCollection(values)
-          .then(() => setSubmitting(false))
+        axios
+          .post('http://localhost:3001/plays', {
+            play_id: values.playId,
+            imageURL: values.imageURL,
+            game_title: values.gameTitle,
+            play_date: values.playDate,
+            players: values.players,
+            playing_time: values.playingTime,
+            play_rating: values.playRating,
+          })
+          .then(res => console.log(res))
+          .catch((error) => console.log(error))
+          .finally(() => setSubmitting(false))
       }}
     >
       {({ isSubmitting }) => (
