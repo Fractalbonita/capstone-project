@@ -3,7 +3,6 @@ import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import styled from 'styled-components'
 
-import UploadGameBoardImage, { GameBoardImageValidator } from './UploadGameBoardImage'
 import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
 import PlayersField, { PlayersFieldValidator } from './PlayersField'
@@ -16,7 +15,6 @@ const AddPlaySchema = Yup.object().shape({
   playDate: PlayDateFieldValidator,
   players: PlayersFieldValidator,
   playingTime: PlayingTimeFieldValidator,
-  playImage: GameBoardImageValidator,
 })
 
 export default function AddPlayForm( { addToPlayCollection }) {
@@ -28,22 +26,22 @@ export default function AddPlayForm( { addToPlayCollection }) {
         playDate: '',
         players: '',
         playingTime: '',
-        playRating: 5,
-        playImage: undefined,
+        playRating: 5
       }}
       validationSchema={AddPlaySchema}
-      onSubmit={values => {addToPlayCollection(values)}} 
-      
+      onSubmit={(values, { setSubmitting }) => {
+        addToPlayCollection(values)
+          .then(() => setSubmitting(false))
+      }}
     >
-      {({ isSubmitting, setFieldValue }) => (
+      {({ isSubmitting }) => (
         <StyledForm>
-          <UploadGameBoardImage name="playImage" updateImageHandler={file => setFieldValue("playImage", file)}/>
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
           <PlayersField name="players" />
           <PlayingTimeField name="playingTime" />
           <PlayRatingField name="playRating" />
-          <PrimaryButton type="submit" disabled={isSubmitting}>Add Play</PrimaryButton>
+          <PrimaryButton disabled={isSubmitting}>Add Play</PrimaryButton>
         </StyledForm>
       )}
     </Formik>
@@ -55,5 +53,4 @@ const StyledForm = styled(Form)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 16px;
 `

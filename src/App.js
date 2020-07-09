@@ -29,6 +29,7 @@ function App() {
     console.log(newPlay)
     newPlay.playImage = undefined // todo
     setPlays([...plays, newPlay])
+    return Promise.resolve()
   }
 }
 
