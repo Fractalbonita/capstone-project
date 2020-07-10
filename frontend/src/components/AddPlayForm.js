@@ -1,4 +1,4 @@
-import React from 'react' 
+import React, { useState } from 'react' 
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import styled from 'styled-components'
@@ -20,6 +20,7 @@ const AddPlaySchema = Yup.object().shape({
 })
 
 export default function AddPlayForm( { addToPlayCollection }) {
+  const [imageFile, setImageFile] = useState(null)
   return <div>
     <h1>Add a New Play to your Timeline</h1>
     <Formik
@@ -33,7 +34,13 @@ export default function AddPlayForm( { addToPlayCollection }) {
       }}
       validationSchema={AddPlaySchema}
       onSubmit={(values, { setSubmitting }) => {
-        axios.post('http://localhost:3001/upload')
+        const formData = new FormData()
+        formData.append('image', imageFile)
+        axios.post('http://localhost:3001/upload', formData, {
+          headers: { 
+            "Content-Type": 'multipart/form-data'
+          }
+        })
           .then(({ data }) => {
             const savedPlayValues = {
               play_id: values.playId,
@@ -55,7 +62,10 @@ export default function AddPlayForm( { addToPlayCollection }) {
     >
       {({ isSubmitting, setFieldValue }) => (
         <StyledForm>
-          <UploadGameBoardImage name="playImage" updateImageHandler={file => setFieldValue('playImage', file.name)}/>
+          <UploadGameBoardImage name="playImage" updateImageHandler={file => {
+            setFieldValue('playImage', file.name)
+            setImageFile(file)
+          }} />
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
           <PlayersField name="players" />
