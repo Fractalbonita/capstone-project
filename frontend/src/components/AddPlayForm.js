@@ -33,21 +33,24 @@ export default function AddPlayForm( { addToPlayCollection }) {
       }}
       validationSchema={AddPlaySchema}
       onSubmit={(values, { setSubmitting }) => {
-        const savedPlayValues = {
-          play_id: values.playId,
-          imageURL: '',
-          game_title: values.gameTitle,
-          play_date: values.playDate,
-          players: values.players,
-          playing_time: values.playingTime,
-          play_rating: values.playRating,
-        }
-        addToPlayCollection(savedPlayValues)
-        axios
-          .post('http://localhost:3001/plays', savedPlayValues)
-          .then(res => console.log(res))
-          .catch((error) => console.log(error))
-          .finally(() => setSubmitting(false))
+        axios.post('http://localhost:3001/upload')
+          .then(({ data }) => {
+            const savedPlayValues = {
+              play_id: values.playId,
+              imageURL: data,
+              game_title: values.gameTitle,
+              play_date: values.playDate,
+              players: values.players,
+              playing_time: values.playingTime,
+              play_rating: values.playRating,
+            }
+            addToPlayCollection(savedPlayValues)
+            axios
+              .post('http://localhost:3001/plays', savedPlayValues)
+              .then(res => console.log(res))
+              .catch((error) => console.log(error))
+              .finally(() => setSubmitting(false))
+          })
       }}
     >
       {({ isSubmitting, setFieldValue }) => (
