@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import ErrorMessage from '../styled-components/StyledErrorMessage'
 import StyledLabel from '../styled-components/StyledLabel'
+import ImageUploadIcon from './ImageUploadIcon'
 
 export default ({ name, updateImageHandler }) => {
   const [filename, setFilename] = useState('')
@@ -11,12 +12,13 @@ export default ({ name, updateImageHandler }) => {
 
   return (
     <>
-      <StyledLabel>Add a Photo of the Play
+      <StyledLabel>
+      <ImageUploadIcon name="imageUploadIcon" />
       <StyledHiddenFileInput name={name}
         type="file"
         onChange={event => {
           const file = event.target.files && event.target.files[0]
-          const isValid = file && file.type == 'image/jpeg'
+          const isValid = file && file.type === 'image/jpeg'
           updateImageHandler(isValid ? file : undefined)
           setFilename(isValid ? file.name : '')
           if (isValid) {
@@ -40,7 +42,8 @@ export const GameBoardImageValidator = Yup
   .notRequired()
 
 const StyledImage = styled.img`
-  max-width: 90%;
+  max-width: 50%;
+  margin-top: 1rem;
 `
 
 const StyledHiddenFileInput = styled.input`
