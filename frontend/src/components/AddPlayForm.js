@@ -19,7 +19,10 @@ const AddPlaySchema = Yup.object().shape({
   playingTime: PlayingTimeFieldValidator,
 })
 
-export default function AddPlayForm( { addToPlayCollection }) {
+const API_PORT = ':3001'
+export const apiBaseURL = `${window.location.protocol}//${window.location.hostname}${API_PORT}`
+
+export default function AddPlayForm({ addToPlayCollection }) {
   const [imageFile, setImageFile] = useState(null)
   return <div>
     <h1>Add a New Play to your Timeline</h1>
@@ -36,7 +39,7 @@ export default function AddPlayForm( { addToPlayCollection }) {
       onSubmit={(values, { setSubmitting }) => {
         const formData = new FormData()
         formData.append('image', imageFile)
-        axios.post('http://localhost:3001/upload', formData, {
+        axios.post(`${apiBaseURL}/upload`, formData, {
           headers: { 
             "Content-Type": 'multipart/form-data'
           }
@@ -44,7 +47,7 @@ export default function AddPlayForm( { addToPlayCollection }) {
           .then(({ data }) => {
             const savedPlayValues = {
               play_id: values.playId,
-              imageURL: 'http://localhost:3001' + data,
+              imageURL: data,
               game_title: values.gameTitle,
               play_date: values.playDate,
               players: values.players,
@@ -53,7 +56,7 @@ export default function AddPlayForm( { addToPlayCollection }) {
             }
             addToPlayCollection(savedPlayValues)
             axios
-              .post('http://localhost:3001/plays', savedPlayValues)
+              .post(`${apiBaseURL}/plays`, savedPlayValues)
               .then(res => console.log(res))
               .catch((error) => console.log(error))
               .finally(() => setSubmitting(false))

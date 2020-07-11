@@ -54,4 +54,4 @@ app.post('/plays', (request, response) => {
     })
 })
 
-app.listen(PORT, console.log(`Server is listening on PORT ${PORT}`))
+app.listen(PORT, '0.0.0.0', () => console.log(`Server is listening on PORT ${PORT}`))
