@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export default function Play({ play }) {
   return (
     <StyledPlay>
+        <img src={play.imageURL} alt="No image" />
         <h2>Game</h2><p>{play.game_title}</p>
         <h2>Date</h2><p>{play.play_date}</p>
         <h2>Players</h2><p>{play.players}</p>

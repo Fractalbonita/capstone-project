@@ -10,10 +10,11 @@ const PORT = 3001
 const app = express()
 
 app.use(cors())
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 app.use(fileUpload())
+app.use(express.static('public'))
+
 
 mongoose.connect('mongodb://localhost:27017/capstone-project', {
   useNewUrlParser: true,
@@ -30,17 +31,16 @@ app.get('/plays', (request, response) => {
     .then((data) => response.json(data))
     .catch((error) => {
       console.log(error)
-      response.send(400)
+      response.status(400).send('No data available.')
     })
 })
 
 app.post('/upload', (request, response) => {
-  response.send('http://example.com')
-/*
-  playImage.mv('${__dirname/frontend/public}/uploads/${file.name}'), () => {
-    response.json({ filename: file.name, imageURL: '/uploads/${file.name'})
-  }
-  */
+  const playImage = request.files.image
+  const uploadName = `/uploads/${Date.now()}_${playImage.name}`
+  playImage.mv(`${__dirname}/../public${uploadName}`, () => {
+    response.send(uploadName)
+  })
 })
 
 app.post('/plays', (request, response) => {

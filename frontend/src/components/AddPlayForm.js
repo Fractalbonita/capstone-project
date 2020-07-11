@@ -44,7 +44,7 @@ export default function AddPlayForm( { addToPlayCollection }) {
           .then(({ data }) => {
             const savedPlayValues = {
               play_id: values.playId,
-              imageURL: data,
+              imageURL: 'http://localhost:3001' + data,
               game_title: values.gameTitle,
               play_date: values.playDate,
               players: values.players,
