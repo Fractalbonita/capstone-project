@@ -23,6 +23,7 @@ const AddPlaySchema = Yup.object().shape({
 export default function AddPlayForm({ addToPlayCollection }) {
   return <div>
     <h1>Add a New Play to your Timeline</h1>
+    <p>* Rquired</p>
     <Formik
       initialValues={{
         playImage: '',
@@ -34,11 +35,12 @@ export default function AddPlayForm({ addToPlayCollection }) {
       }}
       validateOnChange={true}
       validationSchema={AddPlaySchema}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         uploadImage(values.playImage)
           .then(imageURL => uploadGameData(values, imageURL))
           .then(savedPlayValues => addToPlayCollection(savedPlayValues))
-          .finally(() => setSubmitting(false))
+          .then(() => setSubmitting(false))
+          .finally(() => resetForm())
       }}
     >
       {({ isSubmitting, setFieldValue }) => (

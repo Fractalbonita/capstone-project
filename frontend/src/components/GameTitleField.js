@@ -7,7 +7,7 @@ import StyledField from '../styled-components/StyledField'
 
 export default ({ name }) => (
   <>
-    <StyledLabel htmlFor={name}>Game Title</StyledLabel>
+    <StyledLabel htmlFor={name}>Game Title *</StyledLabel>
     <StyledField name={name}
       type="text"
       placeholder="e.g. Terra Mystica" />

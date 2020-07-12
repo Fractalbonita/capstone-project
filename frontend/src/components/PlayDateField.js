@@ -7,7 +7,7 @@ import StyledField from '../styled-components/StyledField'
 
 export default ({ name }) => (
   <>
-    <StyledLabel htmlFor={name}>Date</StyledLabel>
+    <StyledLabel htmlFor={name}>Date *</StyledLabel>
     <StyledField name={name} type="date" /> 
     <ErrorMessage name={name} component="div" />
   </>
