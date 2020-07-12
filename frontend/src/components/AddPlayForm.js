@@ -10,7 +10,7 @@ import PlayersField, { PlayersFieldValidator } from './PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
 import PlayRatingField from './PlayRatingField'
 import { PrimaryButton } from './Button'
-import UploadGameBoardImage from './UploadGameBoardImage'
+import PlayImageField from './PlayImageField.js'
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
@@ -65,7 +65,7 @@ export default function AddPlayForm({ addToPlayCollection }) {
     >
       {({ isSubmitting, setFieldValue }) => (
         <StyledForm>
-          <UploadGameBoardImage name="playImage" updateImageHandler={file => {
+          <PlayImageField name="playImage" updateImageHandler={file => {
             setFieldValue('playImage', file.name)
             setImageFile(file)
           }} />

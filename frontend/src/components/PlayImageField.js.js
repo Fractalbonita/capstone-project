@@ -37,7 +37,7 @@ export default ({ name, updateImageHandler }) => {
   )
 }
 
-export const GameBoardImageValidator = Yup
+export const PlayImageFieldValidator = Yup
   .mixed()
   .notRequired()
 
