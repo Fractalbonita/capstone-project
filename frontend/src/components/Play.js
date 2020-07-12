@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { apiBaseURL } from './AddPlayForm'
+import { apiBaseURL } from '../environment/playDataRestClient'
 
 export default function Play({ play }) {
   return (

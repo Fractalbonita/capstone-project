@@ -11,6 +11,7 @@ import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
 import PlayRatingField from './PlayRatingField'
 import { PrimaryButton } from './Button'
 import PlayImageField from './PlayImageField.js'
+import { uploadImage, apiBaseURL } from '../environment/playDataRestClient'
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
@@ -18,9 +19,6 @@ const AddPlaySchema = Yup.object().shape({
   players: PlayersFieldValidator,
   playingTime: PlayingTimeFieldValidator,
 })
-
-const API_PORT = ':3001'
-export const apiBaseURL = `${window.location.protocol}//${window.location.hostname}${API_PORT}`
 
 export default function AddPlayForm({ addToPlayCollection }) {
   const [imageFile, setImageFile] = useState(null)
@@ -37,13 +35,7 @@ export default function AddPlayForm({ addToPlayCollection }) {
       }}
       validationSchema={AddPlaySchema}
       onSubmit={(values, { setSubmitting }) => {
-        const formData = new FormData()
-        formData.append('image', imageFile)
-        axios.post(`${apiBaseURL}/upload`, formData, {
-          headers: { 
-            "Content-Type": 'multipart/form-data'
-          }
-        })
+        uploadImage(imageFile)
           .then(({ data }) => {
             const savedPlayValues = {
               play_id: values.playId,
