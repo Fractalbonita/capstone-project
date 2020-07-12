@@ -15,4 +15,21 @@ export function uploadImage(imageFile) {
       "Content-Type": 'multipart/form-data'
     }
   })
+  .then(response => response.data)
+}
+
+export function uploadGameData(values, imageURL) {
+  const savedPlayValues = {
+    play_id: values.playId,
+    imageURL: imageURL,
+    game_title: values.gameTitle,
+    play_date: values.playDate,
+    players: values.players,
+    playing_time: values.playingTime,
+    play_rating: values.playRating,
+  }
+  return axios
+    .post(`${apiBaseURL}/plays`, savedPlayValues)
+    .then(response => response.data)
+    .catch((error) => console.log(error))
 }

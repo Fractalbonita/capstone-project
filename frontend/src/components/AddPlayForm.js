@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import styled from 'styled-components'
-import axios from 'axios'
 
 import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
@@ -11,7 +10,7 @@ import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
 import PlayRatingField from './PlayRatingField'
 import { PrimaryButton } from './Button'
 import PlayImageField from './PlayImageField.js'
-import { uploadImage, apiBaseURL } from '../environment/playDataRestClient'
+import { uploadImage, uploadGameData } from '../environment/playDataRestClient'
 
 const AddPlaySchema = Yup.object().shape({
   gameTitle: GameTitleFieldValidator,
@@ -36,23 +35,9 @@ export default function AddPlayForm({ addToPlayCollection }) {
       validationSchema={AddPlaySchema}
       onSubmit={(values, { setSubmitting }) => {
         uploadImage(imageFile)
-          .then(({ data }) => {
-            const savedPlayValues = {
-              play_id: values.playId,
-              imageURL: data,
-              game_title: values.gameTitle,
-              play_date: values.playDate,
-              players: values.players,
-              playing_time: values.playingTime,
-              play_rating: values.playRating,
-            }
-            addToPlayCollection(savedPlayValues)
-            axios
-              .post(`${apiBaseURL}/plays`, savedPlayValues)
-              .then(res => console.log(res))
-              .catch((error) => console.log(error))
-              .finally(() => setSubmitting(false))
-          })
+          .then((imageURL) => uploadGameData(values, imageURL))
+          .then((savedPlayValues) => addToPlayCollection(savedPlayValues))
+          .finally(() => setSubmitting(false))
       }}
     >
       {({ isSubmitting, setFieldValue }) => (
