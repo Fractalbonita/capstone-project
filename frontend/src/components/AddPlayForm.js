@@ -9,10 +9,11 @@ import PlayersField, { PlayersFieldValidator } from './PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
 import PlayRatingField from './PlayRatingField'
 import { PrimaryButton } from './Button'
-import PlayImageField from './PlayImageField.js'
+import PlayImageField, { PlayImageFieldValidator } from './PlayImageField.js'
 import { uploadImage, uploadGameData } from '../environment/playDataRestClient'
 
 const AddPlaySchema = Yup.object().shape({
+  playImage: PlayImageFieldValidator,
   gameTitle: GameTitleFieldValidator,
   playDate: PlayDateFieldValidator,
   players: PlayersFieldValidator,
@@ -20,7 +21,6 @@ const AddPlaySchema = Yup.object().shape({
 })
 
 export default function AddPlayForm({ addToPlayCollection }) {
-  const [imageFile, setImageFile] = useState(null)
   return <div>
     <h1>Add a New Play to your Timeline</h1>
     <Formik
@@ -32,20 +32,19 @@ export default function AddPlayForm({ addToPlayCollection }) {
         playingTime: '',
         playRating: 5
       }}
+      validateOnChange={true}
       validationSchema={AddPlaySchema}
       onSubmit={(values, { setSubmitting }) => {
-        uploadImage(imageFile)
-          .then((imageURL) => uploadGameData(values, imageURL))
-          .then((savedPlayValues) => addToPlayCollection(savedPlayValues))
+        uploadImage(values.playImage)
+          .then(imageURL => uploadGameData(values, imageURL))
+          .then(savedPlayValues => addToPlayCollection(savedPlayValues))
           .finally(() => setSubmitting(false))
       }}
     >
       {({ isSubmitting, setFieldValue }) => (
         <StyledForm>
-          <PlayImageField name="playImage" updateImageHandler={file => {
-            setFieldValue('playImage', file.name)
-            setImageFile(file)
-          }} />
+          <PlayImageField name="playImage"
+            updateImageHandler={file => setFieldValue('playImage', file)} />
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
           <PlayersField name="players" />

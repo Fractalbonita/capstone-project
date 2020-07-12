@@ -6,7 +6,7 @@ import { apiBaseURL } from '../environment/playDataRestClient'
 export default function Play({ play }) {
   return (
     <StyledPlay>
-        <img src={apiBaseURL + play.imageURL} alt="No image" />
+        <p><StyledImage src={apiBaseURL + play.imageURL} alt="No image" /></p>
         <h2>Game</h2><p>{play.game_title}</p>
         <h2>Date</h2><p>{play.play_date}</p>
         <h2>Players</h2><p>{play.players}</p>
@@ -18,6 +18,11 @@ export default function Play({ play }) {
 
 const StyledPlay = styled.li`
   margin: 0;
-  padding: 10px 0;
-
+  padding: 20px 0;
 `
+
+const StyledImage = styled.img`
+  max-width: 100%;
+`
+
+

@@ -16,34 +16,40 @@ export default ({ name, updateImageHandler }) => {
       <ImageUploadIcon name="imageUploadIcon" />
       <StyledHiddenFileInput name={name}
         type="file"
-        onChange={event => {
-          const file = event.target.files && event.target.files[0]
-          const isValid = file && file.type === 'image/jpeg'
-          updateImageHandler(isValid ? file : undefined)
-          setFilename(isValid ? file.name : '')
-          if (isValid) {
-            const reader = new FileReader()
-            reader.addEventListener('load', () => setImageURL(reader.result))
-            reader.readAsDataURL(file)
-          } else {
-            setImageURL('')
-          }
-        }}
+        onChange={event => handleFileChange(event.target)}
       />
-        {imageURL !== '' && <StyledImage src={imageURL} />}
+        {imageURL !== '' ? <StyledImage src={imageURL} /> : filename}
       </StyledLabel>
       <ErrorMessage name={name} component="div" />
     </>
   )
+
+  function handleFileChange(target) {
+    const file = target.files && target.files[0]
+    setFilename(file.name)
+    updateImageHandler(file)
+    PlayImageFieldValidator.validate(file)
+      .then(() => {
+        const reader = new FileReader()
+        reader.addEventListener('load', () => setImageURL(reader.result))
+        reader.readAsDataURL(file)
+      })
+      .catch(() => setImageURL(''))
+  }
 }
 
 export const PlayImageFieldValidator = Yup
   .mixed()
-  .notRequired()
-
+  .required('Please provide a photo to memorize your play.')
+  .test(
+    'Type-Check',
+    'Only JPEG files are allowed.',
+    file => file && file.type === 'image/jpeg')
+    
 const StyledImage = styled.img`
   max-width: 50%;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 `
 
 const StyledHiddenFileInput = styled.input`

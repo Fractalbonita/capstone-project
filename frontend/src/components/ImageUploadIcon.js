@@ -5,7 +5,11 @@ import ic_add_a_photo_24px from '../assets/ic_add_a_photo_24px.svg'
 
 export default ({ name }) => (
     <StyledContainer>
-      <StyledImageUploadIcon class="ic_add_a_photo_24px" name="imageUploadIcon" src={ic_add_a_photo_24px} alt="Add photo icon"></StyledImageUploadIcon>
+    <StyledImageUploadIcon name="imageUploadIcon"
+      className="ic_add_a_photo_24px"
+      src={ic_add_a_photo_24px}
+      alt="Add photo icon"
+    />
     </StyledContainer>
 )
 
