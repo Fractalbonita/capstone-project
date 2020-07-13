@@ -9,7 +9,22 @@ describe('Form', () => {
     await wait(() => {
       fireEvent.click(container.querySelector('button[type="submit"]'))
     })
-    expect(getAllByText(container, 'Required').length).toBe(3) 
+    expect(getAllByText(container, 'Required').length).toBe(4) 
+  })
+
+  test('should prohibit submit when uploaded file is not of type JPEG', async () => {
+    const { container } = render(<App />)
+    await wait(() => {
+      fireEvent.change(container.querySelector('[name=playImage]'), {
+        target: {
+          files: ['.gif']
+        }
+      })
+    })
+    await wait(() => {
+      fireEvent.click(container.querySelector('button[type="submit"]'))
+    })
+    expect(getAllByText(container, 'Only JPEG files are allowed.')).toBeTruthy()
   })
 
   test('should prohibit submit when game title is too long', async () => {
@@ -105,12 +120,29 @@ describe('Form', () => {
   test('should submit correct values', async () => {
     const { container } = render(<App />)
 
+    const insertPlayImage = '.jpg'
     const insertGameTitle = 'Die Siedler von Catan'
     const insertPlayDate = '1989-02-20'
     const insertPlayers = 'Mia, Lene'
     const insertPlayTime = '50'
     const insertPlayRating = '3'
 
+    await wait(() => {
+      fireEvent.change(container.querySelector('input[name="playImage"]'), {
+        target: {
+          files: [insertPlayImage]
+        }
+      })
+    })
+
+    await wait(() => {
+      fireEvent.change(container.querySelector('input[name="gameTitle"]'), {
+        target: {
+          value: insertGameTitle
+        }
+      })
+    })
+    
     await wait(() => {
       fireEvent.change(container.querySelector('input[name="gameTitle"]'), {
         target: {
@@ -159,10 +191,11 @@ describe('Form', () => {
     expect(insertedPlays.length).toBe(1)
 
     const insertedPlayValues = insertedPlays[0].querySelectorAll("p")
-    expect(insertedPlayValues[0].textContent).toBe(insertGameTitle)
-    expect(insertedPlayValues[1].textContent).toBe(insertPlayDate)
-    expect(insertedPlayValues[2].textContent).toBe(insertPlayers)
-    expect(insertedPlayValues[3].textContent).toBe(insertPlayTime)
-    expect(insertedPlayValues[4].textContent).toBe(insertPlayRating)
+    expect(insertedPlayValues[0].textContent).toBe(insertPlayImage)
+    expect(insertedPlayValues[1].textContent).toBe(insertGameTitle)
+    expect(insertedPlayValues[2].textContent).toBe(insertPlayDate)
+    expect(insertedPlayValues[3].textContent).toBe(insertPlayers)
+    expect(insertedPlayValues[4].textContent).toBe(insertPlayTime)
+    expect(insertedPlayValues[5].textContent).toBe(insertPlayRating)
   })
 })

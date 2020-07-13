@@ -17,6 +17,7 @@ export default ({ name, updateImageHandler }) => {
       <StyledHiddenFileInput name={name}
         type="file"
         onChange={event => handleFileChange(event.target)}
+        data-testid="image-upload"
       />
         {imageURL !== '' ? <StyledImage src={imageURL} /> : filename}
       </StyledLabel>
@@ -40,7 +41,7 @@ export default ({ name, updateImageHandler }) => {
 
 export const PlayImageFieldValidator = Yup
   .mixed()
-  .required('Please provide a photo to memorize your play.')
+  .required('Required')
   .test(
     'Type-Check',
     'Only JPEG files are allowed.',
