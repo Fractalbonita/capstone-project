@@ -1,4 +1,4 @@
-import React, { useState } from 'react' 
+import React from 'react' 
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import styled from 'styled-components'
@@ -9,7 +9,7 @@ import PlayersField, { PlayersFieldValidator } from './PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
 import PlayRatingField from './PlayRatingField'
 import { PrimaryButton } from './Button'
-import PlayImageField, { PlayImageFieldValidator } from './PlayImageField.js'
+import PlayImageField, { PlayImageFieldValidator } from './PlayImageField'
 import { uploadImage, uploadGameData } from '../environment/playDataRestClient'
 
 const AddPlaySchema = Yup.object().shape({
@@ -33,7 +33,7 @@ export default function AddPlayForm({ addToPlayCollection }) {
             playingTime: '',
             playRating: 5
           }}
-          validateOnChange={true}
+          validateOnChange
           validationSchema={AddPlaySchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             uploadImage(values.playImage)
