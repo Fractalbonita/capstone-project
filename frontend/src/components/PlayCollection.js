@@ -9,8 +9,8 @@ export default function PlayCollection({ plays }) {
   <>
   <h1>Plays</h1>
     <StyledPlayCollection>
-      {plays && plays.map((play, idx) => (
-        <Play play={play} key={idx} />
+      {plays && plays.map((play, play_id) => (
+        <Play play={play} key={play_id} />
       ))}
     </StyledPlayCollection>
   </>
