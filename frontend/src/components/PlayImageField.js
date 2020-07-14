@@ -23,7 +23,7 @@ export default ({ name, updateImageHandler }) => {
           ? <StyledImage src={imageURL} />
           : filename !== ''
           && <span>{filename} 
-                <StyledClearIcon className="material-icons" title="Clear" onClick={handleFileChange}>clear</StyledClearIcon>
+                <StyledClearIcon title="Clear" className="material-icons" onClick={handleFileChange}>clear</StyledClearIcon>
             </span>
         }
       </StyledLabel>
@@ -53,7 +53,7 @@ export const PlayImageFieldValidator = Yup
     'Type-Check',
     'Only JPEG files are allowed.',
     file => !file || file.type === 'image/jpeg')
-    
+
 const StyledImage = styled.img`
   max-width: 20%;
   margin-top: 1.5rem;
