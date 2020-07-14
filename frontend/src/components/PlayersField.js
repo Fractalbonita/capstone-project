@@ -7,7 +7,7 @@ import StyledField from '../styled-components/StyledField'
 
 export default ({ name }) => (
   <>
-    <StyledLabel htmlFor={name}>Players</StyledLabel>
+    <StyledLabel htmlFor={name}>Players *</StyledLabel>
     <StyledField name={name}
       component="textarea"
       placeholder="e.g. Kim, Tom"

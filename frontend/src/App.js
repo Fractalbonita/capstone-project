@@ -24,6 +24,7 @@ function App() {
   )
   function updatePlays(play) {
     setPlays([...plays, play])
+    return Promise.resolve()
   }
 }
 

@@ -7,15 +7,13 @@ import StyledField from '../styled-components/StyledField'
 
 export default ({ name }) => (
   <>
-    <StyledLabel htmlFor={name}>Game Title</StyledLabel>
-    <StyledField name={name}
-      type="text"
-      placeholder="e.g. Terra Mystica" />
+    <StyledLabel htmlFor={name}>Date *</StyledLabel>
+    <StyledField name={name} type="date" /> 
     <ErrorMessage name={name} component="div" />
   </>
 )
 
-export const GameTitleFieldValidator = Yup
-  .string()
-  .max(100, `The title of the game is too long.`)
+export const PlayDateFieldValidator = Yup
+  .date()
+  .min(new Date(1900, 0, 1))
   .required(`Required`)

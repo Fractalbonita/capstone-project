@@ -51,7 +51,7 @@ export default createGlobalStyle`
   p {
     font-family: 'Karla', sans-serif;
     color: var(--text-color);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     text-align: left;
     width: 90%;
