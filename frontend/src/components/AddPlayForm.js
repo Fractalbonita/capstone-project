@@ -11,7 +11,6 @@ import PlayRatingField from './PlayRatingField'
 import { PrimaryButton } from './Button'
 import PlayImageField, { PlayImageFieldValidator } from './PlayImageField'
 import { uploadImage, uploadGameData } from '../environment/playDataRestClient'
-import AddPlayIcon from './AddPlayIcon'
 
 const AddPlaySchema = Yup.object().shape({
   playImage: PlayImageFieldValidator,
@@ -21,12 +20,9 @@ const AddPlaySchema = Yup.object().shape({
   playingTime: PlayingTimeFieldValidator,
 })
 
-export default function AddPlayForm({ addToPlayCollection }) {
-  const [isVisible, setIsVisible] = useState(false)
+export default function AddPlayForm({ addToPlayCollection, hideForm }) {
   
-  return <>
-    {isVisible ? 
-    <div>
+  return <div>
     <h1> Add a New Play to your Timeline</h1>
     <p>* Required</p>
 
@@ -46,7 +42,7 @@ export default function AddPlayForm({ addToPlayCollection }) {
           .then(imageURL => uploadGameData(values, imageURL))
           .then(savedPlayValues => addToPlayCollection(savedPlayValues))
           .then(() => setSubmitting(false))
-          .finally(() => setIsVisible(false))
+          .finally(hideForm)
       }}
     >
       {({ isSubmitting, setFieldValue }) => (
@@ -62,12 +58,7 @@ export default function AddPlayForm({ addToPlayCollection }) {
         </StyledForm>
       )}
         </Formik>
-        </div>
-      : <div onClick={() => setIsVisible(true)}>
-          <AddPlayIcon />
-        </div>
-        }
-   </> 
+  </div>
 }
 
 const StyledForm = styled(Form)`
@@ -75,4 +66,5 @@ const StyledForm = styled(Form)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: calc(10px + 5vw);
 `

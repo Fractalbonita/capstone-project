@@ -25,6 +25,10 @@ export default createGlobalStyle`
     background-color: var(--surface);
   }
 
+  html, body {
+    height: 100%;
+  }
+
   h1 {
     font-family: 'Lato', sans-serif;
     color: var(--text-color);

@@ -21,9 +21,10 @@ const StyledImageUploadIcon = styled.img`
 `
 
 const StyledContainer = styled.div`
+  z-index: 100;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   position: relative;
   margin-bottom: 0.5rem;
   width: 48px;
