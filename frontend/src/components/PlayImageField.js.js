@@ -16,18 +16,26 @@ export default ({ name, updateImageHandler }) => {
       <ImageUploadIcon name="imageUploadIcon" />
       <StyledHiddenFileInput name={name}
         type="file"
-        onChange={event => handleFileChange(event.target)}
+        onChange={handleFileChange}
         data-testid="image-upload"
       />
-        {imageURL !== '' ? <StyledImage src={imageURL} /> : filename}
+        {imageURL !== ''
+          ? <StyledImage src={imageURL} />
+          : filename !== ''
+          && <span>{filename} 
+                <StyledClearIcon className="material-icons" title="Clear" onClick={handleFileChange}>clear</StyledClearIcon>
+            </span>
+        }
       </StyledLabel>
       <ErrorMessage name={name} component="div" />
     </>
   )
 
-  function handleFileChange(target) {
+  function handleFileChange(event) {
+    event.preventDefault()
+    const target = event.target
     const file = target.files && target.files[0]
-    setFilename(file.name)
+    setFilename(file ? file.name : '')
     updateImageHandler(file)
     PlayImageFieldValidator.validate(file)
       .then(() => {
@@ -41,14 +49,13 @@ export default ({ name, updateImageHandler }) => {
 
 export const PlayImageFieldValidator = Yup
   .mixed()
-  .required('Required')
   .test(
     'Type-Check',
     'Only JPEG files are allowed.',
-    file => file && file.type === 'image/jpeg')
+    file => !file || file.type === 'image/jpeg')
     
 const StyledImage = styled.img`
-  max-width: 50%;
+  max-width: 20%;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 `
@@ -57,4 +64,13 @@ const StyledHiddenFileInput = styled.input`
   position: absolute;
   top: -1000%;
   left: -1000%;
+`
+
+const StyledClearIcon = styled.i`
+  color: var(--text-decoration-color);
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  top: 6px;
+  left: 6px;
 `

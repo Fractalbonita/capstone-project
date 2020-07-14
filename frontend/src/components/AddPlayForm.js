@@ -20,43 +20,43 @@ const AddPlaySchema = Yup.object().shape({
   playingTime: PlayingTimeFieldValidator,
 })
 
-export default function AddPlayForm({ addToPlayCollection }) {
+export default function AddPlayForm({ addToPlayCollection }) {  
   return <div>
     <h1>Add a New Play to your Timeline</h1>
-    <p>* Rquired</p>
-    <Formik
-      initialValues={{
-        playImage: '',
-        gameTitle: '',
-        playDate: '',
-        players: '',
-        playingTime: '',
-        playRating: 5
-      }}
-      validateOnChange={true}
-      validationSchema={AddPlaySchema}
-      onSubmit={(values, { setSubmitting, resetForm }) => {
-        uploadImage(values.playImage)
-          .then(imageURL => uploadGameData(values, imageURL))
-          .then(savedPlayValues => addToPlayCollection(savedPlayValues))
-          .then(() => setSubmitting(false))
-          .finally(() => resetForm())
-      }}
-    >
-      {({ isSubmitting, setFieldValue }) => (
-        <StyledForm>
-          <PlayImageField name="playImage"
-            updateImageHandler={file => setFieldValue('playImage', file)} />
-          <GameTitleField name="gameTitle" />
-          <PlayDateField name="playDate" />
-          <PlayersField name="players" />
-          <PlayingTimeField name="playingTime" />
-          <PlayRatingField name="playRating" />
-          <PrimaryButton type="submit" disabled={isSubmitting}>Add Play</PrimaryButton>
-        </StyledForm>
-      )}
-    </Formik>
-  </div >  
+    <p>* Required</p>
+        <Formik
+          initialValues={{
+            playImage: '',
+            gameTitle: '',
+            playDate: '',
+            players: '',
+            playingTime: '',
+            playRating: 5
+          }}
+          validateOnChange={true}
+          validationSchema={AddPlaySchema}
+          onSubmit={(values, { setSubmitting, resetForm }) => {
+            uploadImage(values.playImage)
+              .then(imageURL => uploadGameData(values, imageURL))
+              .then(savedPlayValues => addToPlayCollection(savedPlayValues))
+              .then(() => setSubmitting(false))
+              .finally(resetForm)
+          }}
+        >
+          {({ isSubmitting, setFieldValue }) => (
+            <StyledForm>
+              <PlayImageField name="playImage"
+                updateImageHandler={file => setFieldValue('playImage', file)} />
+              <GameTitleField name="gameTitle" />
+              <PlayDateField name="playDate" />
+              <PlayersField name="players" />
+              <PlayingTimeField name="playingTime" />
+              <PlayRatingField name="playRating" />
+              <PrimaryButton type="submit" disabled={isSubmitting}>Add Play</PrimaryButton>
+            </StyledForm>
+          )}
+        </Formik>
+    </div >  
 }
 
 const StyledForm = styled(Form)`
