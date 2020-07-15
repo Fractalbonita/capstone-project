@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import AddPlayForm from './components/AddPlayForm'
-import PlayCollection from './components/PlayCollection'
+import PlayTimelinePage from './components/PlayTimelinePage'
 
 const localStorageKey = 'plays'
 
@@ -18,8 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <AddPlayForm addToPlayCollection={updatePlays} />
-      <PlayCollection plays={plays} />
+      <PlayTimelinePage addToPlayCollection={updatePlays} plays={plays} />
     </div>
   )
   function updatePlays(play) {

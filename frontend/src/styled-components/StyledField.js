@@ -47,16 +47,11 @@ transition: all 0.2s ease-in-out;
 
   &::-webkit-slider-runnable-track {
     appearance: none;
-    cursor: pointer;
   }
 
   &::-moz-range-track {
     appearance: none;
-    cursor: pointer;
-  }
-
-  &:hover {
-    cursor: pointer;
+    background-color: transparent;
   }
 
   &:focus {

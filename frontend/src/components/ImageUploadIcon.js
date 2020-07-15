@@ -4,13 +4,14 @@ import styled from 'styled-components'
 import ic_add_a_photo_24px from '../assets/ic_add_a_photo_24px.svg'
 
 export default ({ name }) => (
-    <StyledContainer>
-    <StyledImageUploadIcon name="imageUploadIcon"
+  <StyledContainer>
+    <StyledImageUploadIcon name={name}
+      title="Add a photo"
       className="ic_add_a_photo_24px"
       src={ic_add_a_photo_24px}
       alt="Add photo icon"
     />
-    </StyledContainer>
+  </StyledContainer>
 )
 
 const StyledImageUploadIcon = styled.img`
@@ -20,9 +21,10 @@ const StyledImageUploadIcon = styled.img`
 `
 
 const StyledContainer = styled.div`
+  z-index: 100;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   position: relative;
   margin-bottom: 0.5rem;
   width: 48px;
