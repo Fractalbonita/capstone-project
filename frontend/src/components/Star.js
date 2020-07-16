@@ -13,16 +13,14 @@ export default ({ isSelected = true, onClick }) => (
 
 const StyledStar = styled.i`
   font-size: 24px;
-
-  &:hover {
-    cursor: pointer;
-  }
-
+  letter-spacing: 0.2rem;
+  text-shadow: 2px 2px 3px var(--shadow);
+  
   &.star-highlighted {
     color: var(--primary);
   }
 
   &.star {
-    color: var(--text-color);
+    color: var(--text-color-opaque);
   }
 `

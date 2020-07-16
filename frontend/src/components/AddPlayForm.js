@@ -22,7 +22,6 @@ const AddPlaySchema = Yup.object().shape({
 })
 
 export default function AddPlayForm({ addToPlayCollection, hideForm }) {
-  const [stars, setStars] = useState(4)
 
   return <div>
     <h1> Add a New Play to your Timeline</h1>
@@ -35,7 +34,7 @@ export default function AddPlayForm({ addToPlayCollection, hideForm }) {
         playDate: '',
         players: '',
         playingTime: '',
-        playRating: stars
+        playRating: ''
       }}
       validateOnChange
       validationSchema={AddPlaySchema}
@@ -44,7 +43,6 @@ export default function AddPlayForm({ addToPlayCollection, hideForm }) {
           .then(imageURL => uploadGameData(values, imageURL))
           .then(savedPlayValues => addToPlayCollection(savedPlayValues))
           .then(() => setSubmitting(false))
-          .then(() => setStars(stars))
           .finally(hideForm)
       }}
     >

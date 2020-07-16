@@ -8,7 +8,7 @@ import GameTitleField, { GameTitleFieldValidator } from '../components/GameTitle
 import PlayDateField, { PlayDateFieldValidator } from '../components/PlayDateField'
 import PlayersField, { PlayersFieldValidator } from '../components/PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from '../components/PlayingTimeField'
-import PlayRatingField from '../components/PlayRatingField'
+import PlayStarRatingField from '../components/PlayStarRatingField'
 import { PrimaryButton } from '../components/Button'
 
 storiesOf('AddPlayForm', module)
@@ -63,11 +63,11 @@ storiesOf('AddPlayForm', module)
       })
     }
   })
-  .add('PlayRatingField', (a) => <PlayRatingField name="playRating" />, {
+  .add('PlayStarRatingField', () => <PlayStarRatingField name="playRating" />, {
     formik: {
       initialValues: {
-        playRating: '5',
+        playRating: '',
       },
     }
   })
-  .add('PlayRatingField', (a) => <PrimaryButton type="submit">Add Play</PrimaryButton>)
+  .add('PrimaryButton', () => <PrimaryButton type="submit">Add Play</PrimaryButton>)
