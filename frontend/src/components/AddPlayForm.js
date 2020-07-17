@@ -3,13 +3,14 @@ import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import styled from 'styled-components'
 
+import PlayImageField, { PlayImageFieldValidator } from './PlayImageField'
 import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
 import PlayersField, { PlayersFieldValidator } from './PlayersField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
-import PlayRatingField from './PlayRatingField'
+import PlayStarRatingField from './PlayStarRatingField'
 import { PrimaryButton } from './Button'
-import PlayImageField, { PlayImageFieldValidator } from './PlayImageField'
+
 import { uploadImage, uploadGameData } from '../environment/playDataRestClient'
 
 const AddPlaySchema = Yup.object().shape({
@@ -21,7 +22,7 @@ const AddPlaySchema = Yup.object().shape({
 })
 
 export default function AddPlayForm({ addToPlayCollection, hideForm }) {
-  
+
   return <div>
     <h1> Add a New Play to your Timeline</h1>
     <p>* Required</p>
@@ -33,7 +34,7 @@ export default function AddPlayForm({ addToPlayCollection, hideForm }) {
         playDate: '',
         players: '',
         playingTime: '',
-        playRating: 5
+        playRating: ''
       }}
       validateOnChange
       validationSchema={AddPlaySchema}
@@ -53,7 +54,7 @@ export default function AddPlayForm({ addToPlayCollection, hideForm }) {
           <PlayDateField name="playDate" />
           <PlayersField name="players" />
           <PlayingTimeField name="playingTime" />
-          <PlayRatingField name="playRating" />
+          <PlayStarRatingField name="playRating" />
           <PrimaryButton type="submit" disabled={isSubmitting}>Add Play</PrimaryButton>
         </StyledForm>
       )}
