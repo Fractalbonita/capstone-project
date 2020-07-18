@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   * {
-  box-sizing: border-box;
-  margin: 0 auto;
+    box-sizing: border-box;
+    margin: 0 auto;
   }
 
   :root {
@@ -12,7 +12,6 @@ export default createGlobalStyle`
     --text-color-opaque: rgba(21,21,20, 0.8);
     --text-decoration-color: #C3090A;
     --primary: #00806A;
-    --secondary: green;
     --inner-shadow-dark: #DBDAD4;
     --inner-shadow-dark-opaque: rgba(0 ,0 ,0 , 0.4);
     --inner-shadow-light: #FAFAF7;
@@ -25,8 +24,8 @@ export default createGlobalStyle`
     background-color: var(--surface);
   }
 
-  html, body {
-    height: 100%;
+  body, html {
+    height: 100vh;
   }
 
   h1 {
@@ -43,7 +42,31 @@ export default createGlobalStyle`
   h2 {
     font-family: 'Lato', sans-serif;
     color: var(--text-color);
-    font-size: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    width: 90%;
+  }
+
+  h3 {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    width: 90%;
+  }
+
+  h4 {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    font-size: 14px;
     font-weight: bold;
     text-align: left;
     line-height: 1.5;

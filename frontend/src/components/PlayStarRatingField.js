@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import StyledLabel from '../styled-components/StyledLabel'
@@ -21,7 +21,6 @@ export default ({ name }) => (
     </Field>
   </>
 )
-
 
 const StyledNumber = styled.span`
   padding-top: 6px;
