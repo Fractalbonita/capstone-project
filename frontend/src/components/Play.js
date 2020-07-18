@@ -2,27 +2,61 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { apiBaseURL } from '../environment/playDataRestClient'
+import ShowPlayDetailsIcon from './ShowPlayDetailsIcon'
+import Star from './Star'
 
 export default function Play({ play }) {
   return (
     <StyledPlay>
-        <p><StyledImage src={apiBaseURL + play.imageURL} alt="No image" /></p>
-        <h2>Game</h2><p>{play.game_title}</p>
-        <h2>Date</h2><p>{play.play_date}</p>
-        <h2>Players</h2><p>{play.players}</p>
-        <h2>Playing Time</h2><p>{play.playing_time}</p>
-        <h2>Rating</h2><p>{play.play_rating}</p>
-    </StyledPlay>
+      <StyledImage src={apiBaseURL + play.imageURL} alt="No image available" />
+      <div>
+        <h4>{play.play_date}</h4>
+        <h3>{play.game_title}</h3>
+      </div>
+      <div>
+        <Star isSelected={true} />
+        <p>{play.play_rating}</p>
+      </div>
+      <ShowPlayDetailsIcon />
+      </StyledPlay>
   )
 }
 
 const StyledPlay = styled.li`
+  display: grid;
+  grid-template-columns: 100px auto 30px 25px;
+  grid-auto-rows: minmax(100px, auto);
   margin: 0;
-  padding: 20px 0;
+  padding: calc(0px + 2vw);
+  align-items: center;
+
+  & div {
+    margin: 0;
+  }
+
+  & h3, & h4 {
+    margin: 0;
+    padding: 5px 10px;
+    width: 100%;
+    align-self: flex-start;
+  } 
+
+  & p {
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+  }
 `
 
 const StyledImage = styled.img`
-  max-width: 100%;
-`
+  margin: 0;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
 
-
+  &[alt] {
+      font-family: 'Karla', sans-serif;
+      font-size: 12px;
+      text-align: center;
+    }
+` 

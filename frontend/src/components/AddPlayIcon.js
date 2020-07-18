@@ -13,6 +13,7 @@ export default ({ showForm }) => (
 
 const StyledAddPlayIcon = styled.i`
   font-size: 36px;
+  font-weight: 600;
   color: var(--surface);
 `
 
@@ -31,6 +32,7 @@ const StyledContainer = styled.div`
   transition: all 0.2s ease;
 
   &:active {
-    box-shadow: inset -2px -2px 5px var(--inner-shadow-light-opaque), inset 3px 3px 5px var(--inner-shadow-dark-opaque);  }
+    box-shadow: inset -2px -2px 5px var(--inner-shadow-light-opaque), inset 3px 3px 5px var(--inner-shadow-dark-opaque); 
+  }
 `
 

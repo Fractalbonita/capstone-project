@@ -9,8 +9,8 @@ export default function PlayCollection({ plays }) {
   <>
   <h1>Plays</h1>
     <StyledPlayCollection>
-      {plays && plays.map((play, play_id) => (
-        <Play play={play} key={play_id} />
+      {plays && plays.map((play) => (
+        <Play play={play} key={play._id} />
       ))}
     </StyledPlayCollection>
   </>
@@ -20,7 +20,5 @@ export default function PlayCollection({ plays }) {
 const StyledPlayCollection = styled.ul`
   list-style: none;
   margin: 0;
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
 `
