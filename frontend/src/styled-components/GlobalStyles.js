@@ -7,80 +7,78 @@ export default createGlobalStyle`
   }
 
   :root {
+    --headline-font: 'Lato', sans-serif;
+    --subtitle-font: 'Karla', sans-serif;
+    --body-font: 'Karla', sans-serif;
+    --button-font: 'Lato', sans-serif;
+    --caption-font: 'Karla', sans-serif;
+    --overline-font: 'Lato', sans-serif;
     --surface: #F4F3EC;
+    --primary: #00806A;
     --text-color: #151514;
     --text-color-opaque: rgba(21,21,20, 0.8);
     --text-decoration-color: #C3090A;
-    --primary: #00806A;
+    --shadow: #BABECC;
     --inner-shadow-dark: #DBDAD4;
     --inner-shadow-dark-opaque: rgba(0 ,0 ,0 , 0.4);
     --inner-shadow-light: #FAFAF7;
     --inner-shadow-light-opaque: rgba(255,255,255, 0.4);
-    --shadow: #BABECC;
   }
 
   body {
-    padding: 20px;
+    padding: calc(20px + 3vw);
+    font-family: var(--body-font);
     background-color: var(--surface);
   }
 
-  body, html {
+  body, 
+  html {
     height: 100vh;
+    font-family: var(--body-font);
   }
 
-  h1 {
-    font-family: 'Lato', sans-serif;
+  h1, 
+  h2, 
+  h3, 
+  h4 {
+    font-family: var(--headline-font);
     color: var(--text-color);
-    font-size: 24px;
     font-weight: bold;
+    text-align: left;
     line-height: 1.5;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
-    width: 90%;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
   }
 
   h2 {
-    font-family: 'Lato', sans-serif;
-    color: var(--text-color);
     font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-    line-height: 1.5;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    width: 90%;
   }
 
   h3 {
-    font-family: 'Lato', sans-serif;
-    color: var(--text-color);
     font-size: 18px;
-    font-weight: bold;
-    text-align: left;
-    line-height: 1.5;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    width: 90%;
   }
 
   h4 {
-    font-family: 'Lato', sans-serif;
-    color: var(--text-color);
     font-size: 14px;
-    font-weight: bold;
-    text-align: left;
-    line-height: 1.5;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    width: 90%;
   }
 
   p {
-    font-family: 'Karla', sans-serif;
+    font-family: var(--body-font);
     color: var(--text-color);
     font-size: 16px;
     font-weight: bold;
     text-align: left;
     width: 90%;
+  }
+
+  input, 
+  textarea {
+    display: block;
+    width: 100%;
   }
 `

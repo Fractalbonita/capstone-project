@@ -2,44 +2,73 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { apiBaseURL } from '../environment/playDataRestClient'
-import ShowPlayDetailsIcon from './ShowPlayDetailsIcon'
 import Star from './Star'
 
 export default function Play({ play }) {
   return (
     <StyledPlay>
-      <StyledImage src={apiBaseURL + play.imageURL} alt="No image available" />
-      <div>
+      <StyledImage>
+        <img src={apiBaseURL + play.imageURL} alt="No image available" />
+      </StyledImage>
+      <StyledDescription>
         <h4>{play.play_date}</h4>
         <h3>{play.game_title}</h3>
-      </div>
-      <div>
+      </StyledDescription>
+      <StyledRating>
         <Star isSelected={true} />
         <p>{play.play_rating}</p>
-      </div>
-      <ShowPlayDetailsIcon />
+      </StyledRating>
       </StyledPlay>
   )
 }
 
 const StyledPlay = styled.li`
   display: grid;
-  grid-template-columns: 100px auto 30px 25px;
+  grid-template-columns: 90px 1fr auto;
   grid-auto-rows: minmax(100px, auto);
-  margin: 0;
-  padding: calc(0px + 2vw);
+  margin: 20px 0px;
   align-items: center;
+  grid-gap: 10px;
+`
 
-  & div {
-    margin: 0;
+const StyledImage = styled.div`
+  width: 90px;
+  height: 90px;
+  background: var(--inner-shadow-dark);
+
+  & img {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+
+  &[alt] {
+    font-family: var(--caption-font);
+    font-size: 12px;
+    text-align: center;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+}
+` 
+
+const StyledDescription = styled.div`
+  margin: 0;
 
   & h3, & h4 {
     margin: 0;
     padding: 5px 10px;
-    width: 100%;
-    align-self: flex-start;
+    word-break: break-word;
   } 
+`
+
+const StyledRating = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   & p {
     margin: 0;
@@ -47,16 +76,3 @@ const StyledPlay = styled.li`
     text-align: center;
   }
 `
-
-const StyledImage = styled.img`
-  margin: 0;
-  max-width: 100px;
-  max-height: 100px;
-  object-fit: contain;
-
-  &[alt] {
-      font-family: 'Karla', sans-serif;
-      font-size: 12px;
-      text-align: center;
-    }
-` 
