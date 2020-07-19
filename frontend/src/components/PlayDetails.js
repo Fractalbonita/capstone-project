@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-
-import { apiBaseURL } from '../services/playDataRestClient'
 import { useParams } from 'react-router-dom'
 
+import { apiBaseURL } from '../services/playDataRestClient'
+import { fetchPlayDetails } from '../services/playDataRestClient'
+  
 export default function Play() {
   const params = useParams()
-  const plays = JSON.parse(localStorage.getItem('plays'))
-  const play = plays.find(({_id}) => _id === params.id) || {}
+
+  const [play, setPlay] = useState({})
+
+  useEffect(() => {
+    fetchPlayDetails(params.id).then(setPlay)
+  }, [])
 
   return (
     <StyledPlay>

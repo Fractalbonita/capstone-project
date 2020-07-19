@@ -27,13 +27,25 @@ db.once('open', () => console.log('Mongoose is working'))
 
 
 app.get('/plays', (request, response) => {
-  Play.find({})
-    .then((data) => response.json(data))
-    .catch((error) => {
+  Play.find({}, 'game_title play_date play_rating imageURL')
+    .then(data => response.json(data))
+    .catch(error => {
       console.log(error)
-      response.status(400).send('No data available.')
+      response.status(200).send('[]')
     })
 })
+
+app.get('/plays/:id', (request, response) => {
+  const _id = request.params.id
+
+  Play.findById({ _id })
+    .then(data => response.json(data))
+    .catch(error => {
+      console.log(error)
+      response.status(404)
+    })
+})
+
 
 app.post('/upload', (request, response) => {
   const playImage = request.files.image
@@ -47,8 +59,8 @@ app.post('/plays', (request, response) => {
   const newPlay = request.body
 
   Play.create(newPlay)
-    .then((data) => response.json(data))
-    .catch((error) => {
+    .then(data => response.json(data))
+    .catch(error => {
       console.log(error)
       response.send(400)
     })

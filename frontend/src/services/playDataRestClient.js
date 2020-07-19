@@ -34,3 +34,17 @@ export function uploadGameData(values, imageURL) {
     .then(response => response.data)
     .catch(error => console.log(error))
 }
+
+export function fetchPlays() {
+  return axios
+    .get(`${apiBaseURL}/plays`)
+    .then(response => response.data)
+    .catch(error => console.log(error))
+}
+
+export function fetchPlayDetails(id) {
+  return axios
+    .get(`${apiBaseURL}/plays/${id}`)
+    .then(response => response.data)
+    .catch(error => console.log(error))
+}
