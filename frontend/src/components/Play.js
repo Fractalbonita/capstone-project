@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-import { apiBaseURL } from '../environment/playDataRestClient'
+import { apiBaseURL } from '../services/playDataRestClient'
 import Star from './Star'
 
 export default function Play({ play }) {
   return (
-    <StyledPlay>
+    <li>
+     <StyledLink to={`/log/${play._id}`} >
       <StyledImage>
         <img src={apiBaseURL + play.imageURL} alt="No image available" />
       </StyledImage>
@@ -18,11 +20,13 @@ export default function Play({ play }) {
         <Star isSelected={true} />
         <p>{play.play_rating}</p>
       </StyledRating>
-      </StyledPlay>
+      </StyledLink>
+    </li>
   )
 }
 
-const StyledPlay = styled.li`
+const StyledLink = styled(Link)`
+  text-decoration: none;
   display: grid;
   grid-template-columns: 90px 1fr auto;
   grid-auto-rows: minmax(100px, auto);
@@ -37,13 +41,12 @@ const StyledImage = styled.div`
   background: var(--inner-shadow-dark);
 
   & img {
-  margin: 0;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-
-  &[alt] {
+    margin: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
     font-family: var(--caption-font);
+    color: var(--text-color);
     font-size: 12px;
     text-align: center;
     width: 90px;
@@ -52,7 +55,6 @@ const StyledImage = styled.div`
     justify-content: center;
     align-items: center;
   }
-}
 ` 
 
 const StyledDescription = styled.div`

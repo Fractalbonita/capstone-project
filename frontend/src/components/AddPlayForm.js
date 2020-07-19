@@ -11,7 +11,8 @@ import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
 import PlayStarRatingField from './PlayStarRatingField'
 import { PrimaryButton } from './Button'
 
-import { uploadImage, uploadGameData } from '../environment/playDataRestClient'
+import { uploadImage, uploadGameData } from '../services/playDataRestClient'
+import { Redirect } from 'react-router-dom'
 
 const AddPlaySchema = Yup.object().shape({
   playImage: PlayImageFieldValidator,
@@ -21,7 +22,8 @@ const AddPlaySchema = Yup.object().shape({
   playingTime: PlayingTimeFieldValidator,
 })
 
-export default function AddPlayForm({ addToPlayCollection, hideForm }) {
+export default function AddPlayForm() {
+  let isSubmitted = false 
 
   return <div>
     <h1> Add a New Play to your Timeline</h1>
@@ -41,12 +43,15 @@ export default function AddPlayForm({ addToPlayCollection, hideForm }) {
       onSubmit={(values, { setSubmitting }) => {
         uploadImage(values.playImage)
           .then(imageURL => uploadGameData(values, imageURL))
-          .then(savedPlayValues => addToPlayCollection(savedPlayValues))
-          .then(() => setSubmitting(false))
-          .finally(hideForm)
+          .finally(() => {
+            isSubmitted = true
+            setSubmitting(false)
+          })
       }}
     >
-      {({ isSubmitting, setFieldValue }) => (
+      {({ isSubmitting, setFieldValue }) => isSubmitted
+        ? <Redirect to="/log" />
+        : (
         <StyledForm>
           <PlayImageField name="playImage"
             updateImageHandler={file => setFieldValue('playImage', file)} />

@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import AddPlayForm from './AddPlayForm'
 import AddPlayIcon from './AddPlayIcon'
 import PlayCollection from './PlayCollection'
 
-export default function PlayTimelinePage({ addToPlayCollection, plays }) {
-  const [isVisible, setIsVisible] = useState(false)
+export default function PlayTimelinePage({ plays }) {
 
-  return isVisible 
-    ? <AddPlayForm addToPlayCollection={addToPlayCollection}
-      hideForm={() => setIsVisible(false)} />
-    : <>
+  return  (
+    <>
       <PlayCollection plays={plays} />
-      <AddPlayIcon showForm={() => setIsVisible(true)} />
-      </>
+      <Link to="/log/addplay">
+        <AddPlayIcon />
+      </Link>
+    </>
+  )
 }

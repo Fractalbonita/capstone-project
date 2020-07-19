@@ -1,9 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { apiBaseURL } from '../environment/playDataRestClient'
+import { apiBaseURL } from '../services/playDataRestClient'
+import { useParams } from 'react-router-dom'
 
-export default function Play({ play }) {
+export default function Play() {
+  const params = useParams()
+  const plays = JSON.parse(localStorage.getItem('plays'))
+  const play = plays.find(({_id}) => _id === params.id) || {}
+
   return (
     <StyledPlay>
         <p><StyledImage src={apiBaseURL + play.imageURL} alt="No image" /></p>
@@ -16,7 +21,7 @@ export default function Play({ play }) {
   )
 }
 
-const StyledPlay = styled.li`
+const StyledPlay = styled.div`
   margin: 0;
   padding: 20px 0;
 `

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Switch, Route } from 'react-router-dom'
 
 import PlayTimelinePage from './components/PlayTimelinePage'
+import PlayDetails from './components/PlayDetails'
+import AddPlayForm from './components/AddPlayForm'
 
 const localStorageKey = 'plays'
 
@@ -17,9 +20,25 @@ function App() {
 
   return (
     <div className="App">
-      <PlayTimelinePage addToPlayCollection={updatePlays} plays={plays} />
+      <Switch>
+        <Route exact path="/log">
+          <PlayTimelinePage addToPlayCollection={updatePlays} plays={plays} />
+        </Route>    
+        <Route exact path="/log/addplay" component={AddPlayForm} />
+        <Route path="/log/:id" component={PlayDetails} />  
+      </Switch>
     </div>
   )
+
+    /*
+  <Route path="/:playId" component={PlayTimelinePage}>
+  const PlayTimelinePage = ({ match }) => (
+    <div>
+      <Route path={match.url + "/:playId"} component={PlayTimelinePage} />
+      {match.params.playId}
+    </div>
+  )
+*/
   function updatePlays(play) {
     setPlays([...plays, play])
     return Promise.resolve()
