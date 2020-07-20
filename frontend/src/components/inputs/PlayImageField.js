@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import * as Yup from 'yup'
 import styled from 'styled-components'
 
-import ErrorMessage from '../styled-components/StyledErrorMessage'
-import StyledLabel from '../styled-components/StyledLabel'
-import ImageUploadIcon from './ImageUploadIcon'
+import ErrorMessage from '../../styles/StyledErrorMessage'
+import ImageUploadIcon from '../icons/ImageUploadIcon'
+import StyledLabel from '../../styles/StyledLabel'
+
+import StyledClearIcon from '../../components/icons/ClearIcon'
 
 export default ({ name, updateImageHandler }) => {
   const [filename, setFilename] = useState('')
@@ -20,10 +22,18 @@ export default ({ name, updateImageHandler }) => {
         data-testid="image-upload"
       />
         {imageURL !== ''
-          ? <StyledImage src={imageURL} />
-          : filename !== ''
-          && <span>{filename} 
-                <StyledClearIcon title="Clear" className="material-icons" onClick={handleFileChange}>clear</StyledClearIcon>
+          ? <span>
+              <StyledClearIcon
+                style={{ display: 'block'}}
+                onClick={handleFileChange}>
+              </StyledClearIcon>
+              <StyledImage src={imageURL} />
+            </span>
+          : filename !== '' &&
+            <span>{filename}
+              <StyledClearIcon
+                onClick={handleFileChange}>
+              </StyledClearIcon>
             </span>
         }
       </StyledLabel>
@@ -33,13 +43,17 @@ export default ({ name, updateImageHandler }) => {
 
   function handleFileChange(event) {
     event.preventDefault()
+
     const target = event.target
     const file = target.files && target.files[0]
+
     setFilename(file ? file.name : '')
     updateImageHandler(file)
+
     PlayImageFieldValidator.validate(file)
       .then(() => {
         const reader = new FileReader()
+
         reader.addEventListener('load', () => setImageURL(reader.result))
         reader.readAsDataURL(file)
       })
@@ -55,22 +69,23 @@ export const PlayImageFieldValidator = Yup
     file => !file || file.type === 'image/jpeg')
 
 const StyledImage = styled.img`
-  max-width: 20%;
-  margin-top: 1.5rem;
   margin-bottom: 1rem;
+  margin-top: 1rem;
+  max-width: 50%;
 `
 
 const StyledHiddenFileInput = styled.input`
+  left: -1000%;
   position: absolute;
   top: -1000%;
-  left: -1000%;
 `
-
-const StyledClearIcon = styled.i`
+/*
+const StyledClearIcon = styled.span`
   color: var(--text-decoration-color);
   font-size: 24px;
   font-weight: bold;
+  left: 6px;
   position: relative;
   top: 6px;
-  left: 6px;
 `
+*/

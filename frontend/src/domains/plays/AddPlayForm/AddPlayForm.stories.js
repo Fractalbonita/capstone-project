@@ -3,13 +3,13 @@ import { storiesOf } from '@storybook/react'
 import withFormik from 'storybook-formik'
 import * as Yup from 'yup'
 
-import PlayImageField, { PlayImageFieldValidator } from '../components/PlayImageField.js'
-import GameTitleField, { GameTitleFieldValidator } from '../components/GameTitleField'
-import PlayDateField, { PlayDateFieldValidator } from '../components/PlayDateField'
-import PlayersField, { PlayersFieldValidator } from '../components/PlayersField'
-import PlayingTimeField, { PlayingTimeFieldValidator } from '../components/PlayingTimeField'
-import PlayStarRatingField from '../components/PlayStarRatingField'
-import { PrimaryButton } from '../components/Button'
+import PlayImageField, { PlayImageFieldValidator } from '../../../components/inputs/PlayImageField.js'
+import GameTitleField, { GameTitleFieldValidator } from '../../../components/inputs/GameTitleField'
+import PlayDateField, { PlayDateFieldValidator } from '../../../components/inputs/PlayDateField'
+import PlayersField, { PlayersFieldValidator } from '../../../components/inputs/PlayersField'
+import PlayingTimeField, { PlayingTimeFieldValidator } from '../../../components/inputs/PlayingTimeField'
+import PlayStarRatingField from '../../../components/inputs/PlayStarRatingField'
+import { PrimaryButton } from '../../../components/Button'
 
 storiesOf('AddPlayForm', module)
   .addDecorator(withFormik)

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import PlayTimelinePage from './components/PlayTimelinePage'
-import PlayDetails from './components/PlayDetails'
-import AddPlayForm from './components/AddPlayForm'
+import AddPlayForm from './domains/plays/AddPlayForm/AddPlayForm'
+import PlayTimelinePage from './domains/plays/PlayTimelinePage/PlayTimelinePage'
+import PlayDetails from './domains/plays/PlayDetails/PlayDetails'
 
 function App() {
 

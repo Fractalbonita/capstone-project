@@ -1,9 +1,9 @@
 import React from 'react'
 import * as Yup from 'yup'
 
-import ErrorMessage from '../styled-components/StyledErrorMessage'
-import StyledLabel from '../styled-components/StyledLabel'
-import StyledField from '../styled-components/StyledField'
+import ErrorMessage from '../../styles/StyledErrorMessage'
+import StyledField from '../../styles/StyledField'
+import StyledLabel from '../../styles/StyledLabel'
 
 export default ({ name }) => (
   <>

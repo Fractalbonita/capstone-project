@@ -60,7 +60,7 @@ export default createGlobalStyle`
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   h4 {
@@ -73,7 +73,7 @@ export default createGlobalStyle`
     font-size: 16px;
     font-weight: bold;
     text-align: left;
-    width: 90%;
+    width: 100%;
   }
 
   input, 

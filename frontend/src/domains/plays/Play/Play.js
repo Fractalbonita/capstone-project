@@ -1,16 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
-import { apiBaseURL } from '../services/playDataRestClient'
-import Star from './Star'
+import { apiBaseURL } from '../../../services/playsRestClient'
+
+import Star from '../../../components/icons/StarIcon'
 
 export default function Play({ play }) {
   return (
     <li>
      <StyledLink to={`/log/${play._id}`} >
       <StyledImage>
-        <img src={apiBaseURL + play.imageURL} alt="No image available" />
+        <img src={apiBaseURL + play.imageURL} alt="No photo available" />
       </StyledImage>
       <StyledDescription>
         <h4>{play.play_date}</h4>
@@ -29,7 +30,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   display: grid;
   grid-template-columns: 90px 1fr auto;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(120px, auto);
   margin: 20px 0px;
   align-items: center;
   grid-gap: 10px;

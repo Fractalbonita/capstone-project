@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import AddPlayIcon from './AddPlayIcon'
-import PlayCollection from './PlayCollection'
-import { fetchPlays } from '../services/playDataRestClient'
+import { fetchPlays } from '../../../services/playsRestClient'
+
+import AddPlayIcon from '../../../components/icons/AddPlayIcon'
+import PlayCollection from '../PlayCollection/PlayCollection'
 
 export default function PlayTimelinePage() {
   const [plays, setPlays] = useState([])
