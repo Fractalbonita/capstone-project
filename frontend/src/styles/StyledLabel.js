@@ -5,10 +5,10 @@ color: var(--text-color);
 font-family: 'Lato', sans-serif;
 font-size: 14px;
 font-weight: bold;
-text-align: center;
-width: 90%;
-margin-top: 1rem;
 margin-bottom: 0.5rem;
+margin-top: 1rem;
+text-align: center;
+width: 100%;
 `
 
 export default StyledLabel

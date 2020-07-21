@@ -26,28 +26,28 @@ export default createGlobalStyle`
   }
 
   body {
-    padding: calc(20px + 3vw);
-    font-family: var(--body-font);
     background-color: var(--surface);
+    font-family: var(--body-font);
+    padding: calc(20px + 3vw);
   }
 
   body, 
   html {
-    height: 100vh;
     font-family: var(--body-font);
+    height: 100vh;
   }
 
   h1, 
   h2, 
   h3, 
   h4 {
-    font-family: var(--headline-font);
     color: var(--text-color);
+    font-family: var(--headline-font);
     font-weight: bold;
-    text-align: left;
     line-height: 1.5;
-    margin-top: 1.5rem;
     margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    text-align: left;
     width: 100%;
   }
 
@@ -68,8 +68,8 @@ export default createGlobalStyle`
   }
 
   p {
-    font-family: var(--body-font);
     color: var(--text-color);
+    font-family: var(--body-font);
     font-size: 16px;
     font-weight: bold;
     text-align: left;

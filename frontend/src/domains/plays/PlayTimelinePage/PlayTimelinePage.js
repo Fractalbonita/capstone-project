@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { fetchPlays } from '../../../services/playsRestClient'
-
 import AddPlayIcon from '../../../components/icons/AddPlayIcon'
 import PlayCollection from '../PlayCollection/PlayCollection'
 

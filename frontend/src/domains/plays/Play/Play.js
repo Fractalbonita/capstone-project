@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { apiBaseURL } from '../../../services/playsRestClient'
-
 import Star from '../../../components/icons/StarIcon'
 
 export default function Play({ play }) {
@@ -27,34 +26,34 @@ export default function Play({ play }) {
 }
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
+  align-items: center;
   display: grid;
   grid-template-columns: 90px 1fr auto;
   grid-auto-rows: minmax(120px, auto);
-  margin: 20px 0px;
-  align-items: center;
   grid-gap: 10px;
+  margin: 20px 0px;
+  text-decoration: none;
 `
 
 const StyledImage = styled.div`
-  width: 90px;
-  height: 90px;
   background: var(--inner-shadow-dark);
+  height: 90px;
+  width: 90px;
 
   & img {
-    margin: 0;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    font-family: var(--caption-font);
+    align-items: center;
     color: var(--text-color);
+    display: flex;
+    font-family: var(--caption-font);
     font-size: 12px;
+    height: 90px;
+    justify-content: center;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
     text-align: center;
     width: 90px;
-    height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 ` 
 

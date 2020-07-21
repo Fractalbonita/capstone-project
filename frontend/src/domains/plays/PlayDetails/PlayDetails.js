@@ -6,7 +6,6 @@ import { apiBaseURL, fetchPlayDetails } from '../../../services/playsRestClient'
   
 export default function Play() {
   const params = useParams()
-
   const [play, setPlay] = useState({})
 
   useEffect(() => {
@@ -15,12 +14,12 @@ export default function Play() {
 
   return (
     <StyledPlay>
-        <p><StyledImage src={apiBaseURL + play.imageURL} alt="No image" /></p>
-        <h2>Game</h2><p>{play.game_title}</p>
-        <h2>Date</h2><p>{play.play_date}</p>
-        <h2>Players</h2><p>{play.players}</p>
-        <h2>Playing Time</h2><p>{play.playing_time}</p>
-        <h2>Rating</h2><p>{play.play_rating}</p>
+      <p><StyledImage src={apiBaseURL + play.imageURL} alt="No image" /></p>
+      <h2>Game</h2><p>{play.game_title}</p>
+      <h2>Date</h2><p>{play.play_date}</p>
+      <h2>Players</h2><p>{play.players}</p>
+      <h2>Playing Time</h2><p>{play.playing_time}</p>
+      <h2>Rating</h2><p>{play.play_rating}</p>
     </StyledPlay>
   )
 }

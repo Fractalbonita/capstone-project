@@ -1,20 +1,19 @@
-import express from 'express'
 import bodyParser from 'express'
+import cors from 'cors'
+import express from 'express'
 import fileUpload from 'express-fileupload'
 import mongoose from 'mongoose'
-import cors from 'cors'
 
 import Play from '../models/PlayModel'
 
-const PORT = 3001
 const app = express()
+const PORT = 3001
 
-app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
-app.use(fileUpload())
+app.use(cors())
 app.use(express.static('public'))
-
+app.use(fileUpload())
 
 mongoose.connect('mongodb://localhost:27017/capstone-project', {
   useNewUrlParser: true,
@@ -27,7 +26,7 @@ db.once('open', () => console.log('Mongoose is working'))
 
 
 app.get('/plays', (request, response) => {
-  Play.find({}, 'game_title play_date play_rating imageURL')
+  Play.find({}, 'game_Title play_date play_rating imageURL')
     .then(data => response.json(data))
     .catch(error => {
       console.log(error)

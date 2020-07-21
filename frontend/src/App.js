@@ -1,12 +1,11 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import AddPlayForm from './domains/plays/AddPlayForm/AddPlayForm'
-import PlayTimelinePage from './domains/plays/PlayTimelinePage/PlayTimelinePage'
 import PlayDetails from './domains/plays/PlayDetails/PlayDetails'
+import PlayTimelinePage from './domains/plays/PlayTimelinePage/PlayTimelinePage'
 
 function App() {
-
   return (
     <div className="App">
       <Switch>

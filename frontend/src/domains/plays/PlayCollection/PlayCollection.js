@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Play from '../Play/Play'
 
 export default function PlayCollection({ plays }) {
-
   return (
   <>
   <h1>Plays</h1>

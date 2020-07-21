@@ -6,8 +6,8 @@ color: var(--text-decoration-color);
 font-family: 'Karla', sans-serif;
 font-size: 12px;
 font-weight: bold;
-text-align: center;
 margin-top: 0.4rem;
+text-align: center;
 width: 100%;
 `
 
