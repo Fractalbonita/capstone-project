@@ -11,7 +11,7 @@ export default function PlayCollection({ plays }) {
     <StyledPlayCollection>
       {plays && plays.map((play) => (
         <Play play={play} key={play._id} />
-      ))}
+      )).reverse()}
     </StyledPlayCollection>
   </>
   )

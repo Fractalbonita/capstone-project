@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default ({ showForm }) => (
-  <StyledContainer onClick={showForm}>
+export default () => (
+  <StyledContainer>
     <StyledAddPlayIcon
       title="Add a new play"
       className="material-icons-round"

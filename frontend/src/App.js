@@ -1,29 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 
 import PlayTimelinePage from './components/PlayTimelinePage'
-
-const localStorageKey = 'plays'
+import PlayDetails from './components/PlayDetails'
+import AddPlayForm from './components/AddPlayForm'
 
 function App() {
-  const [plays, setPlays] = useState([])
-  
-  useEffect(() => {
-    setPlays(JSON.parse(localStorage.getItem(localStorageKey) || '[]')) 
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem(localStorageKey, JSON.stringify(plays))
-  }, [plays])
 
   return (
     <div className="App">
-      <PlayTimelinePage addToPlayCollection={updatePlays} plays={plays} />
+      <Switch>
+        <Route exact path="/log" component={PlayTimelinePage} />
+        <Route exact path="/log/addplay" component={AddPlayForm} />
+        <Route path="/log/:id" component={PlayDetails} />  
+      </Switch>
     </div>
   )
-  function updatePlays(play) {
-    setPlays([...plays, play])
-    return Promise.resolve()
-  }
 }
 
 export default App

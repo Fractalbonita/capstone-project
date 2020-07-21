@@ -5,7 +5,6 @@ const StyledField = styled(Field)`
 appearance: none;
 -webkit-appearance: none;
 -moz-appearance: none;
-width: 90%;
 padding: 13px 15px;
 font-family: 'Karla', sans-serif;
 font-size: 16px;

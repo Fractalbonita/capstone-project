@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
 
-import { apiBaseURL } from '../environment/playDataRestClient'
+import { apiBaseURL } from '../services/playDataRestClient'
+import { fetchPlayDetails } from '../services/playDataRestClient'
+  
+export default function Play() {
+  const params = useParams()
 
-export default function Play({ play }) {
+  const [play, setPlay] = useState({})
+
+  useEffect(() => {
+    fetchPlayDetails(params.id).then(setPlay)
+  }, [])
+
   return (
     <StyledPlay>
         <p><StyledImage src={apiBaseURL + play.imageURL} alt="No image" /></p>
@@ -16,7 +26,7 @@ export default function Play({ play }) {
   )
 }
 
-const StyledPlay = styled.li`
+const StyledPlay = styled.div`
   margin: 0;
   padding: 20px 0;
 `
