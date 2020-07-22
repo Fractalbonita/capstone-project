@@ -1,18 +1,18 @@
 import React from 'react' 
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
+import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
-import PlayImageField, { PlayImageFieldValidator } from './PlayImageField'
-import GameTitleField, { GameTitleFieldValidator } from './GameTitleField'
-import PlayDateField, { PlayDateFieldValidator } from './PlayDateField'
-import PlayersField, { PlayersFieldValidator } from './PlayersField'
-import PlayingTimeField, { PlayingTimeFieldValidator } from './PlayingTimeField'
-import PlayStarRatingField from './PlayStarRatingField'
-import { PrimaryButton } from './Button'
+import { PrimaryButton } from '../../../components/Button'
+import { uploadImage, uploadGameData } from '../../../services/playsRestClient'
 
-import { uploadImage, uploadGameData } from '../services/playDataRestClient'
-import { Redirect } from 'react-router-dom'
+import GameTitleField, { GameTitleFieldValidator } from '../../../components/inputs/GameTitleField'
+import PlayDateField, { PlayDateFieldValidator } from '../../../components/inputs/PlayDateField'
+import PlayersField, { PlayersFieldValidator } from '../../../components/inputs/PlayersField'
+import PlayImageField, { PlayImageFieldValidator } from '../../../components/inputs/PlayImageField'
+import PlayStarRatingField from '../../../components/inputs/PlayStarRatingField'
+import PlayingTimeField, { PlayingTimeFieldValidator } from '../../../components/inputs/PlayingTimeField'
 
 const AddPlaySchema = Yup.object().shape({
   playImage: PlayImageFieldValidator,
@@ -26,7 +26,7 @@ export default function AddPlayForm() {
   let isSubmitted = false 
 
   return <div>
-    <h1> Add a New Play to your Timeline</h1>
+    <h1>Add a New Play to your Timeline</h1>
     <p>* Required</p>
 
     <Formik
@@ -68,9 +68,9 @@ export default function AddPlayForm() {
 }
 
 const StyledForm = styled(Form)`
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding-bottom: calc(10px + 5vw);
 `

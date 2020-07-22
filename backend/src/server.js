@@ -1,20 +1,19 @@
-import express from 'express'
 import bodyParser from 'express'
+import cors from 'cors'
+import express from 'express'
 import fileUpload from 'express-fileupload'
 import mongoose from 'mongoose'
-import cors from 'cors'
 
 import Play from '../models/PlayModel'
 
-const PORT = 3001
 const app = express()
+const PORT = 3001
 
-app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
-app.use(fileUpload())
+app.use(cors())
 app.use(express.static('public'))
-
+app.use(fileUpload())
 
 mongoose.connect('mongodb://localhost:27017/capstone-project', {
   useNewUrlParser: true,
@@ -25,13 +24,12 @@ const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', () => console.log('Mongoose is working'))
 
-
 app.get('/plays', (request, response) => {
-  Play.find({}, 'game_title play_date play_rating imageURL')
+  Play.find({}, 'gameTitle playDate playRating imageURL')
     .then(data => response.json(data))
     .catch(error => {
       console.log(error)
-      response.status(200).send('[]')
+      response.send('[]')
     })
 })
 
@@ -46,12 +44,20 @@ app.get('/plays/:id', (request, response) => {
     })
 })
 
-
 app.post('/upload', (request, response) => {
+  if (!request.files || !request.files.image) {
+    return response.status(400).send('No image was uploaded.')
+  }
+
   const playImage = request.files.image
   const uploadName = `/uploads/${Date.now()}_${playImage.name}`
-  playImage.mv(`${__dirname}/../public${uploadName}`, () => {
-    response.send(uploadName)
+
+  playImage.mv(`${__dirname}/../public${uploadName}`, (error) => {
+    if (error) {
+      return response.status(500).send(error)
+    } else {
+      response.send(uploadName)
+    }
   })
 })
 
@@ -62,7 +68,7 @@ app.post('/plays', (request, response) => {
     .then(data => response.json(data))
     .catch(error => {
       console.log(error)
-      response.send(400)
+      response.status(400)
     })
 })
 

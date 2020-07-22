@@ -1,12 +1,14 @@
 import axios from 'axios'
 
 const API_PORT = ':3001'
+
 export const apiBaseURL = `${window.location.protocol}//${window.location.hostname}${API_PORT}`
 
 export function uploadImage(imageFile) {
   if (!imageFile) {
     return Promise.resolve('')
   }
+
   const formData = new FormData()
   formData.append('image', imageFile)
 
@@ -20,13 +22,12 @@ export function uploadImage(imageFile) {
 
 export function uploadGameData(values, imageURL) {
   const savedPlayValues = {
-    play_id: values.playId,
     imageURL: imageURL,
-    game_title: values.gameTitle,
-    play_date: values.playDate,
+    gameTitle: values.gameTitle,
+    playDate: values.playDate,
     players: values.players,
-    playing_time: values.playingTime,
-    play_rating: values.playRating,
+    playingTime: values.playingTime,
+    playRating: values.playRating,
   }
   
   return axios

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent, wait, getByText, getAllByText } from '@testing-library/react'
 
-import App from '../App'
+import App from '../../../App'
 
 describe('Form', () => {
   test('should prohibit submit when no data is present', async () => {

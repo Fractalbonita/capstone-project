@@ -4,32 +4,32 @@ import styled from 'styled-components'
 export default () => (
   <StyledContainer>
     <StyledAddPlayIcon
-      title="Add a new play"
       className="material-icons-round"
-    >add
+      alt="Add a new play">
+        add
     </StyledAddPlayIcon>
   </StyledContainer>
 )
 
-const StyledAddPlayIcon = styled.i`
+const StyledAddPlayIcon = styled.span`
+  color: var(--surface);
   font-size: 36px;
   font-weight: 600;
-  color: var(--surface);
 `
 
 const StyledContainer = styled.div`
-  display: flex;
-  justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
   background-color: var(--primary);
+  border-radius: 50%;
+  bottom: 16px;
   box-shadow: -2px -2px 5px var(--inner-shadow-light-opaque), 3px 3px 5px var(--inner-shadow-dark-opaque);
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  position: fixed;
+  right: 16px;
   transition: all 0.2s ease;
+  width: 56px;
 
   &:active {
     box-shadow: inset -2px -2px 5px var(--inner-shadow-light-opaque), inset 3px 3px 5px var(--inner-shadow-dark-opaque); 

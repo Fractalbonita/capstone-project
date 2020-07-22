@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Play from './Play'
+import Play from '../Play/Play'
 
 export default function PlayCollection({ plays }) {
-
   return (
   <>
   <h1>Plays</h1>
