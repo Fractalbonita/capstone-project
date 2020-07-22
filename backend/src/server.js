@@ -24,13 +24,12 @@ const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', () => console.log('Mongoose is working'))
 
-
 app.get('/plays', (request, response) => {
-  Play.find({}, 'game_Title play_date play_rating imageURL')
+  Play.find({}, 'gameTitle playDate playRating imageURL')
     .then(data => response.json(data))
     .catch(error => {
       console.log(error)
-      response.status(200).send('[]')
+      response.send('[]')
     })
 })
 
@@ -45,12 +44,20 @@ app.get('/plays/:id', (request, response) => {
     })
 })
 
-
 app.post('/upload', (request, response) => {
+  if (!request.files || !request.files.image) {
+    return response.status(400).send('No image was uploaded.')
+  }
+
   const playImage = request.files.image
   const uploadName = `/uploads/${Date.now()}_${playImage.name}`
-  playImage.mv(`${__dirname}/../public${uploadName}`, () => {
-    response.send(uploadName)
+
+  playImage.mv(`${__dirname}/../public${uploadName}`, (error) => {
+    if (error) {
+      return response.status(500).send(error)
+    } else {
+      response.send(uploadName)
+    }
   })
 })
 
@@ -61,7 +68,7 @@ app.post('/plays', (request, response) => {
     .then(data => response.json(data))
     .catch(error => {
       console.log(error)
-      response.send(400)
+      response.status(400)
     })
 })
 

@@ -13,12 +13,12 @@ export default function Play({ play }) {
         <img src={apiBaseURL + play.imageURL} alt="No photo available" />
       </StyledImage>
       <StyledDescription>
-        <h4>{play.play_date}</h4>
-        <h3>{play.game_title}</h3>
+        <h4>{play.playDate}</h4>
+        <h3>{play.gameTitle}</h3>
       </StyledDescription>
       <StyledRating>
         <Star isSelected={true} />
-        <p>{play.play_rating}</p>
+        <p>{play.playRating}</p>
       </StyledRating>
       </StyledLink>
     </li>
