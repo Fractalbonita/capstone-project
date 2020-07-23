@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
   align-items: center;
   background-color: var(--surface);
   border-radius: 20%;
-  box-shadow: -2px -2px 5px var(--inner-shadow-light-opaque), 2px 2px 5px var(--inner-shadow-dark-opaque);
+  box-shadow: -3px -3px 7px var(--inner-shadow-light-opaque), 3px 3px 7px var(--inner-shadow-dark-opaque);
   display: flex;
   height: 36px;
   justify-content: center;

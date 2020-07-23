@@ -22,17 +22,17 @@ const StyledContainer = styled.div`
   background-color: var(--primary);
   border-radius: 50%;
   bottom: 16px;
-  box-shadow: -2px -2px 5px var(--inner-shadow-light-opaque), 3px 3px 5px var(--inner-shadow-dark-opaque);
+  box-shadow: -3px -3px 7px var(--inner-shadow-light-opaque), 3px 3px 7px var(--inner-shadow-dark-opaque);
   display: flex;
   height: 56px;
   justify-content: center;
   position: fixed;
   right: 16px;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
   width: 56px;
 
   &:active {
-    box-shadow: inset -2px -2px 5px var(--inner-shadow-light-opaque), inset 3px 3px 5px var(--inner-shadow-dark-opaque); 
+    box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque), inset 1px 1px 2px var(--inner-shadow-dark-opaque); 
   }
 `
 

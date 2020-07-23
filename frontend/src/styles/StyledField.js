@@ -27,7 +27,7 @@ transition: all 0.2s ease-in-out;
     width: 25px;
 
     &:active {
-      box-shadow: inset -2px -2px 5px 0px var(--inner-shadow-light-opaque), inset 2px 2px 5px var(--inner-shadow-dark-opaque);
+      box-shadow: inset -2px -2px 5px var(--inner-shadow-light-opaque), inset 2px 2px 5px var(--inner-shadow-dark-opaque);
     }
   }
 
@@ -40,7 +40,7 @@ transition: all 0.2s ease-in-out;
     width: 25px;
     
     &:active {
-      box-shadow: inset -2px -2px 5px 0px var(--inner-shadow-light-opaque), inset 2px 2px 5px var(--inner-shadow-dark-opaque);
+      box-shadow: inset -2px -2px 5px var(--inner-shadow-light-opaque), inset 2px 2px 5px var(--inner-shadow-dark-opaque);
     }
   }
 
