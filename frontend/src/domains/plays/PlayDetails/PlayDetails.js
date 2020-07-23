@@ -6,7 +6,7 @@ import { apiBaseURL, fetchPlayDetails } from '../../../services/playsRestClient'
 import Icon from '../../../utilities/Icon' 
 import Star from '../../../components/icons/StarIcon'
 
-export default function Play() {
+export default function PlayDetails() {
   const params = useParams()
   const [play, setPlay] = useState({})
 
@@ -32,7 +32,7 @@ export default function Play() {
           <div>
             <Icon type="access_time" alt="" />
             <StyledCaption>Playing time</StyledCaption>
-            <p>{play.playingTime}</p>
+            <p>{play.playingTime}'</p>
           </div>
           <div>
             <Star isSelected={true} />
