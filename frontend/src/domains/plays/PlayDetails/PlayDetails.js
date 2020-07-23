@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { apiBaseURL, fetchPlayDetails } from '../../../services/playsRestClient'
 import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import Icon from '../../../utilities/Icon' 
+import PlayRanking from '../../../components/PlayRanking'
 import Star from '../../../components/icons/StarIcon'
 
 export default function PlayDetails() {
@@ -20,31 +21,32 @@ export default function PlayDetails() {
       <StyledLink to="/log">
         <ArrowBackIcon />
       </StyledLink>
-      <h1>Play Details</h1>
+      <h1>{play.gameTitle}</h1>
+      <h2>Details</h2>
       <StyledPlay>
         <StyledImage>
           <img src={apiBaseURL + play.imageURL} alt="No photo available" />
         </StyledImage>
-        <h2>{play.gameTitle}</h2>
         <h4>{play.playDate}</h4>
         <StyledOverview>
-          <div>
+          <StyledContainer>
             <Icon type="group" alt="" />
             <StyledCaption>Players</StyledCaption>
             <p>{play.players}</p>
-          </div>
-          <div>
+          </StyledContainer>
+          <StyledContainer>
             <Icon type="access_time" alt="" />
-            <StyledCaption>Playing time</StyledCaption>
-            <p>{play.playingTime}'</p>
-          </div>
-          <div>
+            <StyledCaption>Playing time (min)</StyledCaption>
+            <p>{play.playingTime}</p>
+          </StyledContainer>
+          <StyledContainer>
             <Star isSelected={true} />
             <StyledCaption>Rating</StyledCaption>
             <p>{play.playRating}</p>
-          </div>
+          </StyledContainer>
         </StyledOverview>
       </StyledPlay>
+      <PlayRanking />
     </>
   )
 }
@@ -57,15 +59,7 @@ const StyledPlay = styled.div`
   margin: 0;
   padding: 0;
 
-  & h2 {
-    padding-top: 30px;
-  }
-
-  & h2, h4 {
-    margin-top: 0.1rem;
-  }
-
-  & h2, & h4, & p {
+  & h4, & p {
     text-align: center;
   }
 `
@@ -109,7 +103,15 @@ const StyledCaption = styled.p`
   color: var(--primary);
   font-family: var(--caption-font);
   font-size: 12px;
-  padding-bottom: 10px;
-  padding-top: 5px;
+  padding: 5px 0;
   text-transform: uppercase;
+`
+
+const StyledContainer = styled.div`
+  display: grid;
+  grid-template-rows: 30px 45px auto;
+
+  & span {
+    align-self: center;
+  }
 `

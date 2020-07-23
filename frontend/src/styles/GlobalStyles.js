@@ -33,7 +33,6 @@ export default createGlobalStyle`
 
   body, 
   html {
-    font-family: var(--body-font);
     height: 100vh;
   }
 
