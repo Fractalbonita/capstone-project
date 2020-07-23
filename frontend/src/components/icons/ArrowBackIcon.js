@@ -24,10 +24,10 @@ const StyledContainer = styled.div`
   display: flex;
   height: 36px;
   justify-content: center;
+  left: -140px;
   margin-bottom: 0.5rem;
   position: relative;
   top: 0;
-  left: -130px;
   transition: all 0.2s ease-in-out;
   width: 36px;
   z-index: 100;

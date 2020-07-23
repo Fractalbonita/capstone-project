@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { apiBaseURL, fetchPlayDetails } from '../../../services/playsRestClient'
@@ -17,8 +17,10 @@ export default function PlayDetails() {
 
   return (
     <>
-      <ArrowBackIcon />
-    <h1>Play Details</h1>
+      <StyledLink to="/log">
+        <ArrowBackIcon />
+      </StyledLink>
+      <h1>Play Details</h1>
       <StyledPlay>
         <StyledImage>
           <img src={apiBaseURL + play.imageURL} alt="No photo available" />
@@ -46,6 +48,10 @@ export default function PlayDetails() {
     </>
   )
 }
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
 
 const StyledPlay = styled.div`
   margin: 0;
