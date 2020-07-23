@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { apiBaseURL, fetchPlayDetails } from '../../../services/playsRestClient'
+import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import Icon from '../../../utilities/Icon' 
 import Star from '../../../components/icons/StarIcon'
 
@@ -16,6 +17,7 @@ export default function PlayDetails() {
 
   return (
     <>
+      <ArrowBackIcon />
     <h1>Play Details</h1>
       <StyledPlay>
         <StyledImage>
@@ -56,6 +58,7 @@ const StyledPlay = styled.div`
   & h2, h4 {
     margin-top: 0.1rem;
   }
+
   & h2, & h4, & p {
     text-align: center;
   }
@@ -96,10 +99,10 @@ const StyledOverview = styled.div`
 `
 
 const StyledCaption = styled.p`
+  align-self: stretch;
   color: var(--primary);
   font-family: var(--caption-font);
   font-size: 12px;
-  align-self: stretch;
   padding-bottom: 10px;
   padding-top: 5px;
   text-transform: uppercase;
