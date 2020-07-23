@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { apiBaseURL, fetchPlayDetails } from '../../../services/playsRestClient'
+import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import Icon from '../../../utilities/Icon' 
 import PlayRanking from '../../../components/PlayRanking'
@@ -10,7 +11,7 @@ import Star from '../../../components/icons/StarIcon'
 
 export default function PlayDetails() {
   const params = useParams()
-  const [play, setPlay] = useState({})
+  const [play, setPlay] = useState({ players: [] })
 
   useEffect(() => {
     fetchPlayDetails(params.id).then(setPlay)
@@ -27,12 +28,12 @@ export default function PlayDetails() {
         <StyledImage>
           <img src={apiBaseURL + play.imageURL} alt="No photo available" />
         </StyledImage>
-        <h4>{play.playDate}</h4>
+        <h4>{getLocaleDate(play.playDate)}</h4>
         <StyledOverview>
           <StyledContainer>
             <Icon type="group" alt="" />
             <StyledCaption>Players</StyledCaption>
-            <p>{play.players}</p>
+            <p>{play.players.length}</p>
           </StyledContainer>
           <StyledContainer>
             <Icon type="access_time" alt="" />

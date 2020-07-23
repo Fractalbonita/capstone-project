@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { apiBaseURL } from '../../../services/playsRestClient'
+import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import Star from '../../../components/icons/StarIcon'
 
 export default function Play({ play }) {
@@ -13,7 +14,7 @@ export default function Play({ play }) {
         <img src={apiBaseURL + play.imageURL} alt="No photo available" />
       </StyledImage>
       <StyledDescription>
-        <h4>{play.playDate}</h4>
+        <h4>{getLocaleDate(play.playDate)}</h4>
         <h3>{play.gameTitle}</h3>
       </StyledDescription>
       <StyledRating>
