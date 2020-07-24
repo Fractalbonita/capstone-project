@@ -1,12 +1,13 @@
 import React from 'react' 
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { PrimaryButton } from '../../../components/Button'
 import { uploadImage, uploadGameData } from '../../../services/playsRestClient'
 
+import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import GameTitleField, { GameTitleFieldValidator } from '../../../components/inputs/GameTitleField'
 import PlayDateField, { PlayDateFieldValidator } from '../../../components/inputs/PlayDateField'
 import PlayersField, { PlayersFieldValidator } from '../../../components/inputs/PlayersField'
@@ -26,6 +27,9 @@ export default function AddPlayForm() {
   let isSubmitted = false 
 
   return <div>
+    <StyledLink to="/log">
+      <ArrowBackIcon />
+    </StyledLink>
     <h1>Add a New Play to your Timeline</h1>
     <p>* Required</p>
 
@@ -66,6 +70,10 @@ export default function AddPlayForm() {
         </Formik>
   </div>
 }
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
 
 const StyledForm = styled(Form)`
   align-items: center;
