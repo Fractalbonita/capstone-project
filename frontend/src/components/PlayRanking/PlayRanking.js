@@ -15,7 +15,7 @@ export default ( { play }) => (
         </thead>
       <tbody>
         {play.players && play.players.map((player) => (
-          <tr key={play._id}>
+          <tr key={play._id + player.name}>
             <td>{player.name}</td>
             <td>{player.fraction != null ? player.fraction : '-/-'}</td>
             <td className="number">{player.rank != null ? player.rank : '-/-'}</td>
