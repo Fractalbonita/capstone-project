@@ -3,6 +3,8 @@ import * as Yup from 'yup'
 import { FieldArray } from 'formik'
 import styled from 'styled-components'
 
+import AddAdditionalPlayerIcon from '../icons/AddAdditionalPlayerIcon'
+import AddPlayerIcon from '../icons/AddPlayerIcon'
 import Icon from '../../utilities/Icon'
 import StyledField from '../../styles/StyledField'
 import StyledLabel from '../../styles/StyledLabel'
@@ -14,18 +16,23 @@ export default ({ name, players }) => (
       name={name}
       render={({remove, push}) => (
         <>
-          {players.map((player, index) => (
-            <StyledContainer key={index}>
-              <StyledField name={`${name}.${index}.name`} />
-              <Icon type="clear" onClick={() => remove(index)} />
-            </StyledContainer>
-          ))}
-          <Icon type="add" onClick={() => push({name:''})} />
+          {players && players.length > 0
+            ? (
+            <>
+              {players.map((player, index) => (
+                <StyledContainer key={index}>
+                  <StyledField name={`${name}.${index}.name`} />
+                  <Icon type="clear" onClick={() => remove(index)} />
+                </StyledContainer>
+              ))}
+              <AddAdditionalPlayerIcon onClick={() => push({ name: '' })} />
+            </>
+            )
+            : <AddPlayerIcon onClick={() => push({ name: '' })} />
+          }
         </>
       )}
     />
-    
-    
   </>
 )
 
