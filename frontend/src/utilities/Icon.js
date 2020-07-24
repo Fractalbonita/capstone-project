@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default ({ type }) => (
-  <span className="material-icons">{type}</span>
+export default ({ type, ...props }) => (
+  <span className="material-icons" {...props}>{type}</span>
 )

@@ -19,5 +19,6 @@ export default function PlayCollection({ plays }) {
 const StyledPlayCollection = styled.ul`
   list-style: none;
   margin: 0;
+  margin-bottom: 50px;
   padding: 0;
 `

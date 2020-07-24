@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default () => (
+export default ( { play }) => (
   <>
   <h2>Ranking</h2>
       <StyledTable>
@@ -13,31 +13,15 @@ export default () => (
             <th>Score</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Player</td>
-            <td>Fraction</td>
-            <td>Rank</td>
-            <td>Score</td>
+      <tbody>
+        {play.players && play.players.map((player) => (
+          <tr key={play._id}>
+            <td>{player.name}</td>
+            <td>{player.fraction != null ? player.fraction : '-/-'}</td>
+            <td className="number">{player.rank != null ? player.rank : '-/-'}</td>
+            <td className="number">{player.score != null ? player.score : '-/-'}</td>
           </tr>
-          <tr>
-            <td>Player</td>
-            <td>Fraction</td>
-            <td>Rank</td>
-            <td>Score</td>
-          </tr>
-          <tr>
-            <td>Player</td>
-            <td>Fraction</td>
-            <td>Rank</td>
-            <td>Score</td>
-          </tr>
-          <tr>
-            <td>Player Player</td>
-            <td>Fraction</td>
-            <td>Rank</td>
-            <td>Score</td>
-          </tr>
+          ))}
         </tbody>
     </StyledTable>
   </>
@@ -45,8 +29,8 @@ export default () => (
 
 const StyledTable = styled.table`
   font-family: var(--body-font);
+  font-size: 16px;
   margin-bottom: 1rem;
-  table-layout: fixed;
   text-align: left;
   width: 100%;
 
@@ -59,5 +43,9 @@ const StyledTable = styled.table`
   & td {
     vertical-align: top;
     word-break: normal;
+
+    &.number {
+      text-align: center;
+    }
   }
 `

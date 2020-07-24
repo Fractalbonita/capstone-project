@@ -18,7 +18,7 @@ export default function Play({ play }) {
         <h3>{play.gameTitle}</h3>
       </StyledDescription>
       <StyledRating>
-        <Star isSelected={true} />
+        <Star isSelected={play.playRating} />
         <p>{play.playRating}</p>
       </StyledRating>
       </StyledLink>

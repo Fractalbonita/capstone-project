@@ -6,7 +6,7 @@ import { apiBaseURL, fetchPlayDetails } from '../../../services/playsRestClient'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import Icon from '../../../utilities/Icon' 
-import PlayRanking from '../../../components/PlayRanking'
+import PlayRanking from '../../../components/PlayRanking/PlayRanking'
 import Star from '../../../components/icons/StarIcon'
 
 export default function PlayDetails() {
@@ -47,7 +47,7 @@ export default function PlayDetails() {
           </StyledContainer>
         </StyledOverview>
       </StyledPlay>
-      <PlayRanking />
+      <PlayRanking play={play}/>
     </>
   )
 }
