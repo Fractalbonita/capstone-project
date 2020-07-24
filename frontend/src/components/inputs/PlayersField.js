@@ -1,18 +1,31 @@
 import React from 'react'
 import * as Yup from 'yup'
+import { FieldArray } from 'formik'
+import styled from 'styled-components'
 
-import ErrorMessage from '../../styles/StyledErrorMessage'
+import Icon from '../../utilities/Icon'
 import StyledField from '../../styles/StyledField'
 import StyledLabel from '../../styles/StyledLabel'
 
-export default ({ name }) => (
+export default ({ name, players }) => (
   <>
     <StyledLabel htmlFor={name}>Players *</StyledLabel>
-    <StyledField name={name}
-      component="textarea"
-      placeholder="e.g. Kim, Tom"
-      rows="3" />
-    <ErrorMessage name={name} component="div" />
+    <FieldArray 
+      name={name}
+      render={({remove, push}) => (
+        <>
+          {players.map((player, index) => (
+            <StyledContainer key={index}>
+              <StyledField name={`${name}.${index}.name`} />
+              <Icon type="delete" onClick={() => remove(index)} />
+            </StyledContainer>
+          ))}
+          <Icon type="add" onClick={() => push({name:''})}></Icon> 
+        </>
+      )}
+    />
+    
+    
   </>
 )
 
@@ -20,3 +33,20 @@ export const PlayersFieldValidator = Yup
   .string()
   .matches(/,/, `Please mention at least two players separated by comma.`)
   .required(`Required`)
+
+const StyledContainer = styled.div`
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  & span {
+    position: absolute;
+    right: 10px;
+  }
+
+  & input {
+    padding-right: 40px;
+  }
+`

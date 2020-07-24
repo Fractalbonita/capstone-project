@@ -49,7 +49,7 @@ export default function AddPlayForm() {
           })
       }}
     >
-      {({ isSubmitting, setFieldValue }) => isSubmitted
+      {({ isSubmitting, setFieldValue, values }) => isSubmitted
         ? <Redirect to="/log" />
         : (
         <StyledForm>
@@ -57,7 +57,7 @@ export default function AddPlayForm() {
             updateImageHandler={file => setFieldValue('playImage', file)} />
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
-          <PlayersField name="players" />
+          <PlayersField name="players" players={values.players}/>
           <PlayingTimeField name="playingTime" />
           <PlayStarRatingField name="playRating" />
           <PrimaryButton type="submit" disabled={isSubmitting}>Add Play</PrimaryButton>
