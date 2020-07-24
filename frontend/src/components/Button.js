@@ -9,7 +9,9 @@ export const PrimaryButton = styled.button`
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: bold;
+  letter-spacing: 0.1rem;
   padding: 14px 15px;
+  text-transform: uppercase;
   transition: all 0.2s ease-in-out;
   width: 90%;
 
