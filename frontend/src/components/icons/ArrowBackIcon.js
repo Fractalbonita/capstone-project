@@ -24,9 +24,9 @@ const StyledContainer = styled.div`
   display: flex;
   height: 36px;
   justify-content: center;
-  left: -140px;
-  position: relative;
-  top: 0;
+  left: calc(10px + 4vw);
+  position: absolute;
+  top: 20px;
   transition: all 0.2s ease-in-out;
   width: 36px;
   z-index: 100;

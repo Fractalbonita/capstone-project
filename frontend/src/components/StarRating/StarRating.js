@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Star from './icons/StarIcon'
+import Star from '../icons/StarIcon'
 
 export default ({ numberOfStars = 10, selectedStars, handleRating }) => (
   <div>
