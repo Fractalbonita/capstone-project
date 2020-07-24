@@ -38,7 +38,7 @@ export default function AddPlayForm() {
         playImage: '',
         gameTitle: '',
         playDate: '',
-        players: [],
+        players: [''],
         playingTime: '',
         playRating: ''
       }}
