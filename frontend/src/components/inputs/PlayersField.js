@@ -17,10 +17,10 @@ export default ({ name, players }) => (
           {players.map((player, index) => (
             <StyledContainer key={index}>
               <StyledField name={`${name}.${index}.name`} />
-              <Icon type="delete" onClick={() => remove(index)} />
+              <Icon type="clear" onClick={() => remove(index)} />
             </StyledContainer>
           ))}
-          <Icon type="add" onClick={() => push({name:''})}></Icon> 
+          <Icon type="add" onClick={() => push({name:''})} />
         </>
       )}
     />
@@ -42,11 +42,13 @@ const StyledContainer = styled.div`
   position: relative;
 
   & span {
+    color: var(--text-color-opaque);
     position: absolute;
     right: 10px;
   }
 
   & input {
+    margin: 10px 0;
     padding-right: 40px;
   }
 `
