@@ -1,18 +1,15 @@
 import React from 'react'
 import * as Yup from 'yup'
-import { FieldArray, getIn } from 'formik'
+import { FieldArray } from 'formik'
 import styled from 'styled-components'
 
-import AddPlayerIcon from '../icons/AddPlayerIcon'
 import ErrorMessage from '../../styles/StyledErrorMessage'
+import AddPlayerIcon from '../icons/AddPlayerIcon'
 import Icon from '../../utilities/Icon'
 import StyledField from '../../styles/StyledField'
 import StyledLabel from '../../styles/StyledLabel'
 
 export default ({ name, players }) => {  
-  const PlayerArrayErrors = errors =>
-    typeof errors.players === 'string' ? <div>{errors.players}</div> : null
-  
   return (
   <>
     <StyledLabel htmlFor={name}>Players *</StyledLabel>
@@ -21,37 +18,38 @@ export default ({ name, players }) => {
       render={({ remove, push }) => (
         <>
           {players.map((player, index) => (
+            <>
             <StyledContainer key={index}>
               <StyledField name={`${name}.${index}.name`}
+                  type="text" 
+                  placeholder="e.g. Kim"
               /> 
               {index > 0 && (
                 <Icon type="clear" onClick={() => remove(index)} />
               )}
             </StyledContainer>
+            <ErrorMessage name={`${name}.${index}.name`} component="div" />
+            </>
           ))}
           <AddPlayerIcon onClick={() => push({ name: '' })} />
         </>
       )}
     />
-    <ErrorMessage name={name} component="div" />
-
   </>
   )
 }
 
 export const PlayersFieldValidator = Yup
-    .array()
-    .of(
-      Yup.object().shape({
-        name: Yup
-          .string()
-          .required('Required')
-          .min(3, 'The name should be at least 3 characters.')
-          .max(20, 'The name should be less than 21 characters.'),
-      })
-    )
-    .required(`Required`)
-    .min(1, 'Please enter at least one player.')
+  .array()
+  .of(
+    Yup.object().shape({
+      name: Yup
+        .string()
+        .min(2, 'The name should be at least 2 characters.')
+        .max(21, 'The name should be maximum 20 characters.'),
+    })
+  )
+  .required('Required')
 
 const StyledContainer = styled.div`
   margin: 0;

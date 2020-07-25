@@ -10,7 +10,7 @@ border: none;
 border-radius: 20px;
 box-shadow: inset 5px 5px 10px var(--inner-shadow-dark), inset -8px -8px 20px var(--inner-shadow-light);
 color: var(--text-color-opaque);
-font-family: 'Karla', sans-serif;
+font-family: var(--body-font);
 font-size: 16px;
 font-weight: bold;
 outline: none;
