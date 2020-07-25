@@ -43,10 +43,10 @@ storiesOf('AddPlayForm', module)
       })
     }
   })
-  .add('PlayersField', () => <PlayersField name="players" />, {
+  .add('PlayersField', () => <PlayersField name="players" players={values.players} />, {
     formik: {
       initialValues: {
-        players: '',
+        players: [''],
       },
       validationSchema: Yup.object().shape({
         players: PlayersFieldValidator

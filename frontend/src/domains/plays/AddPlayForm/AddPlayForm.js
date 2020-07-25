@@ -61,7 +61,7 @@ export default function AddPlayForm() {
             updateImageHandler={file => setFieldValue('playImage', file)} />
           <GameTitleField name="gameTitle" />
           <PlayDateField name="playDate" />
-          <PlayersField name="players" players={values.players}/>
+          <PlayersField name="players" players={values.players} />
           <PlayingTimeField name="playingTime" />
           <PlayStarRatingField name="playRating" />
           <PrimaryButton type="submit" disabled={isSubmitting}>Add Play</PrimaryButton>
