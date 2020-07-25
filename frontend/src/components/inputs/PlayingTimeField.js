@@ -21,6 +21,6 @@ export const PlayingTimeFieldValidator = Yup
   .typeError('Please mind that only numbers are allowed.')
   .integer(`The playing time must be an integer number.`)
   .positive(`The playing time must be a positive number.`)
-  .max(720, `You played too many hours. The maximum is 720.`)
+  .max(720, `Congrats! You played so many hours. The maximum is 720.`)
   .nullable()
   .notRequired()
