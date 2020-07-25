@@ -25,7 +25,7 @@ transition: all 0.2s ease-in-out;
 &:-moz-focusring {
   box-shadow: inset 1px 1px 2px var(--inner-shadow-dark), inset -1px -1px 2px #fff;
   outline: none;
-}  
+}
 `
 
 export default StyledField
