@@ -4,7 +4,7 @@ const productSchema = new mongoose.Schema({
   imageURL: String,
   gameTitle: String,
   playDate: Date,
-  players: Array,
+  players: [{ name: String, fraction: String, score: Number, rank: Number }],
   playingTime: Number,
   playRating: Number,
 })
