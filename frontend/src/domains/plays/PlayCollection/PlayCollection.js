@@ -6,7 +6,7 @@ import Play from '../Play/Play'
 export default function PlayCollection({ plays }) {
   return (
   <>
-  <h1>Plays</h1>
+    <h1>Plays</h1>
     <StyledPlayCollection>
       {plays && plays.map((play) => (
         <Play play={play} key={play._id} />
@@ -19,5 +19,6 @@ export default function PlayCollection({ plays }) {
 const StyledPlayCollection = styled.ul`
   list-style: none;
   margin: 0;
+  margin-bottom: 50px;
   padding: 0;
 `

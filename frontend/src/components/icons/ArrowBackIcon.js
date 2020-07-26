@@ -3,19 +3,17 @@ import styled from 'styled-components'
 
 export default () => (
   <StyledContainer>
-    <StyledImageUploadIcon
+    <StyledArrow
       className="material-icons"
-      alt="Add a photo">
-        add_a_photo
-    </StyledImageUploadIcon>
+      alt="Back to plays">
+        arrow_back
+    </StyledArrow>
   </StyledContainer>
 )
 
-const StyledImageUploadIcon = styled.span`
+const StyledArrow = styled.span`
   color: var(--text-color);
-  left: 12px;
-  position: absolute;
-  top: 12px;
+  font-weight: 600;
 `
 
 const StyledContainer = styled.div`
@@ -24,13 +22,14 @@ const StyledContainer = styled.div`
   border-radius: 50%;
   box-shadow: -3px -3px 7px var(--inner-shadow-light-opaque), 3px 3px 7px var(--inner-shadow-dark-opaque);
   display: flex;
-  height: 48px;
+  height: 36px;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  left: -140px;
   position: relative;
+  top: 0;
   transition: all 0.2s ease-in-out;
-  width: 48px;
-  z-index: 100;                   
+  width: 36px;
+  z-index: 100;
 
   &:active {
     box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque), inset 1px 1px 2px var(--inner-shadow-dark-opaque);  }

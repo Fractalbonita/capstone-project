@@ -14,7 +14,7 @@ export default ({ isSelected = true, onClick }) => (
 const StyledStar = styled.span`
   font-size: 24px;
   letter-spacing: 0.2rem;
-  text-shadow: 2px 2px 3px var(--shadow);
+  text-shadow: 1px 1px 2px var(--shadow);
   
   &.star-highlighted {
     color: var(--primary);

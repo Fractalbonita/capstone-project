@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { apiBaseURL } from '../../../services/playsRestClient'
+import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import Star from '../../../components/icons/StarIcon'
 
 export default function Play({ play }) {
@@ -13,11 +14,11 @@ export default function Play({ play }) {
         <img src={apiBaseURL + play.imageURL} alt="No photo available" />
       </StyledImage>
       <StyledDescription>
-        <h4>{play.playDate}</h4>
+        <h4>{getLocaleDate(play.playDate)}</h4>
         <h3>{play.gameTitle}</h3>
       </StyledDescription>
       <StyledRating>
-        <Star isSelected={true} />
+        <Star isSelected={play.playRating} />
         <p>{play.playRating}</p>
       </StyledRating>
       </StyledLink>
@@ -28,10 +29,10 @@ export default function Play({ play }) {
 const StyledLink = styled(Link)`
   align-items: center;
   display: grid;
-  grid-template-columns: 90px 1fr auto;
   grid-auto-rows: minmax(120px, auto);
   grid-gap: 10px;
-  margin: 20px 0px;
+  grid-template-columns: 90px 1fr auto;
+  margin: 20px 0;
   text-decoration: none;
 `
 
@@ -63,7 +64,7 @@ const StyledDescription = styled.div`
   & h3, & h4 {
     margin: 0;
     padding: 5px 10px;
-    word-break: break-word;
+    word-break: normal;
   } 
 `
 
