@@ -1,13 +1,34 @@
 import React from 'react'
-import { BrowserRouter, Switch } from 'react-router-dom'
-import { fireEvent, getByText, getAllByText, render, wait } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
+import { BrowserRouter, Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+import { fireEvent, getByText, getAllByText, queryByText, render, screen, wait } from '@testing-library/react'
 
 import AddPlayForm from './AddPlayForm'
 
-describe('Form', () => {
+describe('AddPlayForm', () => {
+  test('should render ArrowBackIcon', async () => {
+    render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
+    expect(screen.getByText('arrow_back')).toBeInTheDocument()
+  })
+
+  test('should redirect to Plays page when button is clicked', async () => {
+    const history = createMemoryHistory()
+    history.push = jest.fn()
+    const { container } = render(<Router history={history}><AddPlayForm /></Router>)
+    expect(container.innerHTML).toMatch('Add a New Play to your Timeline')
+    fireEvent.click(screen.getByText('arrow_back'))
+    expect(history.push).toHaveBeenCalledWith('/log')
+  })
+
   test('should render heading', async () => {
-    const { queryByText } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
-    expect(queryByText('Add a New Play to your Timeline')).toBeTruthy()
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
+    expect(queryByText(container, 'Add a New Play to your Timeline')).toBeTruthy()
+  })
+
+  test('should render heading', async () => {
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
+    expect(queryByText(container, '* Required')).toBeTruthy()
   })
 
   test('should prohibit submit when no data is present', async () => {
