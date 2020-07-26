@@ -3,9 +3,7 @@ import styled from 'styled-components'
 
 export default () => (
   <StyledContainer>
-    <StyledImageUploadIcon
-      className="material-icons"
-      alt="Add a photo">
+    <StyledImageUploadIcon className="material-icons">
         add_a_photo
     </StyledImageUploadIcon>
   </StyledContainer>

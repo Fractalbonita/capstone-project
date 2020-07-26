@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default ({ isSelected = true, onClick }) => (
-    <StyledStar alt="Star" className={
+    <StyledStar className={
       isSelected
         ? "material-icons star-highlighted"
         : "material-icons star"

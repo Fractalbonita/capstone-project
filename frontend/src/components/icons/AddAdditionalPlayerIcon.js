@@ -5,7 +5,7 @@ export default ({ ...props }) => (
   <StyledContainer>
     <StyledAddAdditionalPlayerIcon
       className="material-icons-round"
-      alt="Add a player"
+      title="Add a player"
       {...props}>
         add
     </StyledAddAdditionalPlayerIcon>

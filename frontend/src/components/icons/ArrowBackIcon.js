@@ -5,7 +5,7 @@ export default () => (
   <StyledContainer>
     <StyledArrow
       className="material-icons"
-      alt="Back to plays">
+      title="Back to plays">
         arrow_back
     </StyledArrow>
   </StyledContainer>
