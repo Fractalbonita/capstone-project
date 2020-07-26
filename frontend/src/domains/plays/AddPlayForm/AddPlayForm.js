@@ -38,9 +38,12 @@ export default function AddPlayForm() {
         playImage: '',
         gameTitle: '',
         playDate: '',
-        players: [''],
+        players: [{name: ''}],
         playingTime: '',
         playRating: ''
+      }}
+      initialTouched={{
+        'players[0]name': true
       }}
       validateOnChange
       validationSchema={AddPlaySchema}

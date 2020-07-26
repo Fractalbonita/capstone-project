@@ -18,24 +18,33 @@ export default ({ name, players }) => {
       render={({ remove, push }) => (
         <>
           {players.map((player, index) => (
-            <>
-            <StyledContainer key={index}>
-              <StyledField name={`${name}.${index}.name`}
-                  type="text" 
-                  placeholder="e.g. Kim"
-              /> 
-              {index > 0 && (
-                <Icon type="clear" onClick={() => remove(index)} />
-              )}
-            </StyledContainer>
-            <ErrorMessage name={`${name}.${index}.name`} component="div" />
-            </>
+            <PlayerField key={index}
+              name={name}
+              index={index}
+              remove={remove}
+              enableDeletion={players.length > 1}
+            />
           ))}
           <AddPlayerIcon onClick={() => push({ name: '' })} />
         </>
       )}
-    />
+      />
   </>
+  )
+}
+
+function PlayerField({ name, index, remove, enableDeletion }) {
+  return (
+    <div id={`${name}-${index}-name`} style={{ width: '100%' }}>
+      <StyledContainer>
+        <StyledField name={`${name}.${index}.name`}
+          type="text" 
+          placeholder="e.g. Kim"
+        /> 
+        {enableDeletion && <Icon type="clear" onClick={() => remove(index)} />}
+      </StyledContainer>
+      <ErrorMessage name={`${name}.${index}.name`} component="div" />
+    </div>
   )
 }
 
@@ -45,11 +54,11 @@ export const PlayersFieldValidator = Yup
     Yup.object().shape({
       name: Yup
         .string()
+        .ensure()
+        .required('Required')
         .min(2, 'The name should be at least 2 characters.')
-        .max(21, 'The name should be maximum 20 characters.'),
-    })
-  )
-  .required('Required')
+        .max(20, 'The name should be maximum 20 characters.'),
+    }))
 
 const StyledContainer = styled.div`
   margin: 0;
