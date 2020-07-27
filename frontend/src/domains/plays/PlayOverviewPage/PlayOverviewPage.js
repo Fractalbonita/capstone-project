@@ -22,15 +22,15 @@ export default function PlayOverviewPage() {
         <ArrowBackIcon />
       </StyledLink>
       <h1>{play.gameTitle}</h1>
-      <div style={{display: 'flex', 'align-items': 'center', padding: '.5em 0 1.5em', 'justify-content': 'space-between'}}>
-        <h2 style={{margin: 0, width: 'auto'}}>Details</h2>
+      <StyledHeading>
+        <h2>Details</h2>
         <EditIcon />
-      </div>
+      </StyledHeading>
       <PlayDetails play={play} />
-      <div style={{display: 'flex', 'align-items': 'center', padding: '.5em 0 1.5em', 'justify-content': 'space-between'}}>
-        <h2 style={{margin: 0, width: 'auto'}}>Ranking</h2>
+      <StyledHeading>
+        <h2>Ranking</h2>
         <EditIcon />
-      </div>
+      </StyledHeading>
       <PlayRanking play={play}/>
     </>
   )
@@ -38,4 +38,16 @@ export default function PlayOverviewPage() {
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+`
+
+const StyledHeading = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 0 1.5em;
+
+  & h2 {
+    margin: 0;
+    width: auto;
+  }
 `
