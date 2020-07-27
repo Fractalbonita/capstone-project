@@ -7,6 +7,6 @@ export default {
   component: PlayDetails,
 }
 
-export const playDetails = () => <PlayDetails />
+export const playDetails = () => <PlayDetails play={play} />
 
 

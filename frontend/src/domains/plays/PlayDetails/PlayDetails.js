@@ -1,74 +1,52 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React from 'react'
 import styled from 'styled-components'
 
-import { apiBaseURL, fetchPlayDetails } from '../../../services/playsRestClient'
+import { apiBaseURL } from '../../../services/playsRestClient'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
-import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import Icon from '../../../utilities/Icon' 
-import PlayRanking from '../../../components/PlayRanking/PlayRanking'
 import Star from '../../../components/icons/StarIcon'
 
-export default function PlayDetails() {
-  const params = useParams()
-  const [play, setPlay] = useState({ players: [] })
-
-  useEffect(() => {
-    fetchPlayDetails(params.id).then(setPlay)
-  }, [])
-
-  return (
-    <>
-      <StyledLink to="/log">
-        <ArrowBackIcon />
-      </StyledLink>
-      <h1>{play.gameTitle}</h1>
-      <h2>Details</h2>
-      <StyledPlay>
-        <StyledImage>
-          <img src={apiBaseURL + play.imageURL} alt="No photo available" />
-        </StyledImage>
-        <h4>{getLocaleDate(play.playDate)}</h4>
-        <StyledOverview>
-          <StyledContainer>
-            <Icon type="group" alt="" />
-            <StyledCaption>Players</StyledCaption>
-            <p>{play.players.length}</p>
-          </StyledContainer>
-          <StyledContainer>
-            <Icon type="access_time" alt="" />
-            <StyledCaption>Playing time (min)</StyledCaption>
-            <p>{play.playingTime != null ? play.playingTime : '-/-' }</p>
-          </StyledContainer>
-          <StyledContainer>
-            <Star isSelected={true} />
-            <StyledCaption>Rating</StyledCaption>
-            <p>{play.playRating != null ? play.playRating : '-/-'}</p>
-          </StyledContainer>
-        </StyledOverview>
-      </StyledPlay>
-      <PlayRanking play={play}/>
-    </>
-  )
-}
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`
+export default ({ play } ) => (
+  <>
+    <StyledPlay>
+      <StyledImage>
+        {play.imageURL ? <img src={apiBaseURL + play.imageURL} alt="Play photo" /> : <p>No photo available</p>}
+      </StyledImage>
+      <h4>{getLocaleDate(play.playDate)}</h4>
+      <StyledSummary>
+        <StyledContainer>
+          <Icon type="group" alt="" />
+          <StyledCaption>Players</StyledCaption>
+          <p>{play.players.length}</p>
+        </StyledContainer>
+        <StyledContainer>
+          <Icon type="access_time" alt="" />
+          <StyledCaption>Playing time (min)</StyledCaption>
+          <p>{play.playingTime != null ? play.playingTime : '-/-' }</p>
+        </StyledContainer>
+        <StyledContainer>
+          <Star isSelected={true} />
+          <StyledCaption>Rating</StyledCaption>
+          <p>{play.playRating != null ? play.playRating : '-/-'}</p>
+        </StyledContainer>
+      </StyledSummary>
+    </StyledPlay>
+  </>
+)
 
 const StyledPlay = styled.div`
-  margin: 0;
-  padding: 0;
-
   & h4, & p {
     text-align: center;
   }
 `
 
 const StyledImage = styled.div`
+  align-items: center;
   background: var(--inner-shadow-dark);
+  display: flex;
   height: 188px;
-  margin-top: 25px;
+  justify-content: center;
+  margin: calc(25px - 1em) auto 0;
   width: 300px;
 
   & img {
@@ -79,14 +57,21 @@ const StyledImage = styled.div`
     font-size: 12px;
     height: 188px;
     justify-content: center;
-    margin: 0;
     object-fit: cover;
     text-align: center;
     width: 300px;
   }
+
+  & p {
+    color: var(--text-color);
+    font-family: var(--caption-font);
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
 ` 
 
-const StyledOverview = styled.div`
+const StyledSummary = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr;
