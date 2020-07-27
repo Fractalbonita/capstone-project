@@ -24,7 +24,7 @@ const StyledContainer = styled.div`
   display: flex;
   height: 48px;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin: 0 auto 0.5rem;
   position: relative;
   transition: all 0.2s ease-in-out;
   width: 48px;

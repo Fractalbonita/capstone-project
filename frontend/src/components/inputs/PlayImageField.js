@@ -69,8 +69,7 @@ export const PlayImageFieldValidator = Yup
     file => !file || file.type === 'image/jpeg')
 
 const StyledImage = styled.img`
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin: 1rem auto;
   max-width: 50%;
 `
 
