@@ -13,8 +13,8 @@ export default ( { play }) => (
         </tr>
       </thead>
       <tbody>
-        {play.players && play.players.map((player) => (
-          <tr key={play._id + player.name}>
+        {play.players && play.players.map((player, index) => (
+          <tr key={index}>
             <td>{player.name}</td>
             <td>{player.fraction != null ? player.fraction : '-/-'}</td>
             <td className="number">{player.score != null ? player.score : '-/-'}</td>
