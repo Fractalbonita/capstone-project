@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { PrimaryButton } from '../../../components/Button'
-import { uploadImage, uploadGameData } from '../../../services/playsRestClient'
+import { uploadImage, uploadGameData } from '../../../services/playsClient'
 
 import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import GameTitleField, { GameTitleFieldValidator } from '../../../components/inputs/GameTitleField'

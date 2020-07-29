@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { fetchPlayDetails } from '../../../services/playsRestClient'
+import { fetchPlayDetails } from '../../../services/playsClient'
 import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import EditIcon from '../../../components/icons/EditIcon'
 import PlayRanking from '../PlayRanking/PlayRanking'
