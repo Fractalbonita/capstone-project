@@ -89,6 +89,7 @@ describe('PLayRanking', () => {
     expectedOutput.forEach(([rank, output], index) => {
       const rankCell = container
         .querySelector(`tbody tr:nth-of-type(${index + 1}) td:nth-child(4)`)
-      expect(rankCell.textContent).toBe(output)    })
+        expect(rankCell.textContent).toBe(output)
+    })
   })
 })
