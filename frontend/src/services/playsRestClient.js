@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const API_PORT = ':3001'
 
-export const apiBaseURL = `${window.location.protocol}//${window.location.hostname}${API_PORT}`
+const apiBaseURL = `${window.location.protocol}//${window.location.hostname}${API_PORT}`
 
 export function uploadImage(imageFile) {
   if (!imageFile) {
@@ -48,4 +48,8 @@ export function fetchPlayDetails(id) {
     .get(`${apiBaseURL}/plays/${id}`)
     .then(response => response.data)
     .catch(error => console.log(error))
+}
+
+export function imageOf(play) {
+  return apiBaseURL + play.imageURL
 }
