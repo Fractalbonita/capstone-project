@@ -13,12 +13,12 @@ describe('PlayingTimeField', () => {
 
   test('should render the input field of type text', () => {
     const { container } = render(<Formik><PlayingTimeField name={name} /></Formik>)
-    expect(getByLabelText(container, 'Playing Time (min)', container).tagName).toBe('INPUT')
+    expect(getByLabelText(container, 'Playing Time (min)').tagName).toBe('INPUT')
     expect(getByRole(container, 'textbox')).toBeInTheDocument()
   })
 
   test('should render the placeholder "e.g. 30"', () => {
     const { container } = render(<Formik><PlayingTimeField name={name} /></Formik>)
-    expect(getByPlaceholderText(container, 'e.g. 30'))
+    expect(getByPlaceholderText(container, 'e.g. 30')).toBeInTheDocument()
   })
 })

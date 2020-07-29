@@ -13,6 +13,6 @@ describe('PlayDateField', () => {
 
   test('should render the input field of type text', () => {
     const { container } = render(<Formik><PlayDateField name={name} /></Formik>)
-    expect(getByLabelText(container, 'Date *', container).tagName).toBe('INPUT')
+    expect(getByLabelText(container, 'Date *').tagName).toBe('INPUT')
   })
 })
