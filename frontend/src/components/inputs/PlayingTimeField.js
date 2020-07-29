@@ -9,6 +9,7 @@ export default ({ name }) => (
   <>
     <StyledLabel htmlFor={name}>Playing Time (min)</StyledLabel>
     <StyledField name={name}
+      id={name}
       inputMode="numeric"
       pattern="[0-9]*"
       placeholder="e.g. 30" />
