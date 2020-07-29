@@ -15,7 +15,6 @@ describe('GameTitleField', () => {
     const { container } = render(<Formik><GameTitleField name={name} /></Formik>)
     expect(getByLabelText(container, 'Game Title *', container).tagName).toBe('INPUT')
     expect(getByRole(container, 'textbox')).toBeInTheDocument()
-
   })
 
   test('should render the placeholder "e.g. Terra Mystica"', () => {

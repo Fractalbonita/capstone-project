@@ -2,8 +2,8 @@ import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { getByLabelText, render } from '@testing-library/react'
 import { Formik } from 'formik'
-import PlayDateField from './PlayDateField'
 
+import PlayDateField from './PlayDateField'
 
 describe('PlayDateField', () => {
   test('should render the label "Date *"', () => {
