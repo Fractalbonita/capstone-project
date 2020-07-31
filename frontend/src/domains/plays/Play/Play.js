@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { apiBaseURL } from '../../../services/playsRestClient'
+import { imageOf } from '../../../services/playsClient'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import Star from '../../../components/icons/StarIcon'
 
@@ -11,7 +11,7 @@ export default function Play({ play }) {
     <li>
      <StyledLink to={`/log/${play._id}`} >
         <StyledImage>
-          {play.imageURL ? <img src={apiBaseURL + play.imageURL} alt="Play photo" /> : <p>No photo available</p>}
+          {play.imageURL ? <img src={imageOf(play)} alt="Play photo" /> : <p>No photo available</p>}
         </StyledImage>
       <StyledDescription>
         <h4>{getLocaleDate(play.playDate)}</h4>
