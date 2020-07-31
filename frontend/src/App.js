@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 import AddPlayForm from './domains/plays/AddPlayForm/AddPlayForm'
 import PlayTimelinePage from './domains/plays/PlayTimelinePage/PlayTimelinePage'
@@ -11,7 +11,8 @@ function App() {
       <Switch>
         <Route exact path="/log" component={PlayTimelinePage} />
         <Route exact path="/log/addplay" component={AddPlayForm} />
-        <Route path="/log/:id" component={PlayOverviewPage} />  
+        <Route path="/log/:id" component={PlayOverviewPage} />
+        <Redirect to="/log" />
       </Switch>
     </div>
   )
