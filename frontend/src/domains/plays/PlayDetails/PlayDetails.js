@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { apiBaseURL } from '../../../services/playsRestClient'
+import { imageOf } from '../../../services/playsClient'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import Icon from '../../../utilities/Icon' 
 import Star from '../../../components/icons/StarIcon'
@@ -10,7 +10,7 @@ export default ({ play } ) => (
   <>
     <StyledPlay>
       <StyledImage>
-        {play.imageURL ? <img src={apiBaseURL + play.imageURL} alt="Play photo" /> : <p>No photo available</p>}
+        {play.imageURL ? <img src={imageOf(play)} alt="Play photo" /> : <p>No photo available</p>}
       </StyledImage>
       <h4>{getLocaleDate(play.playDate)}</h4>
       <StyledSummary>
@@ -46,7 +46,7 @@ const StyledImage = styled.div`
   display: flex;
   height: 188px;
   justify-content: center;
-  margin: calc(25px - 1em) auto 0;
+  margin: calc(25px + 0.2rem) auto;
   width: 300px;
 
   & img {
