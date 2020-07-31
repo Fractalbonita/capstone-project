@@ -9,17 +9,18 @@ export default ( { play }) => (
           <tr>
             <th>Player</th>
             <th>Fraction</th>
-            <th>Rank</th>
             <th>Score</th>
+            <th>Rank</th>
           </tr>
         </thead>
       <tbody>
         {play.players && play.players.map((player) => (
-          <tr key={play._id}>
+          <tr key={play._id + player.name}>
             <td>{player.name}</td>
             <td>{player.fraction != null ? player.fraction : '-/-'}</td>
-            <td className="number">{player.rank != null ? player.rank : '-/-'}</td>
             <td className="number">{player.score != null ? player.score : '-/-'}</td>
+            <td className="number">{player.rank != null ? player.rank : '-/-'}</td>
+            
           </tr>
           ))}
         </tbody>
@@ -40,7 +41,12 @@ const StyledTable = styled.table`
     padding: 10px;
   }
 
+  & th {
+    padding-bottom: 10px;
+  }
+
   & td {
+    padding: 5px;
     vertical-align: top;
     word-break: normal;
 

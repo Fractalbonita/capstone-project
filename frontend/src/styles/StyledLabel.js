@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const StyledLabel = styled.label`
 color: var(--text-color);
-font-family: 'Lato', sans-serif;
+font-family: var(--overline-font);
 font-size: 14px;
 font-weight: bold;
 margin-bottom: 0.5rem;

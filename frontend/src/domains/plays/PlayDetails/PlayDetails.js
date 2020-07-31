@@ -38,12 +38,12 @@ export default function PlayDetails() {
           <StyledContainer>
             <Icon type="access_time" alt="" />
             <StyledCaption>Playing time (min)</StyledCaption>
-            <p>{play.playingTime}</p>
+            <p>{play.playingTime != null ? play.playingTime : '-/-' }</p>
           </StyledContainer>
           <StyledContainer>
             <Star isSelected={true} />
             <StyledCaption>Rating</StyledCaption>
-            <p>{play.playRating}</p>
+            <p>{play.playRating != null ? play.playRating : '-/-'}</p>
           </StyledContainer>
         </StyledOverview>
       </StyledPlay>

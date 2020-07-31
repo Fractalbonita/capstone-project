@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Field } from 'formik'
 import StyledLabel from '../../styles/StyledLabel'
-import StarRating from '../StarRating'
+import StarRating from '../StarRating/StarRating'
 
 export default ({ name }) => (
   <>

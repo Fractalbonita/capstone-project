@@ -79,13 +79,3 @@ const StyledHiddenFileInput = styled.input`
   position: absolute;
   top: -1000%;
 `
-/*
-const StyledClearIcon = styled.span`
-  color: var(--text-decoration-color);
-  font-size: 24px;
-  font-weight: bold;
-  left: 6px;
-  position: relative;
-  top: 6px;
-`
-*/

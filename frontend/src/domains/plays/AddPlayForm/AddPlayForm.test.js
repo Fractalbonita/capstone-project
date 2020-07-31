@@ -1,19 +1,46 @@
 import React from 'react'
-import { render, fireEvent, wait, getByText, getAllByText } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
+import { BrowserRouter, Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+import { fireEvent, getByText, getAllByText, queryByText, render, screen, wait } from '@testing-library/react'
 
-import App from '../../../App'
+import AddPlayForm from './AddPlayForm'
 
-describe('Form', () => {
+describe('AddPlayForm', () => {
+  test('should render ArrowBackIcon', async () => {
+    render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
+    expect(screen.getByText('arrow_back')).toBeInTheDocument()
+  })
+
+  test('should redirect to Plays page when button is clicked', async () => {
+    const history = createMemoryHistory()
+    history.push = jest.fn()
+    const { container } = render(<Router history={history}><AddPlayForm /></Router>)
+    expect(container.innerHTML).toMatch('Add a New Play to your Timeline')
+    fireEvent.click(screen.getByText('arrow_back'))
+    expect(history.push).toHaveBeenCalledWith('/log')
+  })
+
+  test('should render heading', async () => {
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
+    expect(queryByText(container, 'Add a New Play to your Timeline')).toBeTruthy()
+  })
+
+  test('should render heading', async () => {
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
+    expect(queryByText(container, '* Required')).toBeTruthy()
+  })
+
   test('should prohibit submit when no data is present', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
     await wait(() => {
       fireEvent.click(container.querySelector('button[type="submit"]'))
     })
-    expect(getAllByText(container, 'Required').length).toBe(4) 
+    expect(getAllByText(container, 'Required').length).toBe(3) 
   })
 
   test('should prohibit submit when uploaded file is not of type JPEG', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
     await wait(() => {
       fireEvent.change(container.querySelector('[name=playImage]'), {
         target: {
@@ -28,7 +55,7 @@ describe('Form', () => {
   })
 
   test('should prohibit submit when game title is too long', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
     await wait(() => {
       fireEvent.change(container.querySelector('[name=gameTitle]'), {
         target: {
@@ -42,23 +69,46 @@ describe('Form', () => {
     expect(getByText(container, 'The title of the game is too long.')).toBeTruthy()
   })
 
-  test('should prohibit submit when players are not separated by comma', async () => {
-    const { container } = render(<App />)
+  test('should prohibit submit when no player is entered', async () => {
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=players]'), {
+      fireEvent.click(container.querySelector('button[type="submit"]'))
+    })
+    expect(getByText(container.querySelector('[id="players-0-name"]'), 'Required')).toBeTruthy()
+  })
+
+  test('should prohibit submit when the name of the player is too short', async () => {
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
+    await wait(() => {
+      fireEvent.change(container.querySelector('[name="players.0.name"]'), {
         target: {
-          value: 'Max Tom Linus'
+          value: 'a'
         }
       })
     })
     await wait(() => {
       fireEvent.click(container.querySelector('button[type="submit"]'))
     })
-    expect(getByText(container, 'Please mention at least two players separated by comma.')).toBeTruthy()
+    expect(getByText(container, 'The name should be at least 2 characters.')).toBeTruthy()
+  })
+
+  test('should prohibit submit when the name of the player is too long', async () => {
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
+    await wait(() => {
+      fireEvent.change(container.querySelector('[name="players.0.name"]'), {
+        target: {
+          value: 'a'.repeat(21)
+        }
+      })
+    })
+    await wait(() => {
+      fireEvent.click(container.querySelector('button[type="submit"]'))
+    })
+    expect(getByText(container, 'The name should be maximum 20 characters.')).toBeTruthy()
   })
 
   test('should prohibit submit when playing time is written with alphabetic characters', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
     await wait(() => {
       fireEvent.change(container.querySelector('[name=playingTime]'), {
         target: {
@@ -73,7 +123,7 @@ describe('Form', () => {
   })
 
   test('should prohibit submit when playing time is a floating number', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
     await wait(() => {
       fireEvent.change(container.querySelector('[name=playingTime]'), {
         target: {
@@ -88,7 +138,7 @@ describe('Form', () => {
   })
 
   test('should prohibit submit when playing time is a negative number', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
     await wait(() => {
       fireEvent.change(container.querySelector('[name=playingTime]'), {
         target: {
@@ -103,7 +153,7 @@ describe('Form', () => {
   })
 
   test('should prohibit submit when playing time is a negative number', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
     await wait(() => {
       fireEvent.change(container.querySelector('[name=playingTime]'), {
         target: {
@@ -114,16 +164,16 @@ describe('Form', () => {
     await wait(() => {
       fireEvent.click(container.querySelector('button[type="submit"]'))
     })
-    expect(getByText(container, 'You played too many hours. The maximum is 720.')).toBeTruthy()
+    expect(getByText(container, 'Congrats! You played so many hours. The maximum is 720.')).toBeTruthy()
   })
 
   test('should submit correct values', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<BrowserRouter><AddPlayForm /></BrowserRouter>)
 
     const insertPlayImage = '.jpg'
     const insertGameTitle = 'Die Siedler von Catan'
     const insertPlayDate = '1989-02-20'
-    const insertPlayers = 'Mia, Lene'
+    const insertPlayers = 'Mia'
     const insertPlayTime = '50'
     const insertPlayRating = '3'
 
@@ -160,7 +210,7 @@ describe('Form', () => {
     })
   
     await wait(() => {
-      fireEvent.change(container.querySelector('textarea'), {
+      fireEvent.change(container.querySelector('[name="players.0.name"]'), {
         target: {
           value: insertPlayers
         }
@@ -176,26 +226,11 @@ describe('Form', () => {
     })
 
     await wait(() => {
-      fireEvent.change(container.querySelector('input[name="playRating"]'), {
-        target: {
-          value: insertPlayRating
-        }
-      })
+      fireEvent.click(container.querySelector(`.material-icons.star:nth-of-type(${insertPlayRating})`))
     })
 
     await wait(() => {
       fireEvent.click(container.querySelector('button[type="submit"]'))
     })
-
-    const insertedPlays = container.querySelectorAll("ul li");
-    expect(insertedPlays.length).toBe(1)
-
-    const insertedPlayValues = insertedPlays[0].querySelectorAll("p")
-    expect(insertedPlayValues[0].textContent).toBe(insertPlayImage)
-    expect(insertedPlayValues[1].textContent).toBe(insertGameTitle)
-    expect(insertedPlayValues[2].textContent).toBe(insertPlayDate)
-    expect(insertedPlayValues[3].textContent).toBe(insertPlayers)
-    expect(insertedPlayValues[4].textContent).toBe(insertPlayTime)
-    expect(insertedPlayValues[5].textContent).toBe(insertPlayRating)
   })
 })

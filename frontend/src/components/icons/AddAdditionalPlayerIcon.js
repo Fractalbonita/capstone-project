@@ -1,19 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default () => (
+export default ({ ...props }) => (
   <StyledContainer>
-    <StyledArrow
-      className="material-icons"
-      alt="Back to plays">
-        arrow_back
-    </StyledArrow>
+    <StyledAddAdditionalPlayerIcon
+      className="material-icons-round"
+      alt="Add a player"
+      {...props}>
+        add
+    </StyledAddAdditionalPlayerIcon>
   </StyledContainer>
 )
 
-const StyledArrow = styled.span`
+const StyledAddAdditionalPlayerIcon = styled.span`
   color: var(--text-color);
-  font-weight: 600;
+  font-weight: 900;
 `
 
 const StyledContainer = styled.div`
@@ -24,9 +25,8 @@ const StyledContainer = styled.div`
   display: flex;
   height: 36px;
   justify-content: center;
-  left: calc(10px + 4vw);
-  position: absolute;
-  top: 20px;
+  margin: 0.3rem;
+  position: relative;
   transition: all 0.2s ease-in-out;
   width: 36px;
   z-index: 100;
