@@ -8,10 +8,8 @@ export function uploadImage(imageFile) {
   if (!imageFile) {
     return Promise.resolve('')
   }
-
   const formData = new FormData()
   formData.append('image', imageFile)
-
   return axios.post(`${apiBaseURL}/upload`, formData, {
     headers: { 
       "Content-Type": 'multipart/form-data'
@@ -29,7 +27,6 @@ export function uploadGameData(values, imageURL) {
     playingTime: values.playingTime,
     playRating: values.playRating,
   }
-  
   return axios
     .post(`${apiBaseURL}/plays`, savedPlayValues)
     .then(response => response.data)
@@ -54,7 +51,9 @@ export function imageOf(play) {
   return apiBaseURL + play.imageURL
 }
 
-export function updatePlay(play) {
-  console.log(play)
-  return play
+export function updatePlay(updatedPlay) {
+  return axios 
+    .put(`${apiBaseURL}/plays/${updatedPlay._id}`, updatedPlay)
+    .then(response => response.data)
+    .catch(error => console.log(error))
 }

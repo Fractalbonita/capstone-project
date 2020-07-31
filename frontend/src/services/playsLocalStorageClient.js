@@ -19,7 +19,7 @@ export function uploadImage(imageFile) {
 
 export function uploadGameData(values, imageURL) {
   const savedPlayValues = {
-    id: uuid(),
+    _id: uuid(),
     imageURL: imageURL,
     gameTitle: values.gameTitle,
     playDate: values.playDate,
@@ -27,20 +27,20 @@ export function uploadGameData(values, imageURL) {
     playingTime: values.playingTime,
     playRating: values.playRating,
   }
-  const play = JSON.parse(localStorage.getItem(key) || '[]')
-  play.push(savedPlayValues)
-  localStorage.setItem(key, JSON.stringify(play))
+  const plays = JSON.parse(localStorage.getItem(key) || '[]')
+  plays.push(savedPlayValues)
+  localStorage.setItem(key, JSON.stringify(plays))
   return Promise.resolve(savedPlayValues)
 }
 
 export function fetchPlays() {
-  const db = JSON.parse(localStorage.getItem(key) || '[]')
-  return Promise.resolve(db)
+  const plays = JSON.parse(localStorage.getItem(key) || '[]')
+  return Promise.resolve(plays)
 }
 
 export function fetchPlayDetails(id) {
   return fetchPlays().then(plays => {
-    const play = plays.find(item => item.id === id)
+    const play = plays.find(item => item._id === id)
     if (!play) {
       throw new Error('Invalid playId')
     }
@@ -54,7 +54,7 @@ export function imageOf(play) {
 
 export function updatePlay(updatedPlay) {
   return fetchPlays().then(plays => {
-    const index = plays.findIndex(play => play.id === updatedPlay.id)
+    const index = plays.findIndex(play => play._id === updatedPlay._id)
     if (index < 0) {
       throw new Error('The requested play does not exist.')
     }
