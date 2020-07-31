@@ -53,3 +53,8 @@ export function fetchPlayDetails(id) {
 export function imageOf(play) {
   return apiBaseURL + play.imageURL
 }
+
+export function updatePlay(play) {
+  console.log(play)
+  return play
+}

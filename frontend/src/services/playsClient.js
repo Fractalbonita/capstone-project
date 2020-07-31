@@ -1,3 +1,3 @@
-// export { uploadImage, uploadGameData, fetchPlays, fetchPlayDetails, imageOf } from './playsLocalStorageClient'
+export { uploadImage, uploadGameData, fetchPlays, fetchPlayDetails, imageOf, updatePlay } from './playsLocalStorageClient'
 
-export { uploadImage, uploadGameData, fetchPlays, fetchPlayDetails, imageOf } from './playsRestClient'
+// export { uploadImage, uploadGameData, fetchPlays, fetchPlayDetails, imageOf, updatePlay } from './playsRestClient'

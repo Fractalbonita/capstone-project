@@ -49,3 +49,16 @@ export function fetchPlayDetails(id) {
 export function imageOf(play) {
   return localStorage.getItem(play.imageURL)
 }
+
+export function updatePlay(play) {
+  return fetchPlays().then(plays => {
+    const index = plays.findIndex(x => x._id == play._id)
+    if (index < 0) {
+      throw new Error('Ups this play not exists')
+    }
+    plays[index] = play;
+    const key = 'gameData'
+    localStorage.setItem(key, JSON.stringify(plays))
+    return play
+  })
+}
