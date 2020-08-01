@@ -40,7 +40,7 @@ export default function AddPlayForm() {
           playImage: '',
           gameTitle: '',
           playDate: '',
-          players: [{ name: '', fraction: '', score: '', rank: '' }],
+          players: [{ name: '' }],
           playingTime: '',
           playRating: ''
         }}
@@ -51,7 +51,7 @@ export default function AddPlayForm() {
         validationSchema={AddPlaySchema}
         onSubmit={(values, { setSubmitting }) => {
           uploadImage(values.playImage)
-            .then(imageURL => uploadGameData(values, imageURL))
+            .then(imageURL => uploadGameData({ ...values, imageURL }))
             .then(play => id = play._id)
             .finally(() => {
               isSubmitted = true

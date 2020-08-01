@@ -18,15 +18,8 @@ export function uploadImage(imageFile) {
   .then(response => response.data)
 }
 
-export function uploadGameData(values, imageURL) {
-  const savedPlayValues = {
-    imageURL: imageURL,
-    gameTitle: values.gameTitle,
-    playDate: values.playDate,
-    players: values.players,
-    playingTime: values.playingTime,
-    playRating: values.playRating,
-  }
+export function uploadGameData(values) {
+  const savedPlayValues = { ...values } 
   return axios
     .post(`${apiBaseURL}/plays`, savedPlayValues)
     .then(response => response.data)

@@ -17,16 +17,8 @@ export function uploadImage(imageFile) {
   })
 }
 
-export function uploadGameData(values, imageURL) {
-  const savedPlayValues = {
-    _id: uuid(),
-    imageURL: imageURL,
-    gameTitle: values.gameTitle,
-    playDate: values.playDate,
-    players: values.players,
-    playingTime: values.playingTime,
-    playRating: values.playRating,
-  }
+export function uploadGameData(values) {
+  const savedPlayValues = { ...values, _id: uuid() }
   const plays = JSON.parse(localStorage.getItem(key) || '[]')
   plays.push(savedPlayValues)
   localStorage.setItem(key, JSON.stringify(plays))
