@@ -7,37 +7,37 @@ import Icon from '../../../utilities/Icon'
 import Star from '../../../components/icons/StarIcon'
 
 export default ({ play }) => (
-    <StyledPlay>
-      <StyledImage>
-        {play.imageURL 
-          ? <img src={imageOf(play)} alt="Your board game session." /> 
-          : <p>No photo available</p>}
-      </StyledImage>
-      <h4>{getLocaleDate(play.playDate)}</h4>
-      <StyledSummary>
-        <StyledContainer>
-          <Icon type="group" alt="" />
-          <StyledCaption>Players</StyledCaption>
-          <p>{play.players.length}</p>
-        </StyledContainer>
-        <StyledContainer>
-          <Icon type="access_time" alt="" />
-          <StyledCaption>Playing time (min)</StyledCaption>
-          <p>{play.playingTime !== (null || '')
-            ? play.playingTime
-            : '-/-'}
-          </p>
-        </StyledContainer>
-        <StyledContainer>
-          <Star isSelected={true} />
-          <StyledCaption>Rating</StyledCaption>
-          <p>{play.playRating !== (null || '')
-            ? play.playRating
-            : '-/-'}
-          </p>
-        </StyledContainer>
-      </StyledSummary>
-    </StyledPlay>
+  <StyledPlay>
+    <StyledImage>
+      {play.imageURL 
+        ? <img src={imageOf(play)} alt="Your board game session." /> 
+        : <p>No photo available</p>}
+    </StyledImage>
+    <h4>{getLocaleDate(play.playDate)}</h4>
+    <StyledSummary>
+      <StyledContainer>
+        <Icon type="group" alt="" />
+        <StyledCaption>Players</StyledCaption>
+        <p>{play.players.length}</p>
+      </StyledContainer>
+      <StyledContainer>
+        <Icon type="access_time" alt="" />
+        <StyledCaption>Playing time (min)</StyledCaption>
+        <p>{play.playingTime !== (null || '')
+          ? play.playingTime
+          : '-/-'}
+        </p>
+      </StyledContainer>
+      <StyledContainer>
+        <Star isSelected={true} />
+        <StyledCaption>Rating</StyledCaption>
+        <p>{play.playRating !== (null || '')
+          ? play.playRating
+          : '-/-'}
+        </p>
+      </StyledContainer>
+    </StyledSummary>
+  </StyledPlay>
 )
 
 const StyledPlay = styled.div`
