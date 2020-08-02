@@ -1,50 +1,81 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 
-export default ( { play }) => (
-  <>
-    <StyledTable>
-      <thead>
-        <tr>
-          <th>Player</th>
-          <th>Fraction</th>
-          <th>Score</th>
-          <th>Rank</th>
-        </tr>
-      </thead>
-      <tbody>
-        {play.players && play.players.map((player, index) => (
-          <tr key={index}>
-            <td>{player.name}</td>
-            <td>{player.fraction != null ? player.fraction : '-/-'}</td>
-            <td className="number">{player.score != null ? player.score : '-/-'}</td>
-            <td className="number">{player.rank != null ? player.rank : '-/-'}</td>
+import PlayerEditRow from '../PlayerEditRow/PlayerEditRow'
+import PlayerRow from '../PlayerRow/PlayerRow'
+
+export default ({ play, isEditing, onChange }) => {
+  return (
+    <>
+      <StyledTable>
+        <colgroup>
+          <col/>
+          <col/>
+          <col/>
+          <col/>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Fraction</th>
+            <th>Score</th>
+            <th>Rank</th>
           </tr>
+        </thead>
+        <tbody>
+          {play.players && play.players.map((player, index) => (
+            isEditing
+              ? <PlayerEditRow
+                  key={index}
+                  player={player}
+                  onChange={item => {
+                    const players = [...play.players]
+                    players[index] = item
+                    onChange({ ...play, players })
+                  }}
+                />
+              : <PlayerRow 
+                  key={index}
+                  player={player} />
         ))}
-      </tbody>
-    </StyledTable>
-  </>
-)
+        </tbody>
+      </StyledTable>
+    </>
+  )
+}
 
 const StyledTable = styled.table`
   font-family: var(--body-font);
   font-size: 16px;
-  margin-bottom: 1rem;
   text-align: left;
   width: 100%;
 
-  & thead {
+  colgroup {
+    col:nth-child(1) {
+      width: 10ch;
+    }
+
+    col:nth-child(3) {
+      width: 6ch;
+    }
+
+    col:nth-child(4) {
+      width: 6ch;
+    }
+  }
+
+  thead {
     color: var(--primary);
     font-weight: bold;
     padding: 10px;
   }
 
-  & th {
+  th {
     padding-bottom: 10px;
   }
 
-  & td {
-    padding: 5px;
+  td {
+    padding: 0 5px 10px 0;
     vertical-align: top;
     word-break: normal;
 
