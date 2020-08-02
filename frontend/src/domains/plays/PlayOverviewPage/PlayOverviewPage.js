@@ -31,7 +31,9 @@ export default function PlayOverviewPage() {
       </StyledHeader>
       <h1>{play.gameTitle}</h1>
       <h2>Details</h2>
-      <PlayDetails play={play} />
+      <PlayDetails play={play}
+        isEditing={isEditing}
+        onChange={play => setPlay(play)} />
       <h2>Ranking</h2>
       <PlayRanking play={play}
         isEditing={isEditing}
