@@ -61,8 +61,6 @@ export const PlayersFieldValidator = Yup
     }))
 
 const StyledContainer = styled.div`
-  margin: 0;
-  width: 100%;
   display: flex;
   align-items: center;
   position: relative;

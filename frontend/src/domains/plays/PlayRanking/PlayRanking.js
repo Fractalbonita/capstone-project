@@ -3,27 +3,25 @@ import styled from 'styled-components'
 
 export default ( { play }) => (
   <>
-  <h2>Ranking</h2>
-      <StyledTable>
-        <thead>
-          <tr>
-            <th>Player</th>
-            <th>Fraction</th>
-            <th>Score</th>
-            <th>Rank</th>
-          </tr>
-        </thead>
+    <StyledTable>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Fraction</th>
+          <th>Score</th>
+          <th>Rank</th>
+        </tr>
+      </thead>
       <tbody>
-        {play.players && play.players.map((player) => (
-          <tr key={play._id + player.name}>
+        {play.players && play.players.map((player, index) => (
+          <tr key={index}>
             <td>{player.name}</td>
             <td>{player.fraction != null ? player.fraction : '-/-'}</td>
             <td className="number">{player.score != null ? player.score : '-/-'}</td>
             <td className="number">{player.rank != null ? player.rank : '-/-'}</td>
-            
           </tr>
-          ))}
-        </tbody>
+        ))}
+      </tbody>
     </StyledTable>
   </>
 )

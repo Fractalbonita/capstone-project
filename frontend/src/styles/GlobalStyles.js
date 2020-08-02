@@ -3,7 +3,6 @@ import { createGlobalStyle } from 'styled-components'
 export default createGlobalStyle`
   * {
     box-sizing: border-box;
-    margin: 0 auto;
   }
 
   :root {
@@ -14,7 +13,7 @@ export default createGlobalStyle`
     --caption-font: 'Karla', sans-serif;
     --overline-font: 'Lato', sans-serif;
     --surface: #F4F3EC;
-    --primary: #00806A;
+    --primary: #a82e33;
     --text-color: #151514;
     --text-color-opaque: rgba(21,21,20, 0.8);
     --text-decoration-color: #C3090A;
@@ -28,6 +27,7 @@ export default createGlobalStyle`
   body {
     background-color: var(--surface);
     font-family: var(--body-font);
+    margin: 0 auto;
     padding: calc(20px + 3vw);
   }
 
@@ -47,12 +47,11 @@ export default createGlobalStyle`
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     text-align: left;
-    width: 100%;
   }
 
   h1 {
     font-size: 24px;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
   }
 
   h2 {
@@ -73,12 +72,11 @@ export default createGlobalStyle`
     font-size: 16px;
     font-weight: bold;
     text-align: left;
-    width: 100%;
   }
 
   input, 
   textarea {
     display: block;
-    width: 100%;
+    width: 100%
   }
 `

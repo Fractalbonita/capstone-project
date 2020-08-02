@@ -5,7 +5,7 @@ export default ({ ...props }) => (
   <StyledContainer>
     <StyledAddAdditionalPlayerIcon
       className="material-icons-round"
-      alt="Add a player"
+      title="Add a player"
       {...props}>
         add
     </StyledAddAdditionalPlayerIcon>
@@ -29,7 +29,6 @@ const StyledContainer = styled.div`
   position: relative;
   transition: all 0.2s ease-in-out;
   width: 36px;
-  z-index: 100;
 
   &:active {
     box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque), inset 1px 1px 2px var(--inner-shadow-dark-opaque);  }

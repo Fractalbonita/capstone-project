@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PlayRanking from '../PlayRanking/PlayRanking'
+import PlayRanking from './PlayRanking'
 
 export default {
   title: 'PlayRanking',

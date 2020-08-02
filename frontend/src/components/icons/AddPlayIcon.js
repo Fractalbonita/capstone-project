@@ -5,7 +5,7 @@ export default () => (
   <StyledContainer>
     <StyledAddPlayIcon
       className="material-icons-round"
-      alt="Add a new play">
+      title="Add a new play">
         add
     </StyledAddPlayIcon>
   </StyledContainer>

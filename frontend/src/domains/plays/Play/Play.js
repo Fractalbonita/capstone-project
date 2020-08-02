@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { apiBaseURL } from '../../../services/playsRestClient'
+import { imageOf } from '../../../services/playsClient'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import Star from '../../../components/icons/StarIcon'
 
@@ -10,9 +10,9 @@ export default function Play({ play }) {
   return (
     <li>
      <StyledLink to={`/log/${play._id}`} >
-      <StyledImage>
-        <img src={apiBaseURL + play.imageURL} alt="No photo available" />
-      </StyledImage>
+        <StyledImage>
+          {play.imageURL ? <img src={imageOf(play)} alt="Play photo" /> : <p>No photo available</p>}
+        </StyledImage>
       <StyledDescription>
         <h4>{getLocaleDate(play.playDate)}</h4>
         <h3>{play.gameTitle}</h3>
@@ -37,8 +37,11 @@ const StyledLink = styled(Link)`
 `
 
 const StyledImage = styled.div`
+  align-items: center;
   background: var(--inner-shadow-dark);
+  display: flex;
   height: 90px;
+  justify-content: center;
   width: 90px;
 
   & img {
@@ -49,18 +52,23 @@ const StyledImage = styled.div`
     font-size: 12px;
     height: 90px;
     justify-content: center;
-    margin: 0;
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
     text-align: center;
     width: 90px;
   }
+
+  & p {
+    color: var(--text-color);
+    font-family: var(--caption-font);
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
 ` 
 
 const StyledDescription = styled.div`
-  margin: 0;
-
   & h3, & h4 {
     margin: 0;
     padding: 5px 10px;
