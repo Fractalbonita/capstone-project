@@ -24,7 +24,7 @@ export default ({ play }) => (
         <StyledContainer>
           <Icon type="access_time" alt="" />
           <StyledCaption>Playing time (min)</StyledCaption>
-          <p>{play.playingTime != (null || '')
+          <p>{play.playingTime !== (null || '')
             ? play.playingTime
             : '-/-'}
           </p>
@@ -32,7 +32,7 @@ export default ({ play }) => (
         <StyledContainer>
           <Star isSelected={true} />
           <StyledCaption>Rating</StyledCaption>
-          <p>{play.playRating != (null || '')
+          <p>{play.playRating !== (null || '')
             ? play.playRating
             : '-/-'}
           </p>
