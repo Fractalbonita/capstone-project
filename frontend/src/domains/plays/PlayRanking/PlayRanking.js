@@ -6,41 +6,39 @@ import PlayerRow from '../PlayerRow/PlayerRow'
 
 export default ({ play, isEditing, onChange }) => {
   return (
-    <>
-      <StyledTable>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Player</th>
-            <th>Fraction</th>
-            <th>Score</th>
-            <th>Rank</th>
-          </tr>
-        </thead>
-        <tbody>
-          {play.players && play.players.map((player, index) => (
-            isEditing
-              ? <PlayerEditRow
-                  key={index}
-                  player={player}
-                  onChange={item => {
-                    const players = [...play.players]
-                    players[index] = item
-                    onChange({ ...play, players })
-                  }}
-                />
-              : <PlayerRow 
-                  key={index}
-                  player={player} />
-        ))}
-        </tbody>
-      </StyledTable>
-    </>
+    <StyledTable>
+      <colgroup>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Fraction</th>
+          <th>Score</th>
+          <th>Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+        {play.players && play.players.map((player, index) => (
+          isEditing
+            ? <PlayerEditRow
+                key={index}
+                player={player}
+                onChange={item => {
+                  const players = [...play.players]
+                  players[index] = item
+                  onChange({ ...play, players })
+                }}
+              />
+            : <PlayerRow 
+                key={index}
+                player={player} />
+      ))}
+      </tbody>
+    </StyledTable>
   )
 }
 
