@@ -7,7 +7,6 @@ import Icon from '../../../utilities/Icon'
 import Star from '../../../components/icons/StarIcon'
 
 export default ({ play }) => (
-  <>
     <StyledPlay>
       <StyledImage>
         {play.imageURL 
@@ -39,7 +38,6 @@ export default ({ play }) => (
         </StyledContainer>
       </StyledSummary>
     </StyledPlay>
-  </>
 )
 
 const StyledPlay = styled.div`
