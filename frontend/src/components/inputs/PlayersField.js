@@ -3,8 +3,8 @@ import * as Yup from 'yup'
 import { FieldArray } from 'formik'
 import styled from 'styled-components'
 
-import ErrorMessage from '../../styles/StyledErrorMessage'
 import AddPlayerIcon from '../icons/AddPlayerIcon'
+import ErrorMessage from '../../styles/StyledErrorMessage'
 import Icon from '../../utilities/Icon'
 import StyledField from '../../styles/StyledField'
 import StyledLabel from '../../styles/StyledLabel'
@@ -65,13 +65,13 @@ const StyledContainer = styled.div`
   align-items: center;
   position: relative;
 
-  & span {
+  span {
     color: var(--text-color-opaque);
     position: absolute;
     right: 10px;
   }
 
-  & input {
+  input {
     margin: 10px 0;
     padding-right: 40px;
   }
