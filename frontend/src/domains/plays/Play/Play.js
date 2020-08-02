@@ -2,16 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { imageOf } from '../../../services/playsClient'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
+import { imageOf } from '../../../services/playsClient'
 import Star from '../../../components/icons/StarIcon'
 
 export default function Play({ play }) {
   return (
     <li>
-     <StyledLink to={`/log/${play._id}`} >
+     <StyledLink to={`/log/${play._id}`}>
         <StyledImage>
-          {play.imageURL ? <img src={imageOf(play)} alt="Play photo" /> : <p>No photo available</p>}
+          {play.imageURL
+            ? <img src={imageOf(play)} alt="Your board game session" />
+            : <p>No photo available</p>}
         </StyledImage>
       <StyledDescription>
         <h4>{getLocaleDate(play.playDate)}</h4>
@@ -44,7 +46,7 @@ const StyledImage = styled.div`
   justify-content: center;
   width: 90px;
 
-  & img {
+  img {
     align-items: center;
     color: var(--text-color);
     display: flex;
@@ -59,7 +61,7 @@ const StyledImage = styled.div`
     width: 90px;
   }
 
-  & p {
+  p {
     color: var(--text-color);
     font-family: var(--caption-font);
     font-size: 12px;
@@ -69,7 +71,7 @@ const StyledImage = styled.div`
 ` 
 
 const StyledDescription = styled.div`
-  & h3, & h4 {
+  h3, h4 {
     margin: 0;
     padding: 5px 10px;
     word-break: normal;
@@ -81,7 +83,7 @@ const StyledRating = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-  & p {
+  p {
     margin: 0;
     padding: 5px;
     text-align: center;
