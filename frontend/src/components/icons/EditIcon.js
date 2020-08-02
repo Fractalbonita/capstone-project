@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default () => (
+export default (props) => (
   <StyledContainer>
     <StyledArrow
       className="material-icons"
-      title="Edit">
+      title="Edit" {...props}>
         edit
     </StyledArrow>
   </StyledContainer>
@@ -15,7 +15,7 @@ const StyledArrow = styled.span`
   color: var(--text-color);
   font-weight: 600;
 `
-
+  
 const StyledContainer = styled.div`
   align-items: center;
   background-color: var(--surface);
@@ -24,9 +24,16 @@ const StyledContainer = styled.div`
   display: flex;
   height: 36px;
   justify-content: center;
+  position: fixed;
+  right: calc(10px + 4vw);
+  top: 16px;
   transition: all 0.2s ease-in-out;
   width: 36px;
 
+  &:hover {
+    cursor: pointer;
+  }
+  
   &:active {
     box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque), inset 1px 1px 2px var(--inner-shadow-dark-opaque);  }
 `
