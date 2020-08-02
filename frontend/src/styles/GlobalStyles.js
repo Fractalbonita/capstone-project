@@ -77,6 +77,6 @@ export default createGlobalStyle`
   input, 
   textarea {
     display: block;
-    width: 100%
+    width: 100%;
   }
 `
