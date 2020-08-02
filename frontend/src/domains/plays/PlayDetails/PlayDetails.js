@@ -4,13 +4,16 @@ import styled from 'styled-components'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import { imageOf } from '../../../services/playsClient'
 import Icon from '../../../utilities/Icon' 
+import PlayStarRatingEdit from '../PlayStarRatingEdit/PlayStarRatingEdit'
+import PlayingTimeEdit from '../PlayingTimeEdit/PlayingTimeEdit'
 import Star from '../../../components/icons/StarIcon'
 
-export default ({ play }) => (
+export default ({ play, isEditing, onChange }) => {
+  return (
   <StyledPlay>
     <StyledImage>
-      {play.imageURL 
-        ? <img src={imageOf(play)} alt="Your board game session." /> 
+      {play.imageURL
+        ? <img src={imageOf(play)} alt="Your board game session." />
         : <p>No photo available</p>}
     </StyledImage>
     <h4>{getLocaleDate(play.playDate)}</h4>
@@ -23,22 +26,35 @@ export default ({ play }) => (
       <StyledContainer>
         <Icon type="access_time" alt="" />
         <StyledCaption>Playing time (min)</StyledCaption>
-        <p>{play.playingTime !== (null || '')
-          ? play.playingTime
-          : '-/-'}
-        </p>
+        {isEditing
+          ? <PlayingTimeEdit
+            onChange={playingTime => {
+              onChange({ ...play, playingTime })
+            }} />
+          : <p>{play.playingTime !== (null || '')
+            ? play.playingTime
+            : '-/-'}
+          </p>
+        }
       </StyledContainer>
       <StyledContainer>
         <Star isSelected={true} />
         <StyledCaption>Rating</StyledCaption>
-        <p>{play.playRating !== (null || '')
-          ? play.playRating
-          : '-/-'}
-        </p>
+        {isEditing
+          ? <PlayStarRatingEdit
+            onChange={playRating => {
+              onChange({ ...play, playRating })
+            }} />
+          : <p>{play.playRating !== (null || '')
+            ? play.playRating
+            : '-/-'}
+          </p>
+        }
       </StyledContainer>
     </StyledSummary>
-  </StyledPlay>
-)
+    </StyledPlay>
+  )
+}
 
 const StyledPlay = styled.div`
   h4, p {
