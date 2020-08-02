@@ -1,16 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { imageOf } from '../../../services/playsClient'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
+import { imageOf } from '../../../services/playsClient'
 import Icon from '../../../utilities/Icon' 
 import Star from '../../../components/icons/StarIcon'
 
-export default ({ play } ) => (
+export default ({ play }) => (
   <>
     <StyledPlay>
       <StyledImage>
-        {play.imageURL ? <img src={imageOf(play)} alt="Play photo" /> : <p>No photo available</p>}
+        {play.imageURL 
+          ? <img src={imageOf(play)} alt="Your board game session." /> 
+          : <p>No photo available</p>}
       </StyledImage>
       <h4>{getLocaleDate(play.playDate)}</h4>
       <StyledSummary>
@@ -22,12 +24,18 @@ export default ({ play } ) => (
         <StyledContainer>
           <Icon type="access_time" alt="" />
           <StyledCaption>Playing time (min)</StyledCaption>
-          <p>{play.playingTime != null ? play.playingTime : '-/-' }</p>
+          <p>{play.playingTime != (null || '')
+            ? play.playingTime
+            : '-/-'}
+          </p>
         </StyledContainer>
         <StyledContainer>
           <Star isSelected={true} />
           <StyledCaption>Rating</StyledCaption>
-          <p>{play.playRating != null ? play.playRating : '-/-'}</p>
+          <p>{play.playRating != (null || '')
+            ? play.playRating
+            : '-/-'}
+          </p>
         </StyledContainer>
       </StyledSummary>
     </StyledPlay>
@@ -35,7 +43,7 @@ export default ({ play } ) => (
 )
 
 const StyledPlay = styled.div`
-  & h4, & p {
+  h4, p {
     text-align: center;
   }
 `
@@ -49,7 +57,7 @@ const StyledImage = styled.div`
   margin: calc(25px + 0.2rem) auto;
   width: 300px;
 
-  & img {
+  img {
     align-items: center;
     color: var(--text-color);
     display: flex;
@@ -62,7 +70,7 @@ const StyledImage = styled.div`
     width: 300px;
   }
 
-  & p {
+  p {
     color: var(--text-color);
     font-family: var(--caption-font);
     font-size: 12px;
@@ -79,7 +87,7 @@ const StyledSummary = styled.div`
   text-align: center;
   word-break: normal;
   
-  & span {
+  span {
     color: var(--primary);
   }
 `
@@ -97,7 +105,7 @@ const StyledContainer = styled.div`
   display: grid;
   grid-template-rows: 30px 45px auto;
 
-  & span {
+  span {
     align-self: center;
   }
 `
