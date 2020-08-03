@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PlayerEditRow from '../PlayerEditRow/PlayerEditRow'
+import PlayerEditRow from './PlayerEditRow'
 
 export default {
   title: 'PlayerEditRow',
