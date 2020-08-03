@@ -78,5 +78,9 @@ export default createGlobalStyle`
   textarea {
     display: block;
     width: 100%;
+
+    &:hover {
+      cursor: text;
+    }
   }
 `

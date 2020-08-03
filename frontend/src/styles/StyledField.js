@@ -17,10 +17,6 @@ outline: none;
 padding: 13px 15px;
 transition: all 0.2s ease-in-out;
 
-&:hover {
-  cursor: text;
-}
-
 &:focus {
   box-shadow: inset 1px 1px 2px var(--inner-shadow-dark), inset -1px -1px 2px #fff;
   outline: none;
