@@ -1,0 +1,365 @@
+[
+   {
+     "_id": "5f2858431c39ec0546d07b47",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/lewVt7gXhfpps_hIHU5mrP75ypY=/fit-in/900x600/filters:no_upscale()/pic2663291.jpg",
+    "gameTitle": "Through the Ages: A New Story of Civilization",
+    "year": "2015",
+    "players": "2-4",
+    "playingTime": "120",
+    "age": "14+",
+    "averageRating": 8.5,
+    "publisher": "Czech Games Edition",
+    "designer": "Vlaada Chvátil",
+    "description": "Through the Ages: A New Story of Civilization is the new edition of Through the Ages: A Story of Civilization, with many changes small and large to the game's cards over its three ages and extensive changes to how military works. \n Through the Ages is a civilization building game.Each player attempts to build the best civilization through careful resource management, discovering new technologies, electing the right leaders, building wonders and maintaining a strong military.Weakness in any area can be exploited by your opponents.The game takes place throughout the ages beginning in the age of antiquity and ending in the modern age. \n One of the primary mechanisms in TTA is card drafting. Technologies, wonders, and leaders come into play and become easier to draft the longer they are in play. In order to use a technology you will need enough science to discover it, enough food to create a population to man it and enough resources (ore) to build the building to use it. While balancing the resources needed to advance your technology you also need to build a military. Military is built in the same way as civilian buildings. Players that have a weak military will be preyed upon by other players. There is no map in the game so you cannot lose territory, but players with higher military will steal resources, science, kill leaders, take population or culture. It is very difficult to win with a large military, but it is very easy to lose because of a weak one. \n Victory is achieved by the player whose nation has the most culture at the end of the modern age.",
+    "type": ["strategy"],
+    "category": [
+      "Card Game",
+      "Civilization",
+      "Economic"
+    ],
+    "mechanisms": [
+      "Action Points",
+      "Auction / Bidding",
+      "Auction/Dutch",
+      "Card Drafting",
+      "Income"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b48",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/V42v-PIcusdEZcmlxh3BHdyukrE=/fit-in/900x600/filters:no_upscale()/pic274350.jpg",
+    "gameTitle": "La Città",
+    "year": "2000",
+    "players": "2-5",
+    "playingTime": "120",
+    "age": "12+",
+    "averageRating": 7,
+    "publisher": "KOSMOS",
+    "designer": "Gerd Fenchel",
+    "description": "Set in the Italian countryside, this game features various city-states vying for population. Each player is given two cities to start with, and is charged with expanding the different aspects of the cities to attract larger populations. \n Players build farms to feed their people, quarries to finance their expansions, marketplaces to allow growth in their cities, and bathhouses to keep their people clean and healthy. Additionally, structures can be built that give the city influence in one of three categories. Superiority in one of these categories will cause population to shift from other nearby cities when the Voice of the People is decided at the end of each turn. \n At the end of six turns, the player with the most victory points, which are determined from well-rounded cities, well-fed populations, and overall size of population, will be the winner. \n Note: The correct pronunciation is like \"Cheetah\", but with the accent on the last syllable: \"La Chee-TAH\".",
+    "type": ["Strategy"],
+    "category": [
+      "City Building",
+      "Civilization",
+      "Renaissance",
+      "Territory Building"
+    ],
+    "mechanisms": [
+      "Area Majority Influence",
+      "Card Drafting",
+      "Commodity Speculation",
+      "Modular Board Tile Placement"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b49",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/-nnzXSm6wDQvH5lckCzUtaaprGE=/fit-in/900x600/filters:no_upscale()/pic2437871.jpg",
+    "gameTitle": "Gloomhaven",
+    "year": "2017",
+    "players": "1-4",
+    "playingTime": "60-120",
+    "age": "14+",
+    "averageRating": 8.8,
+    "publisher": "Cephalofair Games",
+    "designer": "Isaac Childres",
+    "description": "Gloomhaven is a game of Euro-inspired tactical combat in a persistent world of shifting motives. Players will take on the role of a wandering adventurer with their own special set of skills and their own reasons for traveling to this dark corner of the world. Players must work together out of necessity to clear out menacing dungeons and forgotten ruins. In the process, they will enhance their abilities with experience and loot, discover new locations to explore and plunder, and expand an ever-branching story fueled by the decisions they make. \n This is a game with a persistent and changing world that is ideally played over many game sessions. After a scenario, players will make decisions on what to do, which will determine how the story continues, kind of like a “Choose Your Own Adventure” book. Playing through a scenario is a cooperative affair where players will fight against automated monsters using an innovative card system to determine the order of play and what a player does on their turn. \n Each turn, a player chooses two cards to play out of their hand. The number on the top card determines their initiative for the round. Each card also has a top and bottom power, and when it is a player’s turn in the initiative order, they determine whether to use the top power of one card and the bottom power of the other, or vice-versa. Players must be careful, though, because over time they will permanently lose cards from their hands. If they take too long to clear a dungeon, they may end up exhausted and be forced to retreat.",
+    "type": [
+      "Strategy",
+      "Thematic"
+    ],
+    "category": [ 
+      "Adventure",
+      "Exploration",
+      "Fantasy",
+      "Fighting",
+      "Miniatures"
+    ],
+    "mechanisms": [
+      "Action Queue",
+      "Action Retrieval",
+      "Campaign / Battle Card Driven",
+      "Communication Limits",
+      "Cooperative Game",
+      "Deck, Bag, and Pool Building",
+      "Grid Movement",
+      "Hand Management",
+      "Hexagon Grid",
+      "Legacy Game",
+      "Modular Board",
+      "Once-Per-Game Abilities",
+      "Scenario / Mission / Campaign Game",
+      " Simultaneous Action Selection",
+      "Solo / Solitaire Game",
+      "Storytelling",
+      "Variable Player Powers"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b4a",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/sgZLoyg3KKeHvyHel8tZ2TIkXRw=/fit-in/900x600/filters:no_upscale()/pic3536616.jpg",
+    "gameTitle": "Terraforming Mars",
+    "year": "2016",
+    "players": "1-5",
+    "playingTime": "120",
+    "age": "12+",
+    "averageRating": 8.4,
+    "publisher": "FryxGames",
+    "designer": "Jacob Fryxelius",
+    "description": "In the 2400s, mankind begins to terraform the planet Mars. Giant corporations, sponsored by the World Government on Earth, initiate huge projects to raise the temperature, the oxygen level, and the ocean coverage until the environment is habitable. In Terraforming Mars, you play one of those corporations and work together in the terraforming process, but compete for getting victory points that are awarded not only for your contribution to the terraforming, but also for advancing human infrastructure throughout the solar system, and doing other commendable things. \n The players acquire unique project cards (from over two hundred different ones) by buying them to their hand. The projects (cards) can represent anything from introducing plant life or animals, hurling asteroids at the surface, building cities, to mining the moons of Jupiter and establishing greenhouse gas industries to heat up the atmosphere. The cards can give you immediate bonuses, as well as increasing your production of different resources. Many cards also have requirements and they become playable when the temperature, oxygen, or ocean coverage increases enough. Buying cards is costly, so there is a balance between buying cards (3 megacredits per card) and actually playing them (which can cost anything between 0 to 41 megacredits, depending on the project). Standard Projects are always available to complement your cards. \n Your basic income, as well as your basic score, is based on your Terraform Rating (starting at 20), which increases every time you raise one of the three global parameters. However, your income is complemented with your production, and you also get VPs from many other sources. \n Each player keeps track of their production and resources on their player boards, and the game uses six types of resources: MegaCredits, Steel, Titanium, Plants, Energy, and Heat. On the game board, you compete for the best places for your city tiles, ocean tiles, and greenery tiles. You also compete for different Milestones and Awards worth many VPs. Each round is called a generation (guess why) and consists of the following phases: \n 1. Player order shifts clockwise. \n 2. Research phase: All players buy cards from four privately drawn. \n 3.  Action phase: Players take turns doing 1-2 actions from these options: Playing a card, claiming a Milestone, funding an Award, using a Standard project, converting plant into greenery tiles (and raising oxygen), converting heat into a temperature raise, and using the action of a card in play. The turn continues around the table (sometimes several laps) until all players have passed. \n 4. Production phase: Players get resources according to their terraform rating and production parameters. \n When the three global parameters (temperature, oxygen, ocean) have all reached their goal, the terraforming is complete, and the game ends after that generation. Count your Terraform Rating and other VPs to determine the winning corporation!",
+    "type": ["Strategy"],
+    "category": [ 
+      "Economic",
+      "Environmental",
+      "Industry / Manufacturing",
+      "Science Fiction",
+      "Space Exploration",
+      "Territory Building"
+    ],
+    "mechanisms": [
+      "Card Drafting",
+      "End Game Bonuses",
+      "Hand Management",
+      "Hexagon Grid",
+      "Income",
+      "Set Collection",
+      "Solo / Solitaire Game",
+      "Take That",
+      "Tile Placement",
+      "Turn Order: Progressive",
+      "Variable Player Powers" 
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b4b",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/oy3_vDr9-HUQnf_1dudK2Vix0uM=/fit-in/900x600/filters:no_upscale()/pic3763556.jpg",
+    "gameTitle": "Gaia Project",
+    "year": "2017",
+    "players": "1-4",
+    "playingTime": "60-150",
+    "age": "12+",
+    "averageRating": 8.5,
+    "publisher": "Feuerland Spiele",
+    "designer": "Jens Drögemüller",
+    "description": "Gaia Project is a new game in the line of Terra Mystica. As in the original Terra Mystica, fourteen different factions live on seven different kinds of planets, and each faction is bound to their own home planets, so to develop and grow, they must terraform neighboring planets into their home environments in competition with the other groups. In addition, Gaia planets can be used by all factions for colonization, and Transdimensional planets can be changed into Gaia planets. \n All factions can improve their skills in six different areas of development — Terraforming, Navigation, Artificial Intelligence, Gaiaforming, Economy, Research — leading to advanced technology and special bonuses. To do all of that, each group has special skills and abilities. \n The playing area is made of ten sectors, allowing a variable set-up and thus an even bigger replay value than its predecessor Terra Mystica. A two-player game is hosted on seven sectors.",
+    "type": ["Strategy"],
+    "category": [
+      "Economic",
+      "Science Fiction",
+      "Space Exploration",
+      "Territory Building"
+    ],
+    "mechanisms": [
+      "Area Majority / Influence",
+      "End Game Bonuses",
+      "Hexagon Grid",
+      "Income",
+      "Modular Board",
+      "Network and Route Building",
+      "Tech Trees / Tech Tracks",
+      "Turn Order: Pass Order",
+      "Variable Player Powers",
+      "Variable Setup",
+      "Victory Points as a Resource"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b4c",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/hB5WMCGChAvbS5Do6D1cY0m4xxY=/fit-in/900x600/filters:no_upscale()/pic4887376.jpg",
+    "gameTitle": "Great Western Trail",
+    "year": "2016",
+    "players": "2-4",
+    "playingTime": "75-150",
+    "age": "12+",
+    "averageRating": 8.3,
+    "publisher": "eggertspiele",
+    "designer": "Alexander Pfister",
+    "description": "America in the 19th century: You are a rancher and repeatedly herd your cattle from Texas to Kansas City, where you send them off by train. This earns you money and victory points. Needless to say, each time you arrive in Kansas City, you want to have your most valuable cattle in tow. However, the Great Western Trail not only requires that you keep your herd in good shape, but also that you wisely use the various buildings along the trail. Also, it might be a good idea to hire capable staff: cowboys to improve your herd, craftsmen to build your very own buildings, or engineers for the important railroad line. \n If you cleverly manage your herd and navigate the opportunities and pitfalls of Great Western Trail, you surely will gain the most victory points and win the game.",
+    "type": ["Strategy"],
+    "category": [
+      "American West",
+      "Animals"
+    ],
+    "mechanisms": [
+      "Deck, Bag, and Pool Building",
+      "Hand Management",
+      "Point t Point Movement",
+      "Set Collection",
+      "Variable Setup"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b4e",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/VrePp6I9_HXw_NtBe4NFcwF5dRQ=/fit-in/900x600/filters:no_upscale()/pic3163924.jpg",
+    "gameTitle": "Scythe",
+    "year": "2016",
+    "players": "1-5",
+    "playingTime": "90-115",
+    "age": "14+",
+    "averageRating": 8.3,
+    "publisher": "Stonemaier Games",
+    "designer": "Jamey Stegmaier",
+    "description": "It is a time of unrest in 1920s Europa. The ashes from the first great war still darken the snow. The capitalistic city-state known simply as “The Factory”, which fueled the war with heavily armored mechs, has closed its doors, drawing the attention of several nearby countries. \n Scythe is an engine-building game set in an alternate-history 1920s period. It is a time of farming and war, broken hearts and rusted gears, innovation and valor. In Scythe, each player represents a character from one of five factions of Eastern Europe who are attempting to earn their fortune and claim their faction's stake in the land around the mysterious Factory. Players conquer territory, enlist new recruits, reap resources, gain villagers, build structures, and activate monstrous mechs. \n Each player begins the game with different resources (power, coins, combat acumen, and popularity), a different starting location, and a hidden goal. Starting positions are specially calibrated to contribute to each faction’s uniqueness and the asymmetrical nature of the game (each faction always starts in the same place). \n Scythe gives players almost complete control over their fate. Other than each player’s individual hidden objective card, the only elements of luck or variability are “encounter” cards that players will draw as they interact with the citizens of newly explored lands. Each encounter card provides the player with several options, allowing them to mitigate the luck of the draw through their selection. Combat is also driven by choices, not luck or randomness. \n Scythe uses a streamlined action-selection mechanism (no rounds or phases) to keep gameplay moving at a brisk pace and reduce downtime between turns. While there is plenty of direct conflict for players who seek it, there is no player elimination \n Every part of Scythe has an aspect of engine-building to it. Players can upgrade actions to become more efficient, build structures that improve their position on the map, enlist new recruits to enhance character abilities, activate mechs to deter opponents from invading, and expand their borders to reap greater types and quantities of resources. These engine-building aspects create a sense of momentum and progress throughout the game. The order in which players improve their engine adds to the unique feel of each game, even when playing one faction multiple times.",
+    "type": ["Strategy"],
+    "category": [
+      "Economic",
+      "Fighting",
+      "Science Fiction",
+      "Territory Building"
+    ],
+    "mechanisms": [
+      "Area Majority / Influence",
+      "Force Commitment",
+      "Grid Movement",
+      "Hexagon Grid",
+      "King of the Hill",
+      "Movement Points",
+      "Moving Multiple Units",
+      "Narrative Choice / Paragraph",
+      "Race",
+      "Simultaneous Action Selection",
+      "Solo / Solitaire Game",
+      "Tech Trees / Tech Tracks",
+      "Variable Player Powers"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b4e",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/JS90_q_U-h5Xe9Dn2jTTky-FqOs=/fit-in/900x600/filters:no_upscale()/pic1356616.jpg",
+    "gameTitle": "Terra Mystica",
+    "year": "2012",
+    "players": "2-5",
+    "playingTime": "60-150",
+    "age": "12+",
+    "averageRating": 8.2,
+    "publisher": "Feuerland Spiele",
+    "designer": "Jens Drögemüller",
+    "description": "In the land of Terra Mystica dwell 14 different peoples in seven landscapes, and each group is bound to its own home environment, so to develop and grow, they must terraform neighboring landscapes into their home environments in competition with the other groups. \n Terra Mystica is a full information game without any luck that rewards strategic planning. Each player governs one of the 14 groups. With subtlety and craft, the player must attempt to rule as great an area as possible and to develop that group's skills. There are also four religious cults in which you can progress. To do all that, each group has special skills and abilities. \n Taking turns, the players execute their actions on the resources they have at their disposal. Different buildings allow players to develop different resources. Dwellings allow for more workers. Trading houses allow players to make money. Strongholds unlock a group's special ability, and temples allow you to develop religion and your terraforming and seafaring skills. Buildings can be upgraded: Dwellings can be developed into trading houses; trading houses can be developed into strongholds or temples; one temple can be upgraded to become a sanctuary. Each group must also develop its terraforming skill and its skill with boats to use the rivers. The groups in question, along with their home landscape, are: \n Desert(Fakirs, Nomads) \n Plains (Halflings, Cultists) \n Swamp (Alchemists, Darklings) \n Lake (Mermaids, Swarmlings) \n Forest (Witches, Auren) \n Mountain (Dwarves, Engineers) \n Wasteland (Giants, Chaos Magicians) \n Proximity to other groups is a double-edged sword in Terra Mystica. Being close to other groups gives you extra power, but it also means that expanding is more difficult...",
+    "type": ["Strategy"],
+    "category": [
+      "Civilization",
+      "Economic",
+      "Fantasy",
+      "Territory Building"
+    ],
+    "mechanisms": [
+      "End Game Bonuses",
+      "Hexagon Grid",
+      "Income",
+      "Increase Value of Unchosen Resources",
+      "Network and Route Building",
+      "Turn Order: Pass Order",
+      "Variable Player Powers",
+      "Variable Setup",
+      "Victory Points as a Resource"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b4f",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/pKllREhSqlALLWaQRDVxKDKuEO0=/fit-in/900x600/filters:no_upscale()/pic2225968.png",
+    "gameTitle": "Fields of Arle",
+    "year": "2014",
+    "players": "1-2",
+    "playingTime": "60-120",
+    "age": "13+",
+    "averageRating": 8.1,
+    "publisher": "Feuerland Spiele",
+    "designer": "Uwe Rosenberg",
+    "description": "Welcome to Arle \n In Fields of Arle, created by Uwe Rosenberg, one to two players live as farmers in the small and peaceful town of Arle in East Frisia. The flax grown in the land surrounding the village makes it a profitable place to work and live. Fields of Arle takes players through four and a half years of this era of prosperity, with different opportunities available as the seasons change. Farm the land to capitalize on the demand for flax, or find other ways to make the most of the small town’s prosperity. \n Work the Land \n Whether you delve into flax farming or leverage other areas of expertise, always make sure that you have the land to build up your village. Construct dikes to keep the waters at bay and expand your fields. Dry out bogs to harvest peat and then clear the land for cultivation. Create more fields for your livestock, buildings, or future crops; after that, you can decide whether to house animals or cultivate a forest for timber. Perhaps you’d like to take up some flax farming for yourself, or diversify and try out a little bit of everything. \n Tools of the Trade \n At the outset of each half year, you’ll choose how you’d like to spend that time working. There are many ways to build your fortune. Use the Master space to increase the tools at your disposal, focus on the Cattle Trainer to make the most of your livestock, or build up your fleet of vehicles and ship out goods. Taking stock of your progress differs depending on the season. You may milk your existing livestock or care for a bunch of newborn animals. You could harvest your flax in the fall, and sheer your sheep in spring. At the end of each half year, you’ll need to take stock of your progress by unloading your vehicles and feeding your family and animals, so keep an eye on the season and do your best to keep the farm growing and everyone well fed! \n Travel and Prosper \n Once you’ve made headway in clearing fields and stocking up goods, it's time to make your products available to potential buyers. The more vehicles you have, the more goods you can ship. Send things into the wide world to increase your Travel Experience and grant you points over the course of the four and a half years of the game. Build up your farm and your vehicles and get your goods out into the world to make the most of every season. There are many roads to success in Fields of Arle, so pick your path, work the land, and enjoy the friendly competition as you strive to make your fortune!",
+    "type": ["Strategy"],
+    "category": [
+      "Economic",
+      "Farming",
+      "Industry / Manufacturing"
+    ],
+    "mechanisms": [
+      "Automatic Resource Growth",
+      "Worker Placement"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b50",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/xsM6wlu6W6OGBMaNiBMy58ElsW0=/fit-in/900x600/filters:no_upscale()/pic3330230.jpg",
+    "gameTitle": "Le Havre",
+    "year": "2008",
+    "players": "1-5",
+    "playingTime": "30-150",
+    "age": "12+",
+    "averageRating": 7.9,
+    "publisher": "Lookout Games",
+    "designer": "Uwe Rosenberg",
+    "description": "In Le Havre, a player's turn consists of two parts: First, distribute newly supplied goods onto the offer spaces; then take an action. As an action, players may choose either to take all goods of one type from an offer space or to use one of the available buildings. Building actions allow players to upgrade goods, sell them or use them to build their own buildings and ships. Buildings are both an investment opportunity and a revenue stream, as players must pay an entry fee to use buildings that they do not own. Ships, on the other hand, are primarily used to provide the food that is needed to feed the workers. \n After every seven turns, the round ends: players' cattle and grain may multiply through a Harvest, and players must feed their workers. After a fixed number of rounds, each player may carry out one final action, and then the game ends. Players add the value of their buildings and ships to their cash reserves. The player who has amassed the largest fortune is the winner.",
+    "type": ["Strategy"],
+    "category": [
+      "City Building",
+      "Economic",
+      "Industry / Manufacturing",
+      "Nautical"
+    ],
+    "mechanisms": [
+      "Automatic Resource Growth",
+      "End Game Bonuses",
+      "Increase Value of Unchosen Resources",
+      "Loans",
+      "Ownership",
+      "Worker Placement" 
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b51",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/Hq7JR4uJYZsqHdFJMf-M1mhLYwU=/fit-in/900x600/filters:no_upscale()/pic3511783.png",
+    "gameTitle": "Clans of Caledonia",
+    "year": "2017",
+    "players": "1-4",
+    "playingTime": "30-120",
+    "age": "12+",
+    "averageRating": 8,
+    "publisher": "Karma Games",
+    "designer": "Juma Al-JouJou",
+    "description": "Clans of Caledonia is a mid-to-heavy economic game set in 19th-century Scotland. At this time, Scotland made the transition from an agricultural to an industrialized country that heavily relied on trade and export. In the following years, food production increased significantly to feed the population growth. Linen was increasingly substituted by the cheaper cotton and raising sheep was given high importance. More and more distilleries were founded and whisky became the premium alcoholic beverage in Europe. \n Players represent historic clans with unique abilities and compete to produce, trade and export agricultural goods and of course whisky! \n The game ends after five rounds. Each round consists of the three phases: \n 1. Players' turns \n 2. Production phase \n 3. Round scoring \n 1. Players take turns and do one of eight possible actions, from building, to upgrading, trading and exporting. When players run out of money, they pass and collect a passing bonus. \n 2. In the production phase, each player collects basic resources, refined goods and cash from their production units built on the game map. Each production unit built makes income visible on the player mat. Refined goods require the respective basic resource. \n 3. Players receive VPs depending on the scoring tile of the current round. \n The game comes with eight different clans, a modular board with 16 configurations, eight port bonuses and eight round scoring tiles.",
+    "type": ["Strategy"],
+    "category": [ 
+      "Economic",
+      "Farming"
+    ],
+    "mechanisms": [ 
+      "Commodity Speculation",
+      "Contracts",
+      "Dice Rolling",
+      "Market",
+      "Modular Board",
+      "Network and Route Building",
+      "Turn Order: Pass Order",
+      "Variable Player Powers"
+    ]
+  },
+  {
+    "_id": "5f2858431c39ec0546d07b52",
+    "imageURL": "https://cf.geekdo-images.com/imagepage/img/9l4jrArVkm0eE2a4cjTSt5EmgC8=/fit-in/900x600/filters:no_upscale()/pic4254509.jpg",
+    "gameTitle": "Root",
+    "year": "2018",
+    "players": "2-4",
+    "playingTime": "60-90",
+    "age": "10+",
+    "averageRating": 8.1,
+    "publisher": "Leder Games",
+    "designer": "Cole Wehrle",
+    "description": "Root is a game of adventure and war in which 2 to 4 (1 to 6 with the 'Riverfolk' expansion) players battle for control of a vast wilderness. \n The nefarious Marquise de Cat has seized the great woodland, intent on harvesting its riches. Under her rule, the many creatures of the forest have banded together. This Alliance will seek to strengthen its resources and subvert the rule of Cats. In this effort, the Alliance may enlist the help of the wandering Vagabonds who are able to move through the more dangerous woodland paths. Though some may sympathize with the Alliance’s hopes and dreams, these wanderers are old enough to remember the great birds of prey who once controlled the woods. \n Meanwhile, at the edge of the region, the proud, squabbling Eyrie have found a new commander who they hope will lead their faction to resume their ancient birthright. The stage is set for a contest that will decide the fate of the great woodland. It is up to the players to decide which group will ultimately take root. \n Root represents the next step in our development of asymmetric design. Like Vast: The Crystal Caverns, each player in Root has unique capabilities and a different victory condition. Now, with the aid of gorgeous, multi-use cards, a truly asymmetric design has never been more accessible. \n The Cats play a game of engine building and logistics while attempting to police the vast wilderness. By collecting Wood they are able to produce workshops, lumber mills, and barracks. They win by building new buildings and crafts. \n The Eyrie musters their hawks to take back the Woods. They must capture as much territory as possible and build roosts before they collapse back into squabbling. \n The Alliance hides in the shadows, recruiting forces and hatching conspiracies. They begin slowly and build towards a dramatic late-game presence--but only if they can manage to keep the other players in check. \n Meanwhile, the Vagabond plays all sides of the conflict for their own gain, while hiding a mysterious quest. Explore the board, fight other factions, and work towards achieving your hidden goal. \n In Root, players drive the narrative, and the differences between each role create an unparalleled level of interaction and replayability. Leder Games invites you and your family to explore the fantastic world of Root!",
+    "type": ["Strategy", "Wargames"],
+    "category": [
+      "Animals",
+      "Fantasy",
+      "Wargame"
+    ],
+    "mechanisms": [
+      "Action Queue",
+      "Action Retrieval",
+      "Area Majority / Influence",
+      "Area Movement",
+      "Dice Rolling",
+      "Hand Management",
+      "Point to Point Movement",
+      "Race",
+      "Variable Player Powers" 
+    ]
+  }
+]
