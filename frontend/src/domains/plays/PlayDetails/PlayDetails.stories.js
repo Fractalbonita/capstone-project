@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PlayDetails from '../PlayDetails/PlayDetails'
+import PlayDetails from './PlayDetails'
 
 export default {
   title: 'PlayDetails',
