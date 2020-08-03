@@ -7,6 +7,4 @@ export default {
   component: PlayRanking,
 }
 
-export const playRanking = () => <PlayRanking play={play} />
-
-
+export const playRanking = () => <PlayRanking play={play} isEditing={isEditing} onChange={onChange} />
