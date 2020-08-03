@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import { fetchPlayDetails, updatePlay } from '../../../services/playsClient'
 import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import EditIcon from '../../../components/icons/EditIcon'
-import PlayRanking from '../PlayRanking/PlayRanking'
 import PlayDetails from '../PlayDetails/PlayDetails'
+import PlayRanking from '../PlayRanking/PlayRanking'
 
 export default function PlayOverviewPage() {
   const params = useParams()
