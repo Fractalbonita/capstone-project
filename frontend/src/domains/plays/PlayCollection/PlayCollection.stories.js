@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PlayCollection from '../PlayCollection/PlayCollection'
+import PlayCollection from './PlayCollection'
 
 export default {
   title: 'PlayCollection',
