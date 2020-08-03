@@ -15,7 +15,7 @@ import PlayImageField, { PlayImageFieldValidator } from '../../../components/inp
 import PlayStarRatingField from '../../../components/inputs/PlayStarRatingField'
 import PlayingTimeField, { PlayingTimeFieldValidator } from '../../../components/inputs/PlayingTimeField'
 
-const AddPlaySchema = Yup.object().shape({
+const AddPlayFormValidationSchema = Yup.object().shape({
   playImage: PlayImageFieldValidator,
   gameTitle: GameTitleFieldValidator,
   playDate: PlayDateFieldValidator,
@@ -48,7 +48,7 @@ export default function AddPlayForm() {
           'players[0]name': true
         }}
         validateOnChange
-        validationSchema={AddPlaySchema}
+        validationSchema={AddPlayFormValidationSchema}
         onSubmit={(values, { setSubmitting }) => {
           uploadImage(values.playImage)
             .then(imageURL => uploadGameData({ ...values, imageURL }))
