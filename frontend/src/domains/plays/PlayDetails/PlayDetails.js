@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import { imageOf } from '../../../services/playsClient'
 import Icon from '../../../utilities/Icon' 
-import PlayStarRatingEdit from '../PlayStarRatingEdit/PlayStarRatingEdit'
-import PlayingTimeEdit from '../PlayingTimeEdit/PlayingTimeEdit'
+import PlayStarRatingEdit from '../../../components/inputs/Input'
+import PlayingTimeEdit from '../../../components/inputs/Input'
 import Star from '../../../components/icons/StarIcon'
 
 export default ({ play, isEditing, onChange }) => {
@@ -28,13 +28,14 @@ export default ({ play, isEditing, onChange }) => {
         <StyledCaption>Playing time (min)</StyledCaption>
         {isEditing
           ? <PlayingTimeEdit
-            onChange={playingTime => {
-              onChange({ ...play, playingTime })
-            }} />
-          : <p>{play.playingTime !== (null || '')
-            ? play.playingTime
-            : '-/-'}
-          </p>
+              value={play.playingTime}
+              onChange={playingTime => {
+                onChange({ ...play, playingTime })
+              }} />
+          : <p>{play.playingTime !== '' && play.playingTime != null
+              ? play.playingTime
+              : '-/-'}
+            </p>
         }
       </StyledContainer>
       <StyledContainer>
@@ -42,13 +43,14 @@ export default ({ play, isEditing, onChange }) => {
         <StyledCaption>Rating</StyledCaption>
         {isEditing
           ? <PlayStarRatingEdit
-            onChange={playRating => {
-              onChange({ ...play, playRating })
-            }} />
-          : <p>{play.playRating !== (null || '')
-            ? play.playRating
-            : '-/-'}
-          </p>
+              value={play.playRating}
+              onChange={playRating => {
+                onChange({ ...play, playRating })
+              }} />
+          : <p>{play.playRating !== '' && play.playRating != null
+              ? play.playRating
+              : '-/-'}
+            </p>
         }
       </StyledContainer>
     </StyledSummary>
@@ -121,5 +123,10 @@ const StyledContainer = styled.div`
 
   span {
     align-self: center;
+  }
+
+  P {
+    margin: 0;
+    padding: 10px 0; 
   }
 `
