@@ -19,7 +19,7 @@ const StyledGameCollection = styled.ul`
   display: flex;
   flex: 1;
   flex-flow: row wrap;
-  align-content: center;
+  justify-content: center;
   list-style: none;
   margin-bottom: 50px;
   margin: 0;

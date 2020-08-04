@@ -22,14 +22,14 @@ export default function Game({ game }) {
 const StyledLi = styled.li`
   align-items: center;
   display: flex;
-  flex-basis: 145px;
+  flex-basis: 148px;
+  max-width: 153px;
   flex-direction: column;
   flex-grow: 1;
   padding: 10px 0;
   position: relative;
 
   img {
-    align-items: center;
     border: 2px solid var(--surface);
     border-radius: 5px;
     box-shadow: 6px 6px 16px rgba(55, 84, 170, .15),
@@ -38,11 +38,11 @@ const StyledLi = styled.li`
     font-family: var(--caption-font);
     font-size: 12px;
     height: 120px;
-    justify-content: center;
     max-height: 100%;
     max-width: 100%;
     opacity: 0.9;
     object-fit: cover;
+    position: relative;
     text-align: center;
     width: 120px;
   }
@@ -71,16 +71,16 @@ const StyledLi = styled.li`
   }
 
   span[title="Wishlist"] {
-    bottom: 116px;
+    top: 15px;
     color: var(--surface);
-    position: relative;
-    right: 43px;
+    position: absolute;
+    left: 20px;
   }
 
   span[title="Played"] {
-    bottom: 141px;
+    top: 15px;
     color: var(--surface);
-    position: relative;
-    right: -45px;
+    position: absolute;
+    right: 20px;
   }
 `
