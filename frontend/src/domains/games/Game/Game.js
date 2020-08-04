@@ -50,14 +50,14 @@ const StyledLi = styled.li`
   h3, h4 {
     margin: 0;
     padding: 2px 8px;
-    word-break: normal;
     text-align: center;
+    word-break: normal;
   } 
 
   h3 {
-    display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;  
+    display: -webkit-box;
     overflow: hidden;
   }
 
@@ -71,16 +71,16 @@ const StyledLi = styled.li`
   }
 
   span[title="Wishlist"] {
+    bottom: 116px;
     color: var(--surface);
-    position: absolute;
-    left: 20px;
-    top: 14px;
+    position: relative;
+    right: 43px;
   }
 
   span[title="Played"] {
+    bottom: 141px;
     color: var(--surface);
-    position: absolute;
-    right: 20px;
-    top: 14px;
+    position: relative;
+    right: -45px;
   }
 `
