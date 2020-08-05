@@ -12,11 +12,12 @@ export default ({ icon, title, feature }) => (
 )
 
 const StyledContainer = styled.div`
-  align-self: stretch;
+  justify-self: stretch;
   display: grid;
-  grid-template-rows: auto;
+  grid-template-rows: 30px 45px auto;
   
   span {
+    align-self: center;
     color: var(--primary);
   }
     
