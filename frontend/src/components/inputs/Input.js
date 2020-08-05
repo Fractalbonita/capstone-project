@@ -1,19 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default ({ id, name, type, value, onChange, error, touched }) => {
+export default ({ name, type, value, onChange }) => {
   return (
-    <label>
-      <StyledInput
-        id={id}
-        name={name}
-        type={type}
-        value={value}
-        onChange={({ target }) => {
-          onChange(target.value)
-        }}
-      />
-    </label>
+    <StyledInput
+      name={name}
+      type={type}
+      value={value}
+      onChange={({ target }) => {
+        onChange(target.value)
+      }}
+    />
   )
 }
 
