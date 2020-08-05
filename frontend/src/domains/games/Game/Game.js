@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Icon from '../../../utilities/Icon'
@@ -8,27 +9,39 @@ import Icon from '../../../utilities/Icon'
 export default function Game({ game }) {
   return (
     <StyledLi>
-      <img src={game.imageURL} alt="Board game cover" />
-      <Icon type="favorite_border" title="Wishlist" />
-      <Icon type="outlined_flag" title="Played" />
-      <h4>Players: {game.players}</h4>
-      <div>
-        <h3>{game.gameTitle}</h3>
-      </div>
+      <StyledLink to={`/games/${game._id}`}>
+        <img src={game.imageURL} alt="Board game cover" />
+        <Icon type="favorite_border" title="Wishlist" />
+        <Icon type="outlined_flag" title="Played" />
+        <h4>Players: {game.players}</h4>
+        <div>
+          <h3>{game.gameTitle}</h3>
+        </div>
+      </StyledLink>
     </StyledLi>
   )
 }
+
+const StyledLink = styled(Link)`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  flex-grow: 1;
+  min-width: 148px;
+  position: relative;
+  text-decoration: none;
+`
 
 const StyledLi = styled.li`
   align-items: center;
   display: flex;
   flex-basis: 148px;
-  max-width: 153px;
   flex-direction: column;
   flex-grow: 1;
-  padding: 10px 0;
-  position: relative;
-
+  max-width: 148px;
+  padding: 15px 0;
+ 
   img {
     border: 2px solid var(--surface);
     border-radius: 5px;
@@ -71,16 +84,16 @@ const StyledLi = styled.li`
   }
 
   span[title="Wishlist"] {
-    top: 15px;
+    top: 4px;
     color: var(--surface);
     position: absolute;
-    left: 20px;
+    left: 18px;
   }
 
   span[title="Played"] {
-    top: 15px;
+    top: 4px;
     color: var(--surface);
     position: absolute;
-    right: 20px;
+    right: 18px;
   }
 `
