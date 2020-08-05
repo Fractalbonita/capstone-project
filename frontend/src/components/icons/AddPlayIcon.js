@@ -35,4 +35,3 @@ const StyledContainer = styled.div`
     box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque), inset 1px 1px 2px var(--inner-shadow-dark-opaque); 
   }
 `
-
