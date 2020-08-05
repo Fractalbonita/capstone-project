@@ -9,7 +9,6 @@ export default function WelcomePage() {
     <>
       <h1>Place your Plays</h1> 
       <h2>The Board Game Log</h2>
-      <StyledDiv className="infinity"></StyledDiv>
       <Link to="/log">Begin your Board Game Journey <Icon type="east" /></Link>
     </>
   )
