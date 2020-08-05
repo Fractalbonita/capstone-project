@@ -11,13 +11,10 @@ export default (props) => (
 
 const StyledClearIcon = styled.span`
   color: var(--text-decoration-color);
+  cursor: pointer;
   font-size: 24px;
   font-weight: bold;
   left: 6px;
   position: relative;
   top: 6px;
-
-  &:hover {
-    cursor: pointer;
-  }
 `

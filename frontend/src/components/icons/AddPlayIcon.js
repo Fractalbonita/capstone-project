@@ -13,6 +13,7 @@ export default () => (
 
 const StyledAddPlayIcon = styled.span`
   color: var(--surface);
+  cursor: pointer;
   font-size: 36px;
   font-weight: 600;
 `
