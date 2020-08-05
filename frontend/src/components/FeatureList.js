@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export default ({ title, list, ...props }) => (
   <>
-  <h3>{title}</h3>
+  <h2>{title}</h2>
   <StyledList>
     {list && list.map((field, index) => (
       <li key={index} {...props}>{field}</li>
