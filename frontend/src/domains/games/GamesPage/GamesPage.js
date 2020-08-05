@@ -1,12 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from 'styled-components'
 
 import gameData from '../../../data/gameData.json'
 import GameCollection from "../GameCollection/GameCollection"
 
 export default function GameOverViewPage() {
-  // const [games, setGames] = useState([])
-
   return (
     <>
       <h1>Games</h1>
@@ -26,7 +24,7 @@ const StyledFilter = styled.div`
   gap: 30px;
 
   p {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     &:hover {
       color: var(--text-color);
@@ -40,7 +38,6 @@ const StyledFilter = styled.div`
       font-weight: 900;
       text-decoration: 3px underline var(--primary);
       text-underline-position: under;
-  
     }
   }
 `
