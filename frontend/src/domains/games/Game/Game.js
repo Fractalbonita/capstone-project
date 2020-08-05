@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Icon from '../../../utilities/Icon'
-
-// Add link to each game
-
+ 
 export default function Game({ game }) {
   return (
     <StyledLi>
