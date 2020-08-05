@@ -34,7 +34,6 @@ export default function AddPlayForm() {
       </StyledLink>
       <h1>Add a New Play to your Timeline</h1>
       <p>* Required</p>
-
       <Formik
         initialValues={{
           playImage: '',
