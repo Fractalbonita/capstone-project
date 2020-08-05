@@ -30,6 +30,10 @@ const StyledContainer = styled.div`
   transition: all 0.2s ease-in-out;
   width: 36px;
 
+  &:hover {
+    cursor: pointer; 
+  }
+
   &:active {
     box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque), inset 1px 1px 2px var(--inner-shadow-dark-opaque);  }
 `

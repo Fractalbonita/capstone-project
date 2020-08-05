@@ -16,4 +16,8 @@ const StyledClearIcon = styled.span`
   left: 6px;
   position: relative;
   top: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `

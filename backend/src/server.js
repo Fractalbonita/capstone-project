@@ -1,4 +1,4 @@
-import bodyParser from 'express'
+import bodyParser, { response } from 'express'
 import cors from 'cors'
 import express from 'express'
 import fileUpload from 'express-fileupload'
@@ -65,6 +65,18 @@ app.post('/plays', (request, response) => {
   const newPlay = request.body
 
   Play.create(newPlay)
+    .then(data => response.json(data))
+    .catch(error => {
+      console.log(error)
+      response.status(400)
+    })
+})
+
+app.put('/plays/:id', (request, response) => {
+  const updatePlay = request.body
+  const id = request.params.id
+
+  Play.findByIdAndUpdate({ _id: id }, updatePlay, { new: true })
     .then(data => response.json(data))
     .catch(error => {
       console.log(error)

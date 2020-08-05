@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Star from '../components/StarRating'
+import StarRating from './StarRating'
 
 export default {
   title: 'StarRating',
   component: StarRating,
 }
 
-export const rating = () => <StarRating />
+export const starRating = () => <StarRating numberOfStars={10} selectedStars={selectedStars} handleRating={handleRating} />

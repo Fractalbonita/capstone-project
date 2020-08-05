@@ -1,10 +1,10 @@
 import React from 'react'
 
-import PlayTimelinePage from '../components/PlayTimelinePage'
+import PlayTimelinePage from './PlayTimelinePage'
 
 export default {
   title: 'PlayTimelinePage',
   component: PlayTimelinePage,
 }
 
-export const playTimeline = () => <PlayTimelinePage></PlayTimelinePage>
+export const playTimeline = () => <PlayTimelinePage />

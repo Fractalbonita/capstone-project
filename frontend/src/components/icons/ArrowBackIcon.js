@@ -25,8 +25,8 @@ const StyledContainer = styled.div`
   height: 36px;
   justify-content: center;
   left: calc(10px + 4vw);
-  position: absolute;
-  top: 20px;
+  position: fixed;
+  top: 16px;
   transition: all 0.2s ease-in-out;
   width: 36px;
 

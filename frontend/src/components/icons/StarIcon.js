@@ -16,6 +16,10 @@ const StyledStar = styled.span`
   letter-spacing: 0.2rem;
   text-shadow: 1px 1px 2px var(--shadow);
   
+  &:hover {
+    cursor: pointer;
+  }
+
   &.star-highlighted {
     color: var(--primary);
   }
