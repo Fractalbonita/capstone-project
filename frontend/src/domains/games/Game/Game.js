@@ -1,16 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-
-import Icon from '../../../utilities/Icon'
  
 export default function Game({ game }) {
   return (
     <StyledLi>
       <StyledLink to={`/games/${game._id}`}>
         <img src={game.imageURL} alt="Board game cover" />
-        <Icon type="favorite_border" title="Wishlist" />
-        <Icon type="outlined_flag" title="Played" />
         <h4>Players: {game.players}</h4>
         <div>
           <h3>{game.gameTitle}</h3>
@@ -79,19 +75,5 @@ const StyledLi = styled.li`
   div {
     display: flex;
     height: 50px;
-  }
-
-  span[title="Wishlist"] {
-    top: 4px;
-    color: var(--surface);
-    position: absolute;
-    left: 18px;
-  }
-
-  span[title="Played"] {
-    top: 4px;
-    color: var(--surface);
-    position: absolute;
-    right: 18px;
   }
 `
