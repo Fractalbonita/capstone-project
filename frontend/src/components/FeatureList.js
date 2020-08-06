@@ -13,20 +13,20 @@ export default ({ title, list, ...props }) => (
 )
 
 const StyledList = styled.ul`
-list-style: none;
-padding: 0;
+  list-style: none;
+  padding: 0;
 
-li {
-  background-color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 20px;
-  box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
-  color: var(--surface);
-  display: inline-block;
-  font-family: var(--body);
-  font-size: 14px;
-  letter-spacing: 0.05rem;
-  margin: 7px;
-  padding: 5px 10px;
-}
+  li {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 20px;
+    box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
+    color: var(--surface);
+    display: inline-block;
+    font-family: var(--button-font);
+    font-size: 14px;
+    letter-spacing: 0.05rem;
+    margin: 7px;
+    padding: 5px 10px;
+  }
 `
