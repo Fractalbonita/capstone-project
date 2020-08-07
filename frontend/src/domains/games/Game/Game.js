@@ -47,7 +47,6 @@ const StyledLi = styled.li`
     height: 120px;
     max-height: 100%;
     max-width: 100%;
-    opacity: 0.9;
     object-fit: cover;
     position: relative;
     text-align: center;
