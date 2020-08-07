@@ -34,6 +34,7 @@ const StyledNavigation = styled.div`
 `
 
 const StyledNavLink = styled(NavLink)`
+-webkit-tap-highlight-color: transparent;
 border: 1px solid var(--surface);
 border-radius: 5px;
 box-shadow: -3px -3px 7px var(--inner-shadow-light-opaque), 3px 3px 7px var(--inner-shadow-dark-opaque);
