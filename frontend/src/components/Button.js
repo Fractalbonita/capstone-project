@@ -7,7 +7,7 @@ export const PrimaryButton = styled.button`
   border-radius: 20px;
   box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
   cursor: pointer;
-  font-family: 'Lato', sans-serif;
+  font-family: var(--button-font);
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.1rem;
