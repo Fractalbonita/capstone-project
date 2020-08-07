@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
  
@@ -18,9 +18,9 @@ export default function Game({ game }) {
 
 const StyledLink = styled(Link)`
   align-items: center;
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
-  color: var(--text-color);
   flex-grow: 1;
   min-width: 148px;
   position: relative;
