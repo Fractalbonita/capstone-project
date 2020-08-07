@@ -55,10 +55,10 @@ export default function PlayOverviewPage() {
 
 const StyledHeader = styled.div`
   background-color: var(--surface);
+  height: 68px;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  height: 68px;
   width: 100%;
 `
 
@@ -77,7 +77,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 20px;
   box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
-  font-family: 'Lato', sans-serif;
+  font-family: var(--button-font);
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 0.1rem;
@@ -89,16 +89,17 @@ const StyledButton = styled.button`
 
   &.cancel {
     color: var(--primary);
+    cursor: pointer;
     background-color: var(--surface);
   }
 
   &.save {
     color: var(--surface);
+    cursor: pointer;
     background-color: var(--primary);
   }
 
   &.save:hover, &.cancel:hover {
-    cursor: pointer;
     background-color: var(--surface);
     color: var(--text-color);
   }
