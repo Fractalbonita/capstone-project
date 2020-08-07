@@ -1,43 +1,63 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 import styled from 'styled-components'
 
-import gameData from '../../../data/gameData.json'
+import { fetchGames, fetchPlayedGames, fetchGamesOnWishlist } from '../../../services/gameClient'
 import GameCollection from "../GameCollection/GameCollection"
 
 export default function GameOverViewPage() {
+  const [games, setGames] = useState([])
+  const { search } = useLocation()
+
+  useEffect(() => {
+    switch (search) {
+      case "?played": fetchPlayedGames().then(setGames); break;
+      case "?wishlist": fetchGamesOnWishlist().then(setGames); break;
+      default: fetchGames().then(setGames); break;
+    }
+  }, [search])
+
   return (
     <>
       <h1>Games</h1>
       <StyledFilter>
-        <p>All Games</p>
-        <p>Played</p>
-        <p>Wishlist</p>
+        <FilterLink search={search} filter="" title="All Games" />
+        <FilterLink search={search} filter="?played" title="Played" />
+        <FilterLink search={search} filter="?wishlist" title="Wishlist" />
       </StyledFilter>
-      <GameCollection games={gameData} />
+      <GameCollection games={games} />
     </>
   )
 }
 
+const FilterLink = ({ filter, title, search }) => (
+  <StyledLink to={'/games' + filter} className={search == filter ? 'active' : ''}>
+    {title}
+  </StyledLink>
+)
+
 const StyledFilter = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: 12ch 10ch 8ch;
+`
 
-  p {
-    margin-bottom: 1.5rem;
+const StyledLink = styled(Link)`
+  -webkit-tap-highlight-color: transparent;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  outline: none;
+  padding-top: 15px;
+  text-decoration: none;
 
-    &:hover {
-      color: var(--text-color);
-      text-decoration: 3px underline var(--text-color);
-      text-underline-position: under;
-      font-weight: 900;
-    }
+  &:hover {
+    color: var(--text-color);
+    text-decoration: 2px underline var(--text-color);
+    text-underline-position: under;
+  }
 
-    &:active {
-      color: var(--primary);
-      font-weight: 900;
-      text-decoration: 3px underline var(--primary);
-      text-underline-position: under;
-    }
+  &.active {
+    color: var(--primary);
+    text-decoration: 2px underline var(--primary);
+    text-underline-position: under;
   }
 `
