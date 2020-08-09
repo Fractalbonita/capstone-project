@@ -32,7 +32,7 @@ export default function GameOverViewPage() {
 
 const FilterLink = ({ filter, title, search }) => (
   <StyledLink to={'/games' + filter} className={search == filter ? 'active' : ''}>
-    {title}
+    <span>{title}</span>
   </StyledLink>
 )
 
@@ -44,20 +44,29 @@ const StyledFilter = styled.div`
 const StyledLink = styled(Link)`
   -webkit-tap-highlight-color: transparent;
   color: var(--text-color);
+  font-family: var(--button-font);
   margin-bottom: 1.5rem;
   outline: none;
   padding-top: 15px;
   text-decoration: none;
 
+  span {
+    border-bottom: 2px solid transparent;
+  }
+
   &:hover {
     color: var(--text-color);
-    text-decoration: 2px underline var(--text-color);
-    text-underline-position: under;
+
+    span {
+      border-color: var(--text-color);
+    }
   }
 
   &.active {
     color: var(--primary);
-    text-decoration: 2px underline var(--primary);
-    text-underline-position: under;
+    
+    span {
+      border-color: var(--primary);
+    }
   }
 `
