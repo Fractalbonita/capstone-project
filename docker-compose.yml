@@ -1,0 +1,15 @@
+version: '2.4'
+
+services:
+  mongo:
+    image: mongo
+  backend:
+    build: backend
+    image: fb:place-your-plays-backend.v1
+    ports:
+      - 12345:3001
+  frontend:
+    build: frontend
+    image: fb:place-your-plays.v1
+    ports:
+      - 1234:80

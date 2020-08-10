@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.static('public'))
 app.use(fileUpload())
 
-mongoose.connect('mongodb://localhost:27017/capstone-project', {
+mongoose.connect('mongodb://mongo:27017/capstone-project', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
