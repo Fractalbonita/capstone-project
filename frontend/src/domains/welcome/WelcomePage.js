@@ -7,9 +7,15 @@ import Icon from '../../utilities/Icon'
 export default function WelcomePage() {
   return (
     <>
-      <h1>Place your Plays</h1> 
+      <img src="Icon-192.png" alt="logo" />
+      <StyledAppTitle>Place your Plays</StyledAppTitle> 
       <h2>The Board Game Log</h2>
       <Link to="/log">Begin your Board Game Journey <Icon type="east" /></Link>
     </>
   )
 }
+
+const StyledAppTitle = styled.h1`
+  font-family: var(--app-title-font);
+  font-weight: 600;
+`
