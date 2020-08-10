@@ -3,19 +3,14 @@ import React from 'react'
 export default ({ player }) => {
   return (
     <tr>
-      <td>{player.name}</td>
-      <td>{player.fraction != null
-        ? player.fraction
-        : '-/-'}
-      </td>
-      <td className="number">{player.score != null
-        ? player.score
-        : '-/-'}
-      </td>
-      <td className="number">{player.rank != null
-        ? player.rank
-        : '-/-'}
-      </td>
+      <Cell>{player.name}</Cell>
+      <Cell>{player.fraction}</Cell>
+      <Cell className="number">{player.score}</Cell>
+      <Cell className="number">{player.rank}</Cell>
     </tr>
   )
 }
+
+const Cell = ({ children, ...props }) => (
+  <td {...props}>{children != null ? children : '-/-'}</td>
+)

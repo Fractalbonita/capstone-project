@@ -7,23 +7,20 @@ export default ({ player, onChange }) => {
     <tr>
       <td>
         <PlayerEditCell 
-          id="name"
           name="name"
           type="text"
           value={player.name}
           onChange={name => onChange({ ...player, name })} />
       </td>
-        <td>
+      <td>
         <PlayerEditCell
-          id="fraction"
           name="fraction"
           type="text"
           value={player.fraction}
           onChange={fraction => onChange({ ...player, fraction })} />
-        </td>
+      </td>
       <td>
         <PlayerEditCell
-          id="score"
           name="score"
           type="text"
           value={player.score}
@@ -31,7 +28,6 @@ export default ({ player, onChange }) => {
       </td>
       <td>
         <PlayerEditCell
-          id="rank"
           name="rank"
           type="text"
           value={player.rank}

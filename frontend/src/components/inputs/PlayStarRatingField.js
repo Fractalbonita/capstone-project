@@ -20,7 +20,7 @@ export default ({ name }) => (
   </>
 )
 
-const StyledNumber = styled.span`
+const StyledNumber = styled.span` 
   font-family: 'Karla', sans-serif;
   font-size: 16px;
   font-weight: bold;

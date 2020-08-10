@@ -6,7 +6,8 @@ export const PrimaryButton = styled.button`
   border: none;
   border-radius: 20px;
   box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
-  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  font-family: var(--button-font);
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.1rem;
@@ -14,9 +15,8 @@ export const PrimaryButton = styled.button`
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
   width: 90%;
-
+  
   &:hover {
-    cursor: pointer;
     background-color: var(--surface);
     color: var(--text-color);
   }

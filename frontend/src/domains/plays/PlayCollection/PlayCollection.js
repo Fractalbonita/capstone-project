@@ -8,7 +8,7 @@ export default function PlayCollection({ plays }) {
   <>
     <h1>Plays</h1>
     <StyledPlayCollection>
-      {plays && plays.map((play) => (
+      {plays && plays.map(play => (
         <Play play={play} key={play._id} />
       )).reverse()}
     </StyledPlayCollection>

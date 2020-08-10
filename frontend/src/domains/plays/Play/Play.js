@@ -41,6 +41,7 @@ const StyledLink = styled(Link)`
 const StyledImage = styled.div`
   align-items: center;
   background: var(--inner-shadow-dark);
+  border-radius: 5px;
   display: flex;
   height: 90px;
   justify-content: center;
@@ -48,6 +49,7 @@ const StyledImage = styled.div`
 
   img {
     align-items: center;
+    border-radius: 5px;
     color: var(--text-color);
     display: flex;
     font-family: var(--caption-font);
