@@ -1,0 +1,5 @@
+node_modules/
+.storybook/
+.git/
+**/*.stories.js
+**/*.test.js
