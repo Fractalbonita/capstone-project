@@ -6,6 +6,7 @@ export default createGlobalStyle`
   }
 
   :root {
+    --app-title-font: 'Playfair Display', serif;
     --headline-font: 'Lato', sans-serif;
     --subtitle-font: 'Karla', sans-serif;
     --body-font: 'Karla', sans-serif;
