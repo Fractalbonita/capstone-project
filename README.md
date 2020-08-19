@@ -42,6 +42,7 @@ The app can be used on desktop and mobile devices, but it is highly reccomened f
 - MongoDB
 - Mongoose
 - localStorage
+- Docker
 - React Testing Library
 - Jest Unit-Tests
 - Cypress
