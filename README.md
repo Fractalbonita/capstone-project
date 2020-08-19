@@ -22,7 +22,9 @@ The app can be used on desktop and mobile devices, but it is highly reccomened f
 - Mark games as played
 
 ## Impressions
-<img src="https://user-images.githubusercontent.com/61810490/90652013-f9cc0000-e23d-11ea-8421-5b1e87a131ac.gif" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90643786-3b57ad80-e234-11ea-8fc0-b13adbbd44e9.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90643818-48749c80-e234-11ea-8173-bdd272d22b50.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90643859-53c7c800-e234-11ea-9de6-f2e41c9d61ba.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90644387-f6804680-e234-11ea-9b22-375f060d3927.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90644415-fc762780-e234-11ea-8dfa-ad65dfb77281.png" height="300" />
+<img src="https://user-images.githubusercontent.com/61810490/90652013-f9cc0000-e23d-11ea-8421-5b1e87a131ac.gif" height="300" /> 
+
+<img src="https://user-images.githubusercontent.com/61810490/90643786-3b57ad80-e234-11ea-8fc0-b13adbbd44e9.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90643818-48749c80-e234-11ea-8173-bdd272d22b50.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90643859-53c7c800-e234-11ea-9de6-f2e41c9d61ba.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90644387-f6804680-e234-11ea-9b22-375f060d3927.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90644415-fc762780-e234-11ea-8dfa-ad65dfb77281.png" height="300" />
 
 ## Technologies & tools
 - React 
