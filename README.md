@@ -4,7 +4,7 @@ The app for tracking and analysing board games
 ## What's new
 New features will be available soon. 
 
-## Descirption
+## Description
 Place your Plays helps board game lovers and novices to track, organise, and analyse their board game sessions. Add information of the latest play including players and playing time to your personal list. Capture and upload images to better memorize the play. Analyse your performance and achievements by rating your plays, comparing fractions and scores reached. Explore new games with the integrated BoardGameGeek game collection (BGG-API) and add them to your wish list. When you finished a game, you can mark it as played. Let the next play begin!
 
 The app can be used on desktop and mobile devices, but it is highly reccomened for mobile and tablet usage. It is most ideal for iphone 6/7/8.
