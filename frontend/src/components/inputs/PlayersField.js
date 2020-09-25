@@ -1,15 +1,18 @@
 import React from 'react'
 import * as Yup from 'yup'
 import { FieldArray } from 'formik'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import AddPlayerIcon from '../icons/AddPlayerIcon'
-import ErrorMessage from '../../styles/StyledErrorMessage'
-import Icon from '../../utilities/Icon'
-import StyledField from '../../styles/StyledField'
 import StyledLabel from '../../styles/StyledLabel'
+import PlayerField from '../inputs/PlayerField'
 
-export default ({ name, players }) => {
+PlayersField.propTypes = {
+  name: PropTypes.string,
+  players: PropTypes.arrayOf(PropTypes.object),
+}
+
+export default function PlayersField({ name, players }) {
   return (
     <>
       <StyledLabel htmlFor={name}>Players *</StyledLabel>
@@ -34,22 +37,6 @@ export default ({ name, players }) => {
   )
 }
 
-function PlayerField({ name, index, remove, enableDeletion }) {
-  return (
-    <div id={`${name}-${index}-name`} style={{ width: '100%' }}>
-      <StyledContainer>
-        <StyledField
-          name={`${name}.${index}.name`}
-          type="text"
-          placeholder="e.g. Kim"
-        />
-        {enableDeletion && <Icon type="clear" onClick={() => remove(index)} />}
-      </StyledContainer>
-      <ErrorMessage name={`${name}.${index}.name`} component="div" />
-    </div>
-  )
-}
-
 export const PlayersFieldValidator = Yup.array().of(
   Yup.object().shape({
     name: Yup.string()
@@ -59,20 +46,3 @@ export const PlayersFieldValidator = Yup.array().of(
       .max(20, 'The name should be maximum 20 characters.'),
   })
 )
-
-const StyledContainer = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-
-  span {
-    color: var(--text-color-opaque);
-    position: absolute;
-    right: 10px;
-  }
-
-  input {
-    margin: 10px 0;
-    padding-right: 40px;
-  }
-`
