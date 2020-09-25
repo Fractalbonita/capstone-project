@@ -7,6 +7,6 @@ export default {
   component: PlayerEditRow,
 }
 
-export const playerEditRow = () => <PlayerEditRow player={player} onChange={onChange} />
-
-
+export const playerEditRow = () => (
+  <PlayerEditRow player={player} onChange={onChange} />
+)

@@ -15,27 +15,29 @@ export default ({ name, updateImageHandler }) => {
   return (
     <>
       <StyledLabel>
-      <ImageUploadIcon name="imageUploadIcon" />
-      <StyledHiddenFileInput name={name}
-        type="file"
-        onChange={handleFileChange}
-        data-testid="image-upload"
-      />
-        {imageURL !== ''
-          ? <span>
-              <StyledClearIcon
-                style={{ display: 'block'}}
-                onClick={handleFileChange}>
-              </StyledClearIcon>
-              <StyledImage src={imageURL} />
+        <ImageUploadIcon name="imageUploadIcon" />
+        <StyledHiddenFileInput
+          name={name}
+          type="file"
+          onChange={handleFileChange}
+          data-testid="image-upload"
+        />
+        {imageURL !== '' ? (
+          <span>
+            <StyledClearIcon
+              style={{ display: 'block' }}
+              onClick={handleFileChange}
+            ></StyledClearIcon>
+            <StyledImage src={imageURL} />
+          </span>
+        ) : (
+          filename !== '' && (
+            <span>
+              {filename}
+              <StyledClearIcon onClick={handleFileChange}></StyledClearIcon>
             </span>
-          : filename !== '' &&
-            <span>{filename}
-              <StyledClearIcon
-                onClick={handleFileChange}>
-              </StyledClearIcon>
-            </span>
-        }
+          )
+        )}
       </StyledLabel>
       <ErrorMessage name={name} component="div" />
     </>
@@ -61,12 +63,11 @@ export default ({ name, updateImageHandler }) => {
   }
 }
 
-export const PlayImageFieldValidator = Yup
-  .mixed()
-  .test(
-    'Type-Check',
-    'Only JPEG files are allowed.',
-    file => !file || file.type === 'image/jpeg')
+export const PlayImageFieldValidator = Yup.mixed().test(
+  'Type-Check',
+  'Only JPEG files are allowed.',
+  file => !file || file.type === 'image/jpeg'
+)
 
 const StyledImage = styled.img`
   margin: 1rem auto;

@@ -12,7 +12,7 @@ export default function PlayTimelinePage() {
     fetchPlays().then(setPlays)
   }, [])
 
-  return  (
+  return (
     <>
       <PlayCollection plays={plays} />
       <Link to="/log/addplay">

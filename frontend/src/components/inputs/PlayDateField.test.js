@@ -7,12 +7,20 @@ import PlayDateField from './PlayDateField'
 
 describe('PlayDateField', () => {
   test('should render the label "Date *"', () => {
-    const { container } = render(<Formik><PlayDateField name={name} /></Formik>)
+    const { container } = render(
+      <Formik>
+        <PlayDateField name={name} />
+      </Formik>
+    )
     expect(getByLabelText(container, 'Date *')).toBeInTheDocument()
   })
 
   test('should render the input field of type text', () => {
-    const { container } = render(<Formik><PlayDateField name={name} /></Formik>)
+    const { container } = render(
+      <Formik>
+        <PlayDateField name={name} />
+      </Formik>
+    )
     expect(getByLabelText(container, 'Date *').tagName).toBe('INPUT')
   })
 })

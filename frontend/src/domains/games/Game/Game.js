@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
- 
+
 export default function Game({ game }) {
   return (
     <StyledLi>
@@ -35,12 +35,12 @@ const StyledLi = styled.li`
   flex-grow: 1;
   max-width: 148px;
   padding: 15px 0;
- 
+
   img {
     border: 2px solid var(--surface);
     border-radius: 5px;
-    box-shadow: 6px 6px 16px rgba(55, 84, 170, .15),
-                -6px -6px 16px rgba(255, 255, 255, 1);
+    box-shadow: 6px 6px 16px rgba(55, 84, 170, 0.15),
+      -6px -6px 16px rgba(255, 255, 255, 1);
     display: flex;
     font-family: var(--caption-font);
     font-size: 12px;
@@ -53,16 +53,17 @@ const StyledLi = styled.li`
     width: 120px;
   }
 
-  h3, h4 {
+  h3,
+  h4 {
     margin: 0;
     padding: 2px 8px;
     text-align: center;
     word-break: normal;
-  } 
+  }
 
   h3 {
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
   }

@@ -8,15 +8,16 @@ import StyledLabel from '../../styles/StyledLabel'
 export default ({ name }) => (
   <>
     <StyledLabel htmlFor={name}>Game Title *</StyledLabel>
-    <StyledField name={name}
+    <StyledField
+      name={name}
       id={name}
       type="text"
-      placeholder="e.g. Terra Mystica" />
+      placeholder="e.g. Terra Mystica"
+    />
     <ErrorMessage name={name} component="div" />
   </>
 )
 
-export const GameTitleFieldValidator = Yup
-  .string()
+export const GameTitleFieldValidator = Yup.string()
   .max(100, `The title of the game is too long.`)
   .required(`Required`)

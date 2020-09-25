@@ -5,13 +5,11 @@ import Game from '../Game/Game'
 
 export default function GameCollection({ games }) {
   return (
-  <>
-    <StyledGameCollection>
-      {games && games.map(game => (
-        <Game game={game} key={game._id} />
-      ))}
-    </StyledGameCollection>
-  </>
+    <>
+      <StyledGameCollection>
+        {games && games.map(game => <Game game={game} key={game._id} />)}
+      </StyledGameCollection>
+    </>
   )
 }
 

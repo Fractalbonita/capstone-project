@@ -7,7 +7,7 @@ export default function WelcomePage() {
     <>
       <StyledLink to="/log">
         <StyledLogo src="Icon-192.png" alt="logo"></StyledLogo>
-        <StyledAppTitle>Place your Plays</StyledAppTitle> 
+        <StyledAppTitle>Place your Plays</StyledAppTitle>
         <StyledAppSubtitle>The Board Game Log</StyledAppSubtitle>
         <StyledText>Begin your Board Game Journey</StyledText>
       </StyledLink>

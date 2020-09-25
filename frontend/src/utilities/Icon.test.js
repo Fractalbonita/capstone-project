@@ -12,10 +12,12 @@ describe('Icon', () => {
   })
 
   test('should render an icon of the given type', () => {
-    const { queryByText } = render(<>
-      <Icon type="star" />
-      <Icon type="add" />
-    </>) 
+    const { queryByText } = render(
+      <>
+        <Icon type="star" />
+        <Icon type="add" />
+      </>
+    )
     expect(queryByText('star')).toBeTruthy()
     expect(queryByText('add')).toBeTruthy()
     expect(queryByText('clear')).toBeFalsy()
@@ -23,7 +25,9 @@ describe('Icon', () => {
 
   test('should propagate events', () => {
     let clicked = false
-    const { getByText } = render(<Icon type="star" onClick={() => clicked = true} />)
+    const { getByText } = render(
+      <Icon type="star" onClick={() => (clicked = true)} />
+    )
     getByText('star').click()
     expect(clicked).toBe(true)
   })

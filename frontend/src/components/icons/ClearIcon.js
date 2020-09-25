@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default (props) => (
-  <StyledClearIcon
-    className="material-icons"
-    {...props}>
+export default props => (
+  <StyledClearIcon className="material-icons" {...props}>
     clear
   </StyledClearIcon>
 )

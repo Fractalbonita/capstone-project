@@ -3,10 +3,8 @@ import styled from 'styled-components'
 
 export default () => (
   <StyledContainer>
-    <StyledArrow
-      className="material-icons"
-      title="Back to plays">
-        arrow_back
+    <StyledArrow className="material-icons" title="Back to plays">
+      arrow_back
     </StyledArrow>
   </StyledContainer>
 )
@@ -20,7 +18,8 @@ const StyledContainer = styled.div`
   align-items: center;
   background-color: var(--surface);
   border-radius: 50%;
-  box-shadow: -3px -3px 7px var(--inner-shadow-light-opaque), 3px 3px 7px var(--inner-shadow-dark-opaque);
+  box-shadow: -3px -3px 7px var(--inner-shadow-light-opaque),
+    3px 3px 7px var(--inner-shadow-dark-opaque);
   cursor: pointer;
   display: flex;
   height: 36px;
@@ -32,6 +31,7 @@ const StyledContainer = styled.div`
   width: 36px;
 
   &:active {
-    box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque), inset 1px 1px 2px var(--inner-shadow-dark-opaque);  
+    box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque),
+      inset 1px 1px 2px var(--inner-shadow-dark-opaque);
   }
 `

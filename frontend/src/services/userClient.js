@@ -7,22 +7,20 @@ export function gamesOnWishlist() {
 }
 
 export function toggleOnWishlist(id) {
-  return gamesOnWishlist()
-    .then(games => {
-      const isIncluded = games.includes(id)
-      if (isIncluded) {
-        games = games.filter(game => game !== id)
-      } else {
-        games.push(id)
-      }
-      localStorage.setItem(wishlistKey, JSON.stringify(games))
-      return Promise.resolve(!isIncluded)
+  return gamesOnWishlist().then(games => {
+    const isIncluded = games.includes(id)
+    if (isIncluded) {
+      games = games.filter(game => game !== id)
+    } else {
+      games.push(id)
+    }
+    localStorage.setItem(wishlistKey, JSON.stringify(games))
+    return Promise.resolve(!isIncluded)
   })
 }
 
 export function isOnWishlist(id) {
-  return gamesOnWishlist()
-    .then(games => games.includes(id))
+  return gamesOnWishlist().then(games => games.includes(id))
 }
 
 export function gamesAlreadyPlayed() {
@@ -31,8 +29,7 @@ export function gamesAlreadyPlayed() {
 }
 
 export function toggleOnPlayedGamesList(id) {
-  return gamesAlreadyPlayed()
-  .then(games => {
+  return gamesAlreadyPlayed().then(games => {
     const isIncluded = games.includes(id)
     if (isIncluded) {
       games = games.filter(game => game !== id)
@@ -45,6 +42,5 @@ export function toggleOnPlayedGamesList(id) {
 }
 
 export function isAlreadyPlayed(id) {
-  return gamesAlreadyPlayed()
-    .then(games => games.includes(id))
+  return gamesAlreadyPlayed().then(games => games.includes(id))
 }

@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 const key = 'playData'
 
 export function uploadImage(imageFile) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     if (!imageFile) {
       return resolve('')
     }

@@ -9,20 +9,22 @@ import Star from '../../../components/icons/StarIcon'
 export default function Play({ play }) {
   return (
     <li>
-     <StyledLink to={`/log/${play._id}`}>
+      <StyledLink to={`/log/${play._id}`}>
         <StyledImage>
-          {play.imageURL
-            ? <img src={imageOf(play)} alt="Your board game session" />
-            : <p>No photo available</p>}
+          {play.imageURL ? (
+            <img src={imageOf(play)} alt="Your board game session" />
+          ) : (
+            <p>No photo available</p>
+          )}
         </StyledImage>
-      <StyledDescription>
-        <h4>{getLocaleDate(play.playDate)}</h4>
-        <h3>{play.gameTitle}</h3>
-      </StyledDescription>
-      <StyledRating>
-        <Star isSelected={play.playRating} />
-        <p>{play.playRating}</p>
-      </StyledRating>
+        <StyledDescription>
+          <h4>{getLocaleDate(play.playDate)}</h4>
+          <h3>{play.gameTitle}</h3>
+        </StyledDescription>
+        <StyledRating>
+          <Star isSelected={play.playRating} />
+          <p>{play.playRating}</p>
+        </StyledRating>
       </StyledLink>
     </li>
   )
@@ -70,14 +72,15 @@ const StyledImage = styled.div`
     font-weight: 400;
     text-align: center;
   }
-` 
+`
 
 const StyledDescription = styled.div`
-  h3, h4 {
+  h3,
+  h4 {
     margin: 0;
     padding: 5px 10px;
     word-break: normal;
-  } 
+  }
 `
 
 const StyledRating = styled.div`

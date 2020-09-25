@@ -3,10 +3,8 @@ import styled from 'styled-components'
 
 export default () => (
   <StyledContainer>
-    <StyledAddPlayIcon
-      className="material-icons-round"
-      title="Add a new play">
-        add
+    <StyledAddPlayIcon className="material-icons-round" title="Add a new play">
+      add
     </StyledAddPlayIcon>
   </StyledContainer>
 )
@@ -23,7 +21,8 @@ const StyledContainer = styled.div`
   background-color: var(--primary);
   border-radius: 50%;
   bottom: 40px;
-  box-shadow: -3px -3px 7px var(--inner-shadow-light-opaque), 3px 3px 7px var(--inner-shadow-dark-opaque);
+  box-shadow: -3px -3px 7px var(--inner-shadow-light-opaque),
+    3px 3px 7px var(--inner-shadow-dark-opaque);
   display: flex;
   height: 56px;
   justify-content: center;
@@ -35,6 +34,7 @@ const StyledContainer = styled.div`
   z-index: 10;
 
   &:active {
-    box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque), inset 1px 1px 2px var(--inner-shadow-dark-opaque); 
+    box-shadow: inset -1px -1px 2px var(--inner-shadow-light-opaque),
+      inset 1px 1px 2px var(--inner-shadow-dark-opaque);
   }
 `

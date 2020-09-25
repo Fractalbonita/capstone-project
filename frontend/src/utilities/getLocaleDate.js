@@ -4,16 +4,14 @@ export function getLocaleDate(date) {
   }
 
   const parsedDate = date === +date ? date : Date.parse(date)
-  
+
   if (isNaN(parsedDate)) {
     return ''
   }
 
-  return (
-    new Date(parsedDate).toLocaleDateString('de-DE', {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric'
-    })
-  )
+  return new Date(parsedDate).toLocaleDateString('de-DE', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  })
 }

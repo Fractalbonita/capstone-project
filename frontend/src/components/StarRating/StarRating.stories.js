@@ -7,4 +7,10 @@ export default {
   component: StarRating,
 }
 
-export const starRating = () => <StarRating numberOfStars={10} selectedStars={selectedStars} handleRating={handleRating} />
+export const starRating = () => (
+  <StarRating
+    numberOfStars={10}
+    selectedStars={selectedStars}
+    handleRating={handleRating}
+  />
+)

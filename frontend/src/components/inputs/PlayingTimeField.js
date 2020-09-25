@@ -8,17 +8,18 @@ import StyledLabel from '../../styles/StyledLabel'
 export default ({ name }) => (
   <>
     <StyledLabel htmlFor={name}>Playing Time (min)</StyledLabel>
-    <StyledField name={name}
+    <StyledField
+      name={name}
       id={name}
       inputMode="numeric"
       pattern="[0-9]*"
-      placeholder="e.g. 30" />
+      placeholder="e.g. 30"
+    />
     <ErrorMessage name={name} component="div" />
   </>
 )
 
-export const PlayingTimeFieldValidator = Yup
-  .number()
+export const PlayingTimeFieldValidator = Yup.number()
   .typeError('Please mind that only numbers are allowed.')
   .integer(`The playing time must be an integer number.`)
   .positive(`The playing time must be a positive number.`)

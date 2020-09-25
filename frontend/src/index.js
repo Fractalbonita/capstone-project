@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <GlobalStyles />
+      <GlobalStyles />
       <App />
     </Router>
   </React.StrictMode>,

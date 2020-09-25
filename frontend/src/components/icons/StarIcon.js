@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default ({ isSelected = true, ...props }) => (
-    <StyledStar className={
-      isSelected
-        ? "material-icons star-highlighted"
-        : "material-icons star"
-    } {...props}>
-      star
-    </StyledStar>
+  <StyledStar
+    className={
+      isSelected ? 'material-icons star-highlighted' : 'material-icons star'
+    }
+    {...props}
+  >
+    star
+  </StyledStar>
 )
 
 const StyledStar = styled.span`

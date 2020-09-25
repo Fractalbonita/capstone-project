@@ -31,23 +31,41 @@ export default function PlayOverviewPage() {
       </StyledHeader>
       <h1>{play.gameTitle}</h1>
       <h2>Details</h2>
-      <PlayDetails play={play}
+      <PlayDetails
+        play={play}
         isEditing={isEditing}
-        onChange={play => setPlay(play)} />
+        onChange={play => setPlay(play)}
+      />
       <h2>Ranking</h2>
-      <PlayRanking play={play}
+      <PlayRanking
+        play={play}
         isEditing={isEditing}
-        onChange={play => setPlay(play)} />
+        onChange={play => setPlay(play)}
+      />
       <StyledDiv>
-        {isEditing && <StyledButton className="cancel" onClick={() => {
-          setPlay(cachedPlay)
-          setIsEditing(false)
-        }}>Cancel</StyledButton>}
-        {isEditing && <StyledButton className="save" onClick={() => {
-          updatePlay(play)
-          setCachedPlay(play)
-          setIsEditing(false)
-        }}>Save</StyledButton>}
+        {isEditing && (
+          <StyledButton
+            className="cancel"
+            onClick={() => {
+              setPlay(cachedPlay)
+              setIsEditing(false)
+            }}
+          >
+            Cancel
+          </StyledButton>
+        )}
+        {isEditing && (
+          <StyledButton
+            className="save"
+            onClick={() => {
+              updatePlay(play)
+              setCachedPlay(play)
+              setIsEditing(false)
+            }}
+          >
+            Save
+          </StyledButton>
+        )}
       </StyledDiv>
     </>
   )
@@ -99,13 +117,15 @@ const StyledButton = styled.button`
     background-color: var(--primary);
   }
 
-  &.save:hover, &.cancel:hover {
+  &.save:hover,
+  &.cancel:hover {
     background-color: var(--surface);
     color: var(--text-color);
   }
 
   &:active {
-    box-shadow: inset -1px -1px 2px #fff, inset 1px 1px 2px var(--inner-shadow-dark-opaque);
+    box-shadow: inset -1px -1px 2px #fff,
+      inset 1px 1px 2px var(--inner-shadow-dark-opaque);
     color: var(--text-color);
   }
 `

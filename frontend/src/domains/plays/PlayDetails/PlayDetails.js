@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import { imageOf } from '../../../services/playsClient'
-import Icon from '../../../utilities/Icon' 
+import Icon from '../../../utilities/Icon'
 import PlayStarRatingEdit from '../../../components/inputs/Input'
 import PlayingTimeEdit from '../../../components/inputs/Input'
 import Star from '../../../components/icons/StarIcon'
@@ -12,9 +12,11 @@ export default ({ play, isEditing, onChange }) => {
   return (
     <StyledPlay>
       <StyledImage>
-        {play.imageURL
-          ? <img src={imageOf(play)} alt="Your board game session." />
-          : <p>No photo available</p>}
+        {play.imageURL ? (
+          <img src={imageOf(play)} alt="Your board game session." />
+        ) : (
+          <p>No photo available</p>
+        )}
       </StyledImage>
       <h4>{getLocaleDate(play.playDate)}</h4>
       <StyledSummary>
@@ -26,32 +28,38 @@ export default ({ play, isEditing, onChange }) => {
         <StyledContainer>
           <Icon type="access_time" alt="" />
           <StyledCaption>Playing time (min)</StyledCaption>
-          {isEditing
-            ? <PlayingTimeEdit
-                value={play.playingTime}
-                onChange={playingTime => {
-                  onChange({ ...play, playingTime })
-                }} />
-            : <p>{play.playingTime !== '' && play.playingTime != null
+          {isEditing ? (
+            <PlayingTimeEdit
+              value={play.playingTime}
+              onChange={playingTime => {
+                onChange({ ...play, playingTime })
+              }}
+            />
+          ) : (
+            <p>
+              {play.playingTime !== '' && play.playingTime != null
                 ? play.playingTime
                 : '-/-'}
-              </p>
-          }
+            </p>
+          )}
         </StyledContainer>
         <StyledContainer>
           <Star isSelected={true} />
           <StyledCaption>Rating</StyledCaption>
-          {isEditing
-            ? <PlayStarRatingEdit
-                value={play.playRating}
-                onChange={playRating => {
-                  onChange({ ...play, playRating })
-                }} />
-            : <p>{play.playRating !== '' && play.playRating != null
+          {isEditing ? (
+            <PlayStarRatingEdit
+              value={play.playRating}
+              onChange={playRating => {
+                onChange({ ...play, playRating })
+              }}
+            />
+          ) : (
+            <p>
+              {play.playRating !== '' && play.playRating != null
                 ? play.playRating
                 : '-/-'}
-              </p>
-          }
+            </p>
+          )}
         </StyledContainer>
       </StyledSummary>
     </StyledPlay>
@@ -59,7 +67,8 @@ export default ({ play, isEditing, onChange }) => {
 }
 
 const StyledPlay = styled.div`
-  h4, p {
+  h4,
+  p {
     text-align: center;
   }
 `
@@ -93,7 +102,7 @@ const StyledImage = styled.div`
     font-weight: 400;
     text-align: center;
   }
-` 
+`
 
 const StyledSummary = styled.div`
   display: grid;
@@ -102,7 +111,7 @@ const StyledSummary = styled.div`
   margin: 25px 0;
   text-align: center;
   word-break: normal;
-  
+
   span {
     color: var(--primary);
   }
@@ -125,8 +134,8 @@ const StyledContainer = styled.div`
     align-self: center;
   }
 
-  P {
+  p {
     margin: 0;
-    padding: 10px 0; 
+    padding: 10px 0;
   }
 `

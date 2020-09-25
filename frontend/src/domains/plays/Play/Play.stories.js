@@ -7,6 +7,4 @@ export default {
   component: Play,
 }
 
-export const play = () => <Play play={play} key={index}/>
-
-
+export const play = () => <Play play={play} key={index} />

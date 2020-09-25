@@ -8,10 +8,10 @@ export default ({ play, isEditing, onChange }) => {
   return (
     <StyledTable>
       <colgroup>
-        <col/>
-        <col/>
-        <col/>
-        <col/>
+        <col />
+        <col />
+        <col />
+        <col />
       </colgroup>
       <thead>
         <tr>
@@ -22,9 +22,10 @@ export default ({ play, isEditing, onChange }) => {
         </tr>
       </thead>
       <tbody>
-        {play.players && play.players.map((player, index) => (
-          isEditing
-            ? <PlayerEditRow
+        {play.players &&
+          play.players.map((player, index) =>
+            isEditing ? (
+              <PlayerEditRow
                 key={index}
                 player={player}
                 onChange={item => {
@@ -33,10 +34,10 @@ export default ({ play, isEditing, onChange }) => {
                   onChange({ ...play, players })
                 }}
               />
-            : <PlayerRow 
-                key={index}
-                player={player} />
-      ))}
+            ) : (
+              <PlayerRow key={index} player={player} />
+            )
+          )}
       </tbody>
     </StyledTable>
   )

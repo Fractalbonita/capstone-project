@@ -11,10 +11,10 @@ export default function GameOverviewPage() {
 
   return (
     <>
-      <Link to="/games"> 
+      <Link to="/games">
         <ArrowBackIcon />
       </Link>
-     <GameDetails game={game} />
+      <GameDetails game={game} />
     </>
   )
 }

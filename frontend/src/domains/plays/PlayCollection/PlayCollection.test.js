@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { queryByText, render } from '@testing-library/react'
 
 import PlayCollection from '../PlayCollection/PlayCollection'
-  
+
 describe('PlayCollection', () => {
   test('should render page', async () => {
     const plays = []
@@ -25,26 +25,28 @@ describe('PlayCollection', () => {
         imageURL: '',
         gameTitle: 'Die Siedler von Catan',
         playDate: '16.8.2020',
-        playRating: '5'
+        playRating: '5',
       },
       {
         _id: '2',
         imageURL: '',
         gameTitle: 'Gaja Project',
         playDate: '18.6.2020',
-        playRating: '10'
+        playRating: '10',
       },
       {
         _id: '3',
         imageURL: '',
         gameTitle: 'Dungeon Lords',
         playDate: '12.4.2020',
-        playRating: '8'
-      }
+        playRating: '8',
+      },
     ]
-    const { container } = render(<BrowserRouter>
-      <PlayCollection plays={plays} />
-    </BrowserRouter>)
+    const { container } = render(
+      <BrowserRouter>
+        <PlayCollection plays={plays} />
+      </BrowserRouter>
+    )
     plays.forEach(play => {
       expect(queryByText(container, play.gameTitle)).toBeInTheDocument()
     })
@@ -57,31 +59,32 @@ describe('PlayCollection', () => {
         imageURL: '',
         gameTitle: 'Die Siedler von Catan',
         playDate: '16.8.2020',
-        playRating: '5'
+        playRating: '5',
       },
       {
         _id: '2',
         imageURL: '',
         gameTitle: 'Gaja Project',
         playDate: '18.6.2020',
-        playRating: '10'
+        playRating: '10',
       },
       {
         _id: '3',
         imageURL: '',
         gameTitle: 'Dungeon Lords',
         playDate: '12.4.2020',
-        playRating: '8'
-      }
+        playRating: '8',
+      },
     ]
     const reversedPlays = plays.slice().reverse()
-    const { container } = render(<BrowserRouter>
-      <PlayCollection plays={plays} />
-    </BrowserRouter>)
+    const { container } = render(
+      <BrowserRouter>
+        <PlayCollection plays={plays} />
+      </BrowserRouter>
+    )
     const renderedGameTitles = container.querySelectorAll('h3')
     reversedPlays.forEach((play, index) => {
-      expect(renderedGameTitles[index].textContent)
-        .toBe(play.gameTitle)
+      expect(renderedGameTitles[index].textContent).toBe(play.gameTitle)
     })
   })
 })

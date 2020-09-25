@@ -9,18 +9,20 @@ export default ({ name }) => (
   <>
     <StyledLabel htmlFor={name}>Rate the Play</StyledLabel>
     <Field name={name} id={name} type="number">
-        {({ field: { value }, form: { setFieldValue } }) => (
-          <>
-            <StarRating selectedStars={value}
-              handleRating={number => setFieldValue(name, number)} />
-            <StyledNumber>{value}</StyledNumber>
-          </>
-        )}
+      {({ field: { value }, form: { setFieldValue } }) => (
+        <>
+          <StarRating
+            selectedStars={value}
+            handleRating={number => setFieldValue(name, number)}
+          />
+          <StyledNumber>{value}</StyledNumber>
+        </>
+      )}
     </Field>
   </>
 )
 
-const StyledNumber = styled.span` 
+const StyledNumber = styled.span`
   font-family: 'Karla', sans-serif;
   font-size: 16px;
   font-weight: bold;
