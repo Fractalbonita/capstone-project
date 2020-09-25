@@ -1,6 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
+Game.propTypes = {
+  game: PropTypes.objectOf(
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.string)
+  ),
+}
 
 export default function Game({ game }) {
   return (
