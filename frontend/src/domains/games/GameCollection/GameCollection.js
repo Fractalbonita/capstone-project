@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Game from '../Game/Game'
+
+GameCollection.propTypes = {
+  games: PropTypes.array,
+}
 
 export default function GameCollection({ games }) {
   return (
