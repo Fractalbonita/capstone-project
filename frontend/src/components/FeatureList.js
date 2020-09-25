@@ -1,19 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-export default ({ title, list, ...props }) => (
-  <>
-    <h2>{title}</h2>
-    <StyledList>
-      {list &&
-        list.map((field, index) => (
-          <li key={index} {...props}>
-            {field}
-          </li>
-        ))}
-    </StyledList>
-  </>
-)
+FeatureList.propTypes = {
+  title: PropTypes.string,
+  list: PropTypes.arrayOf(PropTypes.string),
+}
+
+export default function FeatureList({ title, list, ...props }) {
+  return (
+    <>
+      <h2>{title}</h2>
+      <StyledList>
+        {list &&
+          list.map((field, index) => (
+            <li key={index} {...props}>
+              {field}
+            </li>
+          ))}
+      </StyledList>
+    </>
+  )
+}
 
 const StyledList = styled.ul`
   list-style: none;
