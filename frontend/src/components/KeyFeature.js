@@ -1,15 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Icon from '../utilities/Icon'
 
-export default ({ icon, title, feature }) => (
-  <StyledContainer>
-    <Icon type={icon} alt="" />
-    <p>{title}</p>
-    <p>{feature}</p>
-  </StyledContainer>
-)
+KeyFeature.propTypes = {
+  icon: PropTypes.string,
+  title: PropTypes.string,
+  feature: PropTypes.string,
+}
+
+export default function KeyFeature({ icon, title, feature }) {
+  return (
+    <StyledContainer>
+      <Icon type={icon} alt="" />
+      <p>{title}</p>
+      <p>{feature}</p>
+    </StyledContainer>
+  )
+}
 
 const StyledContainer = styled.div`
   justify-self: stretch;
