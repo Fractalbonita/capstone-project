@@ -1,7 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-export default ({ name, type, value, onChange }) => {
+Input.propTypes = {
+  name: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+}
+
+export default function Input({ name, type, value, onChange }) {
   return (
     <StyledInput
       name={name}
