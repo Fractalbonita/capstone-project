@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import * as Yup from 'yup'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import ErrorMessage from '../../styles/StyledErrorMessage'
 import ImageUploadIcon from '../icons/ImageUploadIcon'
 import StyledLabel from '../../styles/StyledLabel'
-
 import StyledClearIcon from '../../components/icons/ClearIcon'
 
-export default ({ name, updateImageHandler }) => {
+PlayImageField.propTypes = {
+  name: PropTypes.string,
+  updateImageHandler: PropTypes.func,
+}
+
+export default function PlayImageField({ name, updateImageHandler }) {
   const [filename, setFilename] = useState('')
   const [imageURL, setImageURL] = useState('')
 
