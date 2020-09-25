@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { fetchGames, fetchPlayedGames, fetchGamesOnWishlist } from '../../../services/gameClient'
-import GameCollection from "../GameCollection/GameCollection"
+import {
+  fetchGames,
+  fetchPlayedGames,
+  fetchGamesOnWishlist,
+} from '../../../services/gameClient'
+import GameCollection from '../GameCollection/GameCollection'
 
 export default function GameOverViewPage() {
   const [games, setGames] = useState([])
@@ -11,9 +15,15 @@ export default function GameOverViewPage() {
 
   useEffect(() => {
     switch (search) {
-      case "?played": fetchPlayedGames().then(setGames); break;
-      case "?wishlist": fetchGamesOnWishlist().then(setGames); break;
-      default: fetchGames().then(setGames); break;
+      case '?played':
+        fetchPlayedGames().then(setGames)
+        break
+      case '?wishlist':
+        fetchGamesOnWishlist().then(setGames)
+        break
+      default:
+        fetchGames().then(setGames)
+        break
     }
   }, [search])
 
@@ -31,7 +41,10 @@ export default function GameOverViewPage() {
 }
 
 const FilterLink = ({ filter, title, search }) => (
-  <StyledLink to={'/games' + filter} className={search == filter ? 'active' : ''}>
+  <StyledLink
+    to={'/games' + filter}
+    className={search === filter ? 'active' : ''}
+  >
     <span>{title}</span>
   </StyledLink>
 )
@@ -64,7 +77,7 @@ const StyledLink = styled(Link)`
 
   &.active {
     color: var(--primary);
-    
+
     span {
       border-color: var(--primary);
     }
