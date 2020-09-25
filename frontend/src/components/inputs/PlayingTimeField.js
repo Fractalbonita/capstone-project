@@ -1,23 +1,30 @@
 import React from 'react'
 import * as Yup from 'yup'
+import PropTypes from 'prop-types'
 
 import ErrorMessage from '../../styles/StyledErrorMessage'
 import StyledField from '../../styles/StyledField'
 import StyledLabel from '../../styles/StyledLabel'
 
-export default ({ name }) => (
-  <>
-    <StyledLabel htmlFor={name}>Playing Time (min)</StyledLabel>
-    <StyledField
-      name={name}
-      id={name}
-      inputMode="numeric"
-      pattern="[0-9]*"
-      placeholder="e.g. 30"
-    />
-    <ErrorMessage name={name} component="div" />
-  </>
-)
+PlayingTimeField.propTypes = {
+  name: PropTypes.string,
+}
+
+export default function PlayingTimeField({ name }) {
+  return (
+    <>
+      <StyledLabel htmlFor={name}>Playing Time (min)</StyledLabel>
+      <StyledField
+        name={name}
+        id={name}
+        inputMode="numeric"
+        pattern="[0-9]*"
+        placeholder="e.g. 30"
+      />
+      <ErrorMessage name={name} component="div" />
+    </>
+  )
+}
 
 export const PlayingTimeFieldValidator = Yup.number()
   .typeError('Please mind that only numbers are allowed.')
