@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import {
   isOnWishlist,
@@ -11,7 +12,15 @@ import Icon from '../../../utilities/Icon'
 import FeatureList from '../../../components/FeatureList'
 import KeyFeature from '../../../components/KeyFeature'
 
-export default ({ game }) => {
+GameDetails.propTypes = {
+  game: PropTypes.objectOf(
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.string)
+  ),
+}
+
+export default function GameDetails({ game }) {
   const [onWishlist, setOnWishlist] = useState(false)
   const [alreadyPlayed, setAlreadyPlayed] = useState(false)
 
