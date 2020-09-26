@@ -1,6 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export default ({ player }) => {
+PlayerRow.propTypes = {
+  player: PropTypes.objectOf(PropTypes.string),
+}
+
+export default function PlayerRow({ player }) {
   return (
     <tr>
       <Cell>{player.name}</Cell>
