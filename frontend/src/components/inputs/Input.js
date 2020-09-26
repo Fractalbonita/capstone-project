@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 
 Input.propTypes = {
   name: PropTypes.string,
-  type: PropTypes.string,
-  value: PropTypes.string,
+  type: PropTypes.any,
+  value: PropTypes.any,
   onChange: PropTypes.func,
 }
 
