@@ -1,8 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import PlayerEditCell from '../../../components/inputs/Input'
 
-export default ({ player, onChange }) => {
+PlayEditRow.propTypes = {
+  player: PropTypes.objectOf(PropTypes.string),
+  onChange: PropTypes.func,
+}
+
+export default function PlayEditRow({ player, onChange }) {
   return (
     <tr>
       <td>
