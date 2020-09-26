@@ -7,7 +7,6 @@ StarIcon.propTypes = {
 }
 
 export default function StarIcon({ isSelected = true, ...props }) {
-  console.log(isSelected)
   return (
     <StyledStar
       className={
