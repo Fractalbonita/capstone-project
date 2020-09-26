@@ -1,10 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import PlayerEditRow from '../PlayerEditRow/PlayerEditRow'
 import PlayerRow from '../PlayerRow/PlayerRow'
 
-export default ({ play, isEditing, onChange }) => {
+PlayRanking.propTypes = {
+  play: PropTypes.shape({
+    playImage: PropTypes.string,
+    playDate: PropTypes.string,
+    gameTitle: PropTypes.string,
+    players: PropTypes.arrayOf(PropTypes.object),
+    playingTime: PropTypes.string,
+    playRating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    imageURL: PropTypes.string,
+    _id: PropTypes.string,
+  }),
+  isEditing: PropTypes.bool,
+  onChange: PropTypes.func,
+}
+
+export default function PlayRanking({ play, isEditing, onChange }) {
   return (
     <StyledTable>
       <colgroup>
