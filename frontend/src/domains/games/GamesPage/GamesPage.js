@@ -9,7 +9,7 @@ import {
 } from '../../../services/gameClient'
 import GameCollection from '../GameCollection/GameCollection'
 
-export default function GameOverViewPage() {
+export default function GamesPage() {
   const [games, setGames] = useState([])
   const { search } = useLocation()
 
