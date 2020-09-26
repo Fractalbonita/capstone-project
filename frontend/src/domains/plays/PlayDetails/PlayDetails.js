@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import { imageOf } from '../../../services/playsClient'
@@ -8,7 +9,22 @@ import PlayStarRatingEdit from '../../../components/inputs/Input'
 import PlayingTimeEdit from '../../../components/inputs/Input'
 import Star from '../../../components/icons/StarIcon'
 
-export default ({ play, isEditing, onChange }) => {
+PlayDetails.propTypes = {
+  play: PropTypes.shape({
+    playImage: PropTypes.string,
+    playDate: PropTypes.string,
+    gameTitle: PropTypes.string,
+    players: PropTypes.arrayOf(PropTypes.object),
+    playingTime: PropTypes.string,
+    playRating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    imageURL: PropTypes.string,
+    _id: PropTypes.string,
+  }),
+  isEditing: PropTypes.bool,
+  onChange: PropTypes.func,
+}
+
+export default function PlayDetails({ play, isEditing, onChange }) {
   return (
     <StyledPlay>
       <StyledImage>
