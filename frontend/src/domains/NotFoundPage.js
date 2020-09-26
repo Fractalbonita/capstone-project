@@ -1,19 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default () => (
-  <>
-    <StyledStatusCode>
-      4<img src="Icon-192.png" alt="logo" />4
-    </StyledStatusCode>
-    <StyledHeader>The requested content does not exist.</StyledHeader>
-    <StyledText>
-      Please use the navigation below <br />
-      to find your way back <br />
-      to the main content of the app.
-    </StyledText>
-  </>
-)
+export default function NotFoundPage() {
+  return (
+    <>
+      <StyledStatusCode>
+        4<img src="Icon-192.png" alt="logo" />4
+      </StyledStatusCode>
+      <StyledHeader>The requested content does not exist.</StyledHeader>
+      <StyledText>
+        Please use the navigation below <br />
+        to find your way back <br />
+        to the main content of the app.
+      </StyledText>
+    </>
+  )
+}
 
 const StyledStatusCode = styled.h1`
   align-items: center;
