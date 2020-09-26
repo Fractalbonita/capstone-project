@@ -2,13 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-/*
 StarIcon.propTypes = {
-  isSelected: PropTypes.number,
+  isSelected: PropTypes.bool,
 }
-*/
 
 export default function StarIcon({ isSelected = true, ...props }) {
+  console.log(isSelected)
   return (
     <StyledStar
       className={
