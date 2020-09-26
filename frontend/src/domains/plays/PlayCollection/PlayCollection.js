@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Play from '../Play/Play'
+
+PlayCollection.propTypes = {
+  plays: PropTypes.array,
+}
 
 export default function PlayCollection({ plays }) {
   return (
