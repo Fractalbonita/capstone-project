@@ -1,10 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { getLocaleDate } from '../../../utilities/getLocaleDate'
 import { imageOf } from '../../../services/playsClient'
 import Star from '../../../components/icons/StarIcon'
+
+Play.propTypes = {
+  play: PropTypes.shape({
+    playImage: PropTypes.string,
+    playDate: PropTypes.string,
+    gameTitle: PropTypes.string,
+    players: PropTypes.arrayOf(PropTypes.object),
+    playingTime: PropTypes.string,
+    playRating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    imageURL: PropTypes.string,
+    _id: PropTypes.string,
+  }),
+}
 
 export default function Play({ play }) {
   return (
