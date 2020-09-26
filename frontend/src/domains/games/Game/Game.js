@@ -4,11 +4,22 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 Game.propTypes = {
-  game: PropTypes.objectOf(
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.arrayOf(PropTypes.string)
-  ),
+  game: PropTypes.shape({
+    _id: PropTypes.string,
+    imageURL: PropTypes.string,
+    gameTitle: PropTypes.string,
+    year: PropTypes.string,
+    players: PropTypes.string,
+    playingTime: PropTypes.string,
+    age: PropTypes.string,
+    averageRating: PropTypes.number,
+    publisher: PropTypes.string,
+    designer: PropTypes.string,
+    description: PropTypes.string,
+    type: PropTypes.arrayOf(PropTypes.string),
+    category: PropTypes.arrayOf(PropTypes.string),
+    mechanisms: PropTypes.arrayOf(PropTypes.string),
+  }),
 }
 
 export default function Game({ game }) {
