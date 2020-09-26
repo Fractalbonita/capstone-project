@@ -169,7 +169,6 @@ const StyledKeyFeatureContainer = styled.div`
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  margin: 25px 0;
   text-align: center;
 `
 
