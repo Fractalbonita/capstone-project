@@ -42,7 +42,7 @@ const StyledLink = styled(Link)`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  min-width: 148px;
+  min-width: 155px;
   position: relative;
   text-decoration: none;
 `
@@ -50,10 +50,10 @@ const StyledLink = styled(Link)`
 const StyledLi = styled.li`
   align-items: center;
   display: flex;
-  flex-basis: 148px;
+  flex-basis: 155px;
   flex-direction: column;
   flex-grow: 1;
-  max-width: 148px;
+  max-width: 155px;
   padding: 15px 0;
 
   img {

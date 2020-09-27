@@ -29,12 +29,20 @@ export default createGlobalStyle`
     background-color: var(--surface);
     font-family: var(--body-font);
     margin: 0 auto;
-    padding: calc(20px + 3vw);
+    padding: calc(10px + 3vw);
   }
 
   body, 
   html {
     height: 100vh;
+  }
+
+  main {
+    &::after {
+    content: '';
+    display: block;
+    height: 70px;
+    }
   }
 
   h1, 

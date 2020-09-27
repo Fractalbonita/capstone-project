@@ -1,16 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-export default ({ isSelected = true, ...props }) => (
-  <StyledStar
-    className={
-      isSelected ? 'material-icons star-highlighted' : 'material-icons star'
-    }
-    {...props}
-  >
-    star
-  </StyledStar>
-)
+StarIcon.propTypes = {
+  isSelected: PropTypes.bool,
+}
+
+export default function StarIcon({ isSelected = true, ...props }) {
+  return (
+    <StyledStar
+      className={
+        isSelected ? 'material-icons star-highlighted' : 'material-icons star'
+      }
+      {...props}
+    >
+      star
+    </StyledStar>
+  )
+}
 
 const StyledStar = styled.span`
   cursor: pointer;

@@ -24,7 +24,6 @@ const StyledGameCollection = styled.ul`
   flex-flow: row wrap;
   justify-content: center;
   list-style: none;
-  margin-bottom: 50px;
   margin: 0;
   padding: 0;
 `

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import styled from 'styled-components'
 
 import AddPlayForm from './domains/plays/AddPlayForm/AddPlayForm'
 import GameOverViewPage from './domains/games/GameOverviewPage/GameOverviewPage'
@@ -17,7 +16,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={WelcomePage} />
         <Route>
-          <StyledMain>
+          <main>
             <Switch>
               <Route exact path="/games" component={GamesPage} />
               <Route exact path="/games/:id" component={GameOverViewPage} />
@@ -26,20 +25,12 @@ function App() {
               <Route exact path="/log/:id" component={PlayOverviewPage} />
               <Route component={NotFound} />
             </Switch>
-          </StyledMain>
+          </main>
           <Navigation />
         </Route>
       </Switch>
     </div>
   )
 }
-
-const StyledMain = styled.main`
-  &::after {
-    content: '';
-    display: block;
-    height: 60px;
-  }
-`
 
 export default App
