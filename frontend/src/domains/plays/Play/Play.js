@@ -9,14 +9,13 @@ import Star from '../../../components/icons/StarIcon'
 
 Play.propTypes = {
   play: PropTypes.shape({
-    playImage: PropTypes.string,
-    playDate: PropTypes.string,
+    _id: PropTypes.string,
+    imageURL: PropTypes.string,
     gameTitle: PropTypes.string,
+    playDate: PropTypes.string,
     players: PropTypes.arrayOf(PropTypes.object),
     playingTime: PropTypes.string,
     playRating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    imageURL: PropTypes.string,
-    _id: PropTypes.string,
   }),
 }
 

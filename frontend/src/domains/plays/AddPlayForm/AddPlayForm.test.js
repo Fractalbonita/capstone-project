@@ -76,7 +76,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playImage]'), {
+      fireEvent.change(container.querySelector('[name=imageURL]'), {
         target: {
           files: ['.gif'],
         },

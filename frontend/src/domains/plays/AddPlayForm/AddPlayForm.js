@@ -26,7 +26,7 @@ import PlayingTimeField, {
 } from '../../../components/inputs/PlayingTimeField'
 
 const AddPlayFormValidationSchema = Yup.object().shape({
-  playImage: PlayImageFieldValidator,
+  imageURL: PlayImageFieldValidator,
   gameTitle: GameTitleFieldValidator,
   playDate: PlayDateFieldValidator,
   players: PlayersFieldValidator,
@@ -46,7 +46,7 @@ export default function AddPlayForm() {
       <p>* Required</p>
       <Formik
         initialValues={{
-          playImage: '',
+          imageURL: '',
           gameTitle: '',
           playDate: '',
           players: [{ name: '' }],
@@ -59,7 +59,7 @@ export default function AddPlayForm() {
         validateOnChange
         validationSchema={AddPlayFormValidationSchema}
         onSubmit={(values, { setSubmitting }) => {
-          uploadImage(values.playImage)
+          uploadImage(values.imageURL)
             .then(imageURL => uploadGameData({ ...values, imageURL }))
             .then(play => (id = play._id))
             .finally(() => {
@@ -74,8 +74,8 @@ export default function AddPlayForm() {
           ) : (
             <StyledForm>
               <PlayImageField
-                name="playImage"
-                updateImageHandler={file => setFieldValue('playImage', file)}
+                name="imageURL"
+                updateImageHandler={file => setFieldValue('imageURL', file)}
               />
               <GameTitleField name="gameTitle" />
               <PlayDateField name="playDate" />
