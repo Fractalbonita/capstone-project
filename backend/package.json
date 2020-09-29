@@ -2,6 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "src/server.js",
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js"
   },
