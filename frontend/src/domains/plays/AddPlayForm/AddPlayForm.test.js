@@ -165,6 +165,25 @@ describe('AddPlayForm', () => {
     ).toBeTruthy()
   })
 
+  test('should prohibit submit when the comment is too long', async () => {
+    const { container } = render(
+      <BrowserRouter>
+        <AddPlayForm />
+      </BrowserRouter>
+    )
+    await wait(() => {
+      fireEvent.change(container.querySelector('[name="comment"]'), {
+        target: {
+          value: 'a'.repeat(401),
+        },
+      })
+    })
+    await wait(() => {
+      fireEvent.click(container.querySelector('button[type="submit"]'))
+    })
+    expect(getByText(container, 'Keep your note short.')).toBeTruthy()
+  })
+
   test('should prohibit submit when playing time is written with alphabetic characters', async () => {
     const { container } = render(
       <BrowserRouter>
@@ -263,6 +282,8 @@ describe('AddPlayForm', () => {
     const insertGameTitle = 'Die Siedler von Catan'
     const insertPlayDate = '1989-02-20'
     const insertPlayers = 'Mia'
+    const insertComment =
+      'This play was great. The new fraction is so powerful in any combination.'
     const insertPlayTime = '50'
     const insertPlayRating = '3'
 
@@ -302,6 +323,14 @@ describe('AddPlayForm', () => {
       fireEvent.change(container.querySelector('[name="players.0.name"]'), {
         target: {
           value: insertPlayers,
+        },
+      })
+    })
+
+    await wait(() => {
+      fireEvent.change(container.querySelector('[name="comment"]'), {
+        target: {
+          value: insertComment,
         },
       })
     })
