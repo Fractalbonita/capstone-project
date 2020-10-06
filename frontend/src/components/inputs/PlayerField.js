@@ -41,7 +41,7 @@ const StyledContainer = styled.div`
   }
 
   input {
-    margin: 10px 0;
+    margin: 5px 0;
     padding-right: 40px;
   }
 `
