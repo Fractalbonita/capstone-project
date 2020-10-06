@@ -24,12 +24,16 @@ import PlayStarRatingField from '../../../components/inputs/PlayStarRatingField'
 import PlayingTimeField, {
   PlayingTimeFieldValidator,
 } from '../../../components/inputs/PlayingTimeField'
+import CommentField, {
+  CommentFieldValidator,
+} from '../../../components/inputs/CommentField'
 
 const AddPlayFormValidationSchema = Yup.object().shape({
   imageURL: PlayImageFieldValidator,
   gameTitle: GameTitleFieldValidator,
   playDate: PlayDateFieldValidator,
   players: PlayersFieldValidator,
+  comment: CommentFieldValidator,
   playingTime: PlayingTimeFieldValidator,
 })
 
@@ -50,6 +54,7 @@ export default function AddPlayForm() {
           gameTitle: '',
           playDate: '',
           players: [{ name: '' }],
+          comment: '',
           playingTime: '',
           playRating: '',
         }}
@@ -80,6 +85,7 @@ export default function AddPlayForm() {
               <GameTitleField name="gameTitle" />
               <PlayDateField name="playDate" />
               <PlayersField name="players" players={values.players} />
+              <CommentField name="comment" />
               <PlayingTimeField name="playingTime" />
               <PlayStarRatingField name="playRating" />
               <PrimaryButton type="submit" disabled={isSubmitting}>
