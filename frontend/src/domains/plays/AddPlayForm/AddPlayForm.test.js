@@ -10,6 +10,7 @@ import {
   render,
   screen,
   wait,
+  wrapper,
 } from '@testing-library/react'
 
 import AddPlayForm from './AddPlayForm'
@@ -76,7 +77,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=imageURL]'), {
+      fireEvent.change(container.querySelector('[name="imageURL"]'), {
         target: {
           files: ['.gif'],
         },
@@ -95,7 +96,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=gameTitle]'), {
+      fireEvent.change(container.querySelector('[name="gameTitle"]'), {
         target: {
           value: 'a'.repeat(101),
         },
@@ -191,7 +192,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playingTime]'), {
+      fireEvent.change(container.querySelector('[name="playingTime"]'), {
         target: {
           value: 'foo',
         },
@@ -212,7 +213,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playingTime]'), {
+      fireEvent.change(container.querySelector('[name="playingTime"]'), {
         target: {
           value: '90.5',
         },
@@ -233,7 +234,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playingTime]'), {
+      fireEvent.change(container.querySelector('[name="playingTime"]'), {
         target: {
           value: '-30',
         },
@@ -254,7 +255,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playingTime]'), {
+      fireEvent.change(container.querySelector('[name="playingTime"]'), {
         target: {
           value: '1000',
         },
@@ -288,17 +289,9 @@ describe('AddPlayForm', () => {
     const insertPlayRating = '3'
 
     await wait(() => {
-      fireEvent.change(container.querySelector('input[name="playImage"]'), {
+      fireEvent.change(container.querySelector('input[name="imageURL"]'), {
         target: {
           files: [insertPlayImage],
-        },
-      })
-    })
-
-    await wait(() => {
-      fireEvent.change(container.querySelector('input[name="gameTitle"]'), {
-        target: {
-          value: insertGameTitle,
         },
       })
     })
