@@ -10,6 +10,7 @@ import {
   render,
   screen,
   wait,
+  wrapper,
 } from '@testing-library/react'
 
 import AddPlayForm from './AddPlayForm'
@@ -76,7 +77,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=imageURL]'), {
+      fireEvent.change(container.querySelector('[name="imageURL"]'), {
         target: {
           files: ['.gif'],
         },
@@ -95,7 +96,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=gameTitle]'), {
+      fireEvent.change(container.querySelector('[name="gameTitle"]'), {
         target: {
           value: 'a'.repeat(101),
         },
@@ -165,6 +166,25 @@ describe('AddPlayForm', () => {
     ).toBeTruthy()
   })
 
+  test('should prohibit submit when the comment is too long', async () => {
+    const { container } = render(
+      <BrowserRouter>
+        <AddPlayForm />
+      </BrowserRouter>
+    )
+    await wait(() => {
+      fireEvent.change(container.querySelector('[name="comment"]'), {
+        target: {
+          value: 'a'.repeat(401),
+        },
+      })
+    })
+    await wait(() => {
+      fireEvent.click(container.querySelector('button[type="submit"]'))
+    })
+    expect(getByText(container, 'Keep your note short.')).toBeTruthy()
+  })
+
   test('should prohibit submit when playing time is written with alphabetic characters', async () => {
     const { container } = render(
       <BrowserRouter>
@@ -172,7 +192,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playingTime]'), {
+      fireEvent.change(container.querySelector('[name="playingTime"]'), {
         target: {
           value: 'foo',
         },
@@ -193,7 +213,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playingTime]'), {
+      fireEvent.change(container.querySelector('[name="playingTime"]'), {
         target: {
           value: '90.5',
         },
@@ -214,7 +234,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playingTime]'), {
+      fireEvent.change(container.querySelector('[name="playingTime"]'), {
         target: {
           value: '-30',
         },
@@ -235,7 +255,7 @@ describe('AddPlayForm', () => {
       </BrowserRouter>
     )
     await wait(() => {
-      fireEvent.change(container.querySelector('[name=playingTime]'), {
+      fireEvent.change(container.querySelector('[name="playingTime"]'), {
         target: {
           value: '1000',
         },
@@ -263,21 +283,15 @@ describe('AddPlayForm', () => {
     const insertGameTitle = 'Die Siedler von Catan'
     const insertPlayDate = '1989-02-20'
     const insertPlayers = 'Mia'
+    const insertComment =
+      'This play was great. The new fraction is so powerful in any combination.'
     const insertPlayTime = '50'
     const insertPlayRating = '3'
 
     await wait(() => {
-      fireEvent.change(container.querySelector('input[name="playImage"]'), {
+      fireEvent.change(container.querySelector('input[name="imageURL"]'), {
         target: {
           files: [insertPlayImage],
-        },
-      })
-    })
-
-    await wait(() => {
-      fireEvent.change(container.querySelector('input[name="gameTitle"]'), {
-        target: {
-          value: insertGameTitle,
         },
       })
     })
@@ -302,6 +316,14 @@ describe('AddPlayForm', () => {
       fireEvent.change(container.querySelector('[name="players.0.name"]'), {
         target: {
           value: insertPlayers,
+        },
+      })
+    })
+
+    await wait(() => {
+      fireEvent.change(container.querySelector('[name="comment"]'), {
+        target: {
+          value: insertComment,
         },
       })
     })

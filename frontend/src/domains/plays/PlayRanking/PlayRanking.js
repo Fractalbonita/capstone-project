@@ -12,6 +12,7 @@ PlayRanking.propTypes = {
     gameTitle: PropTypes.string,
     playDate: PropTypes.string,
     players: PropTypes.arrayOf(PropTypes.object),
+    comment: PropTypes.string,
     playingTime: PropTypes.string,
     playRating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   }),

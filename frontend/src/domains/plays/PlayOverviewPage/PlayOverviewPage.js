@@ -67,6 +67,8 @@ export default function PlayOverviewPage() {
           </StyledButton>
         )}
       </StyledDiv>
+      <h2>Comment</h2>
+      <StyledComment>{play.comment}</StyledComment>
     </>
   )
 }
@@ -128,4 +130,10 @@ const StyledButton = styled.button`
       inset 1px 1px 2px var(--inner-shadow-dark-opaque);
     color: var(--text-color);
   }
+`
+
+const StyledComment = styled.p`
+  font-display: block;
+  line-height: 1.5;
+  word-break: normal;
 `
