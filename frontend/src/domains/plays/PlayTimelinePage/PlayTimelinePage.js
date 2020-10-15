@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { ascending, descending } from '../../../utilities/compare'
 import { fetchPlays } from '../../../services/playsClient'
 import AddPlayIcon from '../../../components/icons/AddPlayIcon'
 import PlayCollection from '../PlayCollection/PlayCollection'
@@ -9,12 +10,10 @@ import DropDownSort from '../../../components/DropDownSort'
 
 export default function PlayTimelinePage() {
   const sortingCriteria = {
-    'Name: A-Z': (a, b) =>
-      a.gameTitle.toLowerCase() < b.gameTitle.toLowerCase() ? 1 : 0,
-    'Name: Z-A': (a, b) =>
-      a.gameTitle.toLowerCase() > b.gameTitle.toLowerCase() ? 1 : 0,
-    Date: (a, b) => (a.playDate > b.playDate ? 1 : 0),
-    Rating: (a, b) => (a.playRating > b.playRating ? 1 : 0),
+    'Title: A-Z': ascending(play => play.gameTitle.toLowerCase()),
+    'Title: Z-A': descending(play => play.gameTitle.toLowerCase()),
+    Date: descending(play => play.playDate),
+    Rating: descending(play => play.playRating),
   }
 
   const sortingCriteriaNames = Object.keys(sortingCriteria)
