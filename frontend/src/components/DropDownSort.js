@@ -66,6 +66,7 @@ const Button = styled.button`
   background-color: var(--surface);
   border: none;
   border-radius: 20px;
+  box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
   color: var(--text-color);
   cursor: pointer;
   display: flex;
@@ -77,7 +78,6 @@ const Button = styled.button`
   letter-spacing: 0.1rem;
   outline: none;
   padding: 0 12px 0 16px;
-  box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -88,7 +88,7 @@ const Button = styled.button`
   &.active {
     box-shadow: inset -3px -3px 4px #fff,
       inset 2px 2px 3px var(--inner-shadow-dark);
-    outline: none;
+    color: var(--text-color);
   }
 
   span {
