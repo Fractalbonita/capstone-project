@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const PrimaryButton = styled.button`
-  color: var(--surface);
   background-color: var(--primary);
   border: none;
   border-radius: 20px;
   box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
+  color: var(--surface);
   cursor: pointer;
   font-family: var(--button-font);
   font-size: 16px;

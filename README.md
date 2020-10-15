@@ -4,7 +4,8 @@ The app for tracking and analysing board games
 
 ## What's new
 
-New features will be available soon.
+- Notes can be added to game sessions.
+- Plays can be sorted alphabetically, by date, and by rating.
 
 ## Description
 
