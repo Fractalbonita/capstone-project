@@ -34,6 +34,7 @@ GameDetails.propTypes = {
 export default function GameDetails({ game }) {
   const [onWishlist, setOnWishlist] = useState(false)
   const [alreadyPlayed, setAlreadyPlayed] = useState(false)
+  const [readMore, setReadMore] = useState(false)
 
   useEffect(() => {
     isAlreadyPlayed(game._id).then(setAlreadyPlayed)
@@ -41,7 +42,7 @@ export default function GameDetails({ game }) {
   }, [game._id])
 
   return (
-    <>
+    <Container>
       <StyledIcons>
         <Icon
           id="wishlist-icon"
@@ -81,10 +82,25 @@ export default function GameDetails({ game }) {
       <FeatureList title="Category" list={game.category} />
       <FeatureList title="Mechanism" list={game.mechanisms} />
       <h2>Description</h2>
-      {game.description.split('\n').map((paragraph, index) => (
-        <StyledDescription key={index}>{paragraph}</StyledDescription>
-      ))}
-    </>
+      {readMore ? (
+        <>
+          {game.description.split('\n').map((paragraph, index) => (
+            <StyledDescription key={index}>{paragraph}</StyledDescription>
+          ))}
+        </>
+      ) : (
+        <StyledDescription>
+          {game.description
+            .split(/\s+/g)
+            .slice(0, 75)
+            .join(' ')}{' '}
+          ...
+        </StyledDescription>
+      )}
+      <Button onClick={() => setReadMore(!readMore)}>
+        {readMore ? 'Read less' : 'Read more'}
+      </Button>
+    </Container>
   )
 }
 
@@ -100,6 +116,10 @@ const BggRatingStar = ({ rating, size = 64 }) => (
     <span>{rating}</span>
   </StyledBggRatingStar>
 )
+
+const Container = styled.div`
+  margin-bottom: 25px;
+`
 
 const StyledIcons = styled.div`
   position: relative;
@@ -176,4 +196,31 @@ const StyledDescription = styled.p`
   font-display: block;
   line-height: 1.5;
   word-break: normal;
+`
+
+const Button = styled.button`
+  background-color: var(--surface);
+  border: none;
+  border-radius: 20px;
+  box-shadow: -3px -3px 7px #fff, 3px 3px 7px var(--inner-shadow-dark-opaque);
+  color: var(--text-color);
+  cursor: pointer;
+  font-family: var(--button-text);
+  font-size: 14px;
+  font-weight: bold;
+  height: 36px;
+  letter-spacing: 0.1rem;
+  outline: none;
+  padding: 0 16px;
+
+  &:hover {
+    background-color: var(--surface);
+    color: var(--primary);
+  }
+
+  &:active {
+    box-shadow: inset -1px -1px 2px #fff,
+      inset 1px 1px 2px var(--inner-shadow-dark-opaque);
+    color: var(--text-color);
+  }
 `
