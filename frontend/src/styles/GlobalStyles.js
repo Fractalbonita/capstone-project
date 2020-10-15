@@ -91,5 +91,14 @@ export default createGlobalStyle`
     &:hover {
       cursor: text;
     }
+
+    &[type="radio"], &[type="checkbox"] {
+      display: inline;
+      width: initial;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 `
