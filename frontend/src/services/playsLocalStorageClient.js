@@ -55,3 +55,11 @@ export function updatePlay(updatedPlay) {
     return updatedPlay
   })
 }
+
+export function deletePlay(_id) {
+  return fetchPlays().then(plays => {
+    const remainingPlays = plays.filter(play => _id !== play._id)
+    localStorage.setItem(key, JSON.stringify(remainingPlays))
+    return remainingPlays
+  })
+}
