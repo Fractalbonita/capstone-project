@@ -2,17 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { fetchPlayDetails, updatePlay } from '../../../services/playsClient'
+import {
+  fetchPlayDetails,
+  updatePlay,
+  deletePlay,
+} from '../../../services/playsClient'
 import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import EditIcon from '../../../components/icons/EditIcon'
 import PlayDetails from '../PlayDetails/PlayDetails'
 import PlayRanking from '../PlayRanking/PlayRanking'
+import DeleteDialog from '../../../components/DeleteDialog'
 
 export default function PlayOverviewPage() {
   const params = useParams()
   const [play, setPlay] = useState({ players: [] })
   const [cachedPlay, setCachedPlay] = useState({ players: [] })
   const [isEditing, setIsEditing] = useState(false)
+  const [isRemoving, setRemoving] = useState(false)
 
   useEffect(() => {
     fetchPlayDetails(params.id).then(play => {
@@ -21,6 +27,17 @@ export default function PlayOverviewPage() {
     })
   }, [params.id])
 
+  function onCancel() {
+    console.log('Hello')
+    setPlay(cachedPlay)
+    setRemoving(false)
+  }
+
+  function onDelete() {
+    deletePlay(play._id)
+    setRemoving(false)
+  }
+
   return (
     <>
       <StyledHeader>
@@ -28,6 +45,16 @@ export default function PlayOverviewPage() {
           <ArrowBackIcon />
         </StyledLink>
         {!isEditing && <EditIcon onClick={() => setIsEditing(true)} />}
+        <button type="button" name="delete" onClick={() => setRemoving(true)}>
+          Delete
+        </button>
+        {isRemoving && (
+          <DeleteDialog
+            title={play.gameTitle}
+            onCancel={onCancel}
+            onDelete={onDelete}
+          />
+        )}
       </StyledHeader>
       <h1>{play.gameTitle}</h1>
       <h2>Details</h2>
