@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import {
@@ -12,9 +12,11 @@ import EditIcon from '../../../components/icons/EditIcon'
 import PlayDetails from '../PlayDetails/PlayDetails'
 import PlayRanking from '../PlayRanking/PlayRanking'
 import DeleteDialog from '../../../components/DeleteDialog'
+import DeleteIcon from '../../../components/icons/DeleteIcon'
 
 export default function PlayOverviewPage() {
   const params = useParams()
+  let history = useHistory()
   const [play, setPlay] = useState({ players: [] })
   const [cachedPlay, setCachedPlay] = useState({ players: [] })
   const [isEditing, setIsEditing] = useState(false)
@@ -33,9 +35,10 @@ export default function PlayOverviewPage() {
     setRemoving(false)
   }
 
-  function onDelete() {
-    deletePlay(play._id)
+  async function onDelete() {
+    await deletePlay(play._id)
     setRemoving(false)
+    history.push('/log')
   }
 
   return (
@@ -45,9 +48,7 @@ export default function PlayOverviewPage() {
           <ArrowBackIcon />
         </StyledLink>
         {!isEditing && <EditIcon onClick={() => setIsEditing(true)} />}
-        <button type="button" name="delete" onClick={() => setRemoving(true)}>
-          Delete
-        </button>
+        <DeleteIcon onClick={() => setRemoving(true)} />
         {isRemoving && (
           <DeleteDialog
             title={play.gameTitle}
