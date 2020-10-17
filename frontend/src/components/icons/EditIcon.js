@@ -11,7 +11,6 @@ export default props => (
 
 const StyledArrow = styled.span`
   color: var(--text-color);
-  font-weight: 600;
 `
 
 const StyledContainer = styled.div`

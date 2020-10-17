@@ -15,7 +15,6 @@ export default ({ ...props }) => (
 
 const StyledAddPlayerIcon = styled.span`
   color: var(--text-color);
-  font-weight: 600;
 `
 
 const StyledContainer = styled.div`
