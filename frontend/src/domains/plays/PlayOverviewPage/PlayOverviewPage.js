@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { fetchPlayDetails, updatePlay } from '../../../services/playsClient'
+import {
+  fetchPlayDetails,
+  updatePlay,
+  deletePlay,
+} from '../../../services/playsClient'
 import ArrowBackIcon from '../../../components/icons/ArrowBackIcon'
 import EditIcon from '../../../components/icons/EditIcon'
 import PlayDetails from '../PlayDetails/PlayDetails'
 import PlayRanking from '../PlayRanking/PlayRanking'
+import DeleteDialog from '../../../components/DeleteDialog'
+import DeleteIcon from '../../../components/icons/DeleteIcon'
 
 export default function PlayOverviewPage() {
   const params = useParams()
+  let history = useHistory()
   const [play, setPlay] = useState({ players: [] })
   const [cachedPlay, setCachedPlay] = useState({ players: [] })
   const [isEditing, setIsEditing] = useState(false)
+  const [isRemoving, setRemoving] = useState(false)
 
   useEffect(() => {
     fetchPlayDetails(params.id).then(play => {
@@ -21,6 +29,18 @@ export default function PlayOverviewPage() {
     })
   }, [params.id])
 
+  function onCancel() {
+    console.log('Hello')
+    setPlay(cachedPlay)
+    setRemoving(false)
+  }
+
+  async function onDelete() {
+    await deletePlay(play._id)
+    setRemoving(false)
+    history.push('/log')
+  }
+
   return (
     <>
       <StyledHeader>
@@ -28,6 +48,14 @@ export default function PlayOverviewPage() {
           <ArrowBackIcon />
         </StyledLink>
         {!isEditing && <EditIcon onClick={() => setIsEditing(true)} />}
+        <DeleteIcon onClick={() => setRemoving(true)} />
+        {isRemoving && (
+          <DeleteDialog
+            title={play.gameTitle}
+            onCancel={onCancel}
+            onDelete={onDelete}
+          />
+        )}
       </StyledHeader>
       <h1>{play.gameTitle}</h1>
       <h2>Details</h2>
