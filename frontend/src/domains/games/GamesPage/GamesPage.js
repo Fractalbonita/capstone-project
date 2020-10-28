@@ -16,31 +16,17 @@ export default function GamesPage() {
   const [query, setQuery] = useState('')
   const [filteredGames, setFilteredGames] = useState([])
 
-  useEffect(() => {
-    switch (search) {
-      case '?played':
-        fetchPlayedGames().then(games => {
-          setGames(games)
-          setFilteredGames(games)
-        })
-        break
-      case '?wishlist':
-        fetchGamesOnWishlist().then(games => {
-          setGames(games)
-          setFilteredGames(games)
-        })
-        break
-      default:
-        fetchGames().then(games => {
-          setGames(games)
-          setFilteredGames(games)
-        })
-        break
-    }
-  }, [search])
+  function fetcher(search) {
+    const cases = new Map([
+      ['?played', fetchPlayedGames],
+      ['?wishlist', fetchGamesOnWishlist],
+    ])
+    return cases.has(search) ? cases.get(search)() : fetchGames()
+  }
 
-  function handleSearch() {
-    const searchQuery = query.toLowerCase()
+  function handleSearch(value) {
+    setQuery(value)
+    const searchQuery = value.toLowerCase()
     setFilteredGames(
       games.filter(game => {
         return game.gameTitle.toLowerCase().includes(searchQuery)
@@ -48,10 +34,22 @@ export default function GamesPage() {
     )
   }
 
+  useEffect(() => {
+    const searchQuery = query.toLowerCase()
+    fetcher(search).then(games => {
+      setGames(games)
+      setFilteredGames(
+        games.filter(game => {
+          return game.gameTitle.toLowerCase().includes(searchQuery)
+        })
+      )
+    })
+  }, [search])
+
   return (
     <>
       <h1>Games</h1>
-      <SearchBar value={query} onSearch={handleSearch} onQuery={setQuery} />
+      <SearchBar value={query} onQuery={handleSearch} games={games} />
       <StyledFilter>
         <FilterLink search={search} filter="" title="All Games" />
         <FilterLink search={search} filter="?played" title="Played" />
