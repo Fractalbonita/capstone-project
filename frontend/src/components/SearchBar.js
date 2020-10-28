@@ -7,12 +7,13 @@ import PropTypes from 'prop-types'
 SearchBar.propTypes = {
   value: PropTypes.string,
   onQuery: PropTypes.func,
+  enableClearing: PropTypes.bool,
 }
 
-export default function SearchBar({ value, onQuery }) {
+export default function SearchBar({ value, onQuery, onClear, enableClearing }) {
   return (
-    <>
-      <StyledLabel>
+    <Container>
+      <Label>
         <Icon type="search" />
         <Input
           name="search"
@@ -22,12 +23,26 @@ export default function SearchBar({ value, onQuery }) {
           aria-label="Search through the game collection"
           placeholder="Game title"
         />
-      </StyledLabel>
-    </>
+      </Label>
+      {enableClearing && <Icon type="clear" onClick={onClear} />}
+    </Container>
   )
 }
 
-const StyledLabel = styled.label`
+const Container = styled.div`
+  position: relative;
+
+  span {
+    color: var(--text-color-opaque);
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: 30px;
+  }
+`
+
+const Label = styled.label`
   span {
     color: var(--text-color-opaque);
     font-size: 18px;

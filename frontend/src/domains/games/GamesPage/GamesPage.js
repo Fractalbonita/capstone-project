@@ -34,6 +34,11 @@ export default function GamesPage() {
     )
   }
 
+  function handleClear() {
+    setQuery('')
+    setGames(games)
+  }
+
   useEffect(() => {
     const searchQuery = query.toLowerCase()
     fetcher(search).then(games => {
@@ -44,12 +49,18 @@ export default function GamesPage() {
         })
       )
     })
-  }, [search])
+  }, [search, query])
 
   return (
     <>
       <h1>Games</h1>
-      <SearchBar value={query} onQuery={handleSearch} games={games} />
+      <SearchBar
+        value={query}
+        onQuery={handleSearch}
+        games={games}
+        enableClearing={query.length > 0}
+        onClear={handleClear}
+      />
       <StyledFilter>
         <FilterLink search={search} filter="" title="All Games" />
         <FilterLink search={search} filter="?played" title="Played" />
