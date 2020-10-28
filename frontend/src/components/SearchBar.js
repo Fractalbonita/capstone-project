@@ -35,7 +35,7 @@ const Container = styled.div`
   span {
     color: var(--text-color-opaque);
     cursor: pointer;
-    font-size: 18px;
+    font-size: 24px;
     position: absolute;
     right: 10px;
     top: 30px;
@@ -53,6 +53,7 @@ const Label = styled.label`
 
   input {
     padding-left: 35px;
+    padding-right: 35px;
   }
 
   &::-webkit-search-cancel-button {
