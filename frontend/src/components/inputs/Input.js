@@ -3,21 +3,16 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 Input.propTypes = {
-  name: PropTypes.string,
-  type: PropTypes.any,
-  value: PropTypes.any,
   onChange: PropTypes.func,
 }
 
-export default function Input({ name, type, value, onChange }) {
+export default function Input({ onChange, ...props }) {
   return (
     <StyledInput
-      name={name}
-      type={type}
-      value={value}
       onChange={({ target }) => {
         onChange(target.value)
       }}
+      {...props}
     />
   )
 }
