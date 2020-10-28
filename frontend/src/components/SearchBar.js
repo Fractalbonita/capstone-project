@@ -2,6 +2,12 @@ import React from 'react'
 import Input from './inputs/Input'
 import Icon from '../utilities/Icon'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
+SearchBar.propTypes = {
+  value: PropTypes.string,
+  onQuery: PropTypes.func,
+}
 
 export default function SearchBar({ value, onQuery }) {
   return (
