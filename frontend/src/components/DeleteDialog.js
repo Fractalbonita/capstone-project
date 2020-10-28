@@ -38,7 +38,7 @@ function DeleteDialogX({ title, onCancel, onDelete }) {
     <Backdrop>
       <DialogContainer>
         <h2>Delete?</h2>
-        <p>Are you sure you want to delete the "{title}" play permanently?</p>
+        <p>Are you sure you want to delete "{title}" permanently?</p>
         <ButtonsContainer>
           <Button
             className="cancel"
@@ -63,24 +63,25 @@ function DeleteDialogX({ title, onCancel, onDelete }) {
 }
 
 const Backdrop = styled.div`
-  position: fixed;
-  height: 100vh;
-  top: 0px;
-  left: 0px;
-  right: 0;
   bottom: 0;
+  height: 100vh;
+  left: 0px;
+  position: fixed;
+  right: 0;
+  top: 0px;
   z-index: 1000;
 
   &::before {
     background-color: var(--surface);
+    bottom: 0;
+
     content: ' ';
     display: block;
-    position: absolute;
-    top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
     opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 `
 

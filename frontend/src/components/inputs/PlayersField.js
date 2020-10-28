@@ -26,7 +26,7 @@ export default function PlayersField({ name, players }) {
                 name={name}
                 index={index}
                 remove={remove}
-                enableDeletion={players.length > 1}
+                enableClearing={players.length > 1}
               />
             ))}
             <AddPlayerIcon onClick={() => push({ name: '' })} />

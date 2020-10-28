@@ -19,7 +19,7 @@ export default function PlayOverviewPage() {
   let history = useHistory()
   const [play, setPlay] = useState({ players: [] })
   const [cachedPlay, setCachedPlay] = useState({ players: [] })
-  const [isEditing, setIsEditing] = useState(false)
+  const [isEditing, setEditing] = useState(false)
   const [isRemoving, setRemoving] = useState(false)
 
   useEffect(() => {
@@ -29,13 +29,12 @@ export default function PlayOverviewPage() {
     })
   }, [params.id])
 
-  function onCancel() {
-    console.log('Hello')
+  function handleCancel() {
     setPlay(cachedPlay)
     setRemoving(false)
   }
 
-  async function onDelete() {
+  async function handleDelete() {
     await deletePlay(play._id)
     setRemoving(false)
     history.push('/log')
@@ -47,13 +46,13 @@ export default function PlayOverviewPage() {
         <StyledLink to="/log">
           <ArrowBackIcon />
         </StyledLink>
-        {!isEditing && <EditIcon onClick={() => setIsEditing(true)} />}
+        {!isEditing && <EditIcon onClick={() => setEditing(true)} />}
         <DeleteIcon onClick={() => setRemoving(true)} />
         {isRemoving && (
           <DeleteDialog
             title={play.gameTitle}
-            onCancel={onCancel}
-            onDelete={onDelete}
+            onCancel={handleCancel}
+            onDelete={handleDelete}
           />
         )}
       </StyledHeader>
@@ -76,7 +75,7 @@ export default function PlayOverviewPage() {
             className="cancel"
             onClick={() => {
               setPlay(cachedPlay)
-              setIsEditing(false)
+              setEditing(false)
             }}
           >
             Cancel
@@ -88,7 +87,7 @@ export default function PlayOverviewPage() {
             onClick={() => {
               updatePlay(play)
               setCachedPlay(play)
-              setIsEditing(false)
+              setEditing(false)
             }}
           >
             Save

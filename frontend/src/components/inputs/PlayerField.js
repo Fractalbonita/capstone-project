@@ -10,10 +10,10 @@ PlayerField.propTypes = {
   name: PropTypes.string,
   index: PropTypes.number,
   remove: PropTypes.func,
-  enableDeletion: PropTypes.bool,
+  enableClearing: PropTypes.bool,
 }
 
-export default function PlayerField({ name, index, remove, enableDeletion }) {
+export default function PlayerField({ name, index, remove, enableClearing }) {
   return (
     <div id={`${name}-${index}-name`} style={{ width: '100%' }}>
       <StyledContainer>
@@ -22,7 +22,7 @@ export default function PlayerField({ name, index, remove, enableDeletion }) {
           type="text"
           placeholder="e.g. Kim"
         />
-        {enableDeletion && <Icon type="clear" onClick={() => remove(index)} />}
+        {enableClearing && <Icon type="clear" onClick={() => remove(index)} />}
       </StyledContainer>
       <ErrorMessage name={`${name}.${index}.name`} component="div" />
     </div>
@@ -30,12 +30,14 @@ export default function PlayerField({ name, index, remove, enableDeletion }) {
 }
 
 const StyledContainer = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   position: relative;
 
   span {
     color: var(--text-color-opaque);
+    cursor: pointer;
+    font-size: 24px;
     position: absolute;
     right: 10px;
   }
