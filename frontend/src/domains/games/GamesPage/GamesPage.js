@@ -66,7 +66,11 @@ export default function GamesPage() {
         <FilterLink search={search} filter="?played" title="Played" />
         <FilterLink search={search} filter="?wishlist" title="Wishlist" />
       </StyledFilter>
-      <GameCollection games={filteredGames} />
+      {filteredGames.length === 0 ? (
+        <StyledText>No board game found.</StyledText>
+      ) : (
+        <GameCollection games={filteredGames} />
+      )}
     </>
   )
 }
@@ -74,4 +78,10 @@ export default function GamesPage() {
 const StyledFilter = styled.div`
   display: grid;
   grid-template-columns: 12ch 10ch 8ch;
+`
+
+const StyledText = styled.p`
+  line-height: 1.7;
+  margin: 5rem 0;
+  text-align: center;
 `
