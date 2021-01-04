@@ -1,17 +1,18 @@
 # Place your Plays - The Board Game Log
 
-The app for tracking and analysing board games
+The app for tracking and analyzing board games
 
 ## What's new
 
-- Notes can be added to game sessions.
+- Search for games.
 - Plays can be sorted alphabetically, by date, and by rating.
+- Notes can be added to game sessions.
 
 ## Description
 
-Place your Plays helps board game lovers and novices to track, organise, and analyse their board game sessions. Add information of the latest play including players and playing time to your personal list. Capture and upload images to better memorize the play. Analyse your performance and achievements by rating your plays, comparing fractions and scores reached. Explore new games with the integrated BoardGameGeek game collection (BGG-API) and add them to your wish list. When you finished a game, you can mark it as played. Let the next play begin!
+Place your Plays helps board game lovers and novices to track, organize, and analyze their board game sessions. Add information of the latest play including players and playing time to your personal list. Capture and upload images to better memorize the play. Analyse your performance and achievements by rating your plays, comparing fractions and scores reached. Explore new games with the integrated BoardGameGeek game collection (BGG-API) and add them to your wish list. When you finished a game, you can mark it as played. Let the next play begin!
 
-The app can be used on desktop and mobile devices, but it is highly reccomened for mobile and tablet usage. It is most ideal for iphone 6/7/8.
+The app can be used on desktop and mobile devices, but it is highly recommended for mobile and tablet usage. It is most ideal for iPhone 6/7/8.
 
 ## Keywords
 
@@ -27,15 +28,7 @@ The app can be used on desktop and mobile devices, but it is highly reccomened f
 - Create a wish list
 - Mark games as played
 
-## Video
-
-<img src="https://user-images.githubusercontent.com/61810490/90652013-f9cc0000-e23d-11ea-8421-5b1e87a131ac.gif" height="250" />
-
-## Impressions
-
-<img src="https://user-images.githubusercontent.com/61810490/90643786-3b57ad80-e234-11ea-8fc0-b13adbbd44e9.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90643818-48749c80-e234-11ea-8173-bdd272d22b50.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90643859-53c7c800-e234-11ea-9de6-f2e41c9d61ba.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90655103-73192200-e241-11ea-9b28-17170d17b949.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90644387-f6804680-e234-11ea-9b22-375f060d3927.png" height="300" /> <img src="https://user-images.githubusercontent.com/61810490/90644415-fc762780-e234-11ea-8dfa-ad65dfb77281.png" height="300" />
-
-## Technologies & tools
+## Tech stack
 
 - React
 - React-Router
@@ -57,4 +50,16 @@ The app can be used on desktop and mobile devices, but it is highly reccomened f
 - Cypress
 - Git Workflow
 - Vercel
-- Trello
+
+## Video
+
+<img src="https://user-images.githubusercontent.com/61810490/90652013-f9cc0000-e23d-11ea-8421-5b1e87a131ac.gif" height="250" />
+
+## Impressions
+
+<img src="./screenshots/Landing_page.png" height="300">
+<img src="./screenshots/Games_with_search.png" height="300">
+<img src="./screenshots/Game_details.png" height="300">
+<img src="./screenshots/Plays_with_filter.png" height="300">
+<img src="./screenshots/Play_details.png" height="300">
+<img src="./screenshots/Play_ranking.png" height="300">
