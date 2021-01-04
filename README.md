@@ -57,4 +57,5 @@ The app can be used on desktop and mobile devices, but it is highly recommended 
 
 ## Impressions
 
-<img src="./screenshots/Landing_page.png" height="300"> <img src="./screenshots/Games_with_search.png" height="300"> <img src="./screenshots/Game_details.png" height="300"> <img src="./screenshots/Plays_with_filter.png" height="300"> <img src="./screenshots/Play_details.png" height="300"> <img src="./screenshots/Play_ranking.png" height="300">
+<img src="./screenshots/Landing_page.png" height="250"> <img src="./screenshots/Games_with_search.png" height="250"> <img src="./screenshots/Game_details.png" height="250"> <img src="./screenshots/Plays_with_filter.png" height="250"> <img src="./screenshots/Play_details.png" height="250"> <img src="./screenshots/Play_ranking.png" height="250">
+
