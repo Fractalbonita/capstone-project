@@ -8,9 +8,10 @@ SearchBar.propTypes = {
   value: PropTypes.string,
   onQuery: PropTypes.func,
   enableClearing: PropTypes.bool,
+  onClear: PropTypes.func,
 }
 
-export default function SearchBar({ value, onQuery, onClear, enableClearing }) {
+export default function SearchBar({ value, onQuery, enableClearing, onClear }) {
   return (
     <Container>
       <Label>
